@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Benjamin Everett – Goalkeeper CV</title>
   <style>
     body {
@@ -107,6 +105,53 @@
       .left-column,
       .right-column {
         width: 100%;
+      }
+
+      .headline h1 {
+        font-size: 28px;
+      }
+
+      .headline h3 {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 14px;
+      }
+
+      p, li {
+        font-size: 13px;
+      }
+    }
+
+  
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-column,
+      .right-column {
+        width: 100%;
+      }
+
+      .right-column {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .left-column {
+        order: 2;
+      }
+
+      .headline {
+        order: -1;
+        margin-bottom: 20px;
       }
 
       .headline h1 {
