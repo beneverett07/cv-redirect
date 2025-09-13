@@ -100,43 +100,15 @@
   font-weight: normal;
   color: #555;
 }
-  
+
+.mobile-only-headline {
+  display: none;
+}
+
     @media (max-width: 600px) {
       .container {
         flex-direction: column;
         padding: 20px;
-      }
-
-      .left-column,
-      .right-column {
-        width: 100%;
-      }
-
-      .headline h1 {
-        font-size: 28px;
-      }
-
-      .headline h3 {
-        font-size: 16px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      h3 {
-        font-size: 14px;
-      }
-
-      p, li {
-        font-size: 13px;
-      }
-    }
-
-  
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
       }
 
       .left-column,
@@ -169,13 +141,25 @@
       p, li {
         font-size: 13px;
       }
+
+     .mobile-only-headline {
+        order: -1;
+        margin-bottom: 20px;
+        text-align: center;
+        display: block; /* or another display value like flex, grid, etc. */
+      }
     }
+
 
   </style>
 </head>
 <body>
 <div class="container">
     <div class="left-column">
+      <div class="mobile-only-headline">
+       <h1>BENJAMIN EVERETT</h1>
+       <h3>GOALKEEPER</h3>
+      </div>
       <img src="images/ben-cv-photo.png" alt="Benjamin Everett">
       <div class="section">
         <h3 class="label">PROFILE</h3>
