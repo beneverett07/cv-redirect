@@ -31,37 +31,46 @@
             padding: 30px 20px;
         }
 
+        /* NEW HEADER LAYOUT */
         header {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Space between image and text */
             margin-bottom: 30px;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
             border-bottom: 2px solid var(--border-color);
         }
 
         /* Subtly feathered profile image */
         .profile-img {
-            width: 180px; 
+            width: 150px; /* Slightly smaller for side-by-side */
             height: auto;
-            display: block;
-            margin: 0 auto 20px auto; 
             border-radius: 8px; 
+            flex-shrink: 0; /* Prevents the image from squishing */
             
-            /* Tighter fade effect (starts solid until 92%, fully transparent at 100%) */
+            /* Tighter fade effect */
             -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
             mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
         }
 
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         h1 { 
             margin: 0 0 5px 0; 
-            font-size: 1.8rem; 
+            font-size: 2rem; 
             color: var(--text-dark);
             font-weight: 700;
+            line-height: 1.1;
         }
         
         p.subtitle { 
-            margin: 0; 
+            margin: 0 0 15px 0; 
             color: var(--text-muted); 
-            font-size: 1rem; 
+            font-size: 1.05rem; 
         }
 
         h2 { 
@@ -138,10 +147,11 @@
         /* Back to CV button */
         .btn-cv {
             display: inline-block;
-            margin-top: 15px;
             color: var(--text-muted);
             border: 1px solid var(--border-color);
             background: var(--bg-card);
+            padding: 6px 14px;
+            font-size: 0.8rem;
         }
         
         .btn-cv:hover {
@@ -160,7 +170,19 @@
             border-top: 1px solid var(--border-color);
         }
 
-        @media (max-width: 500px) {
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .header-text {
+                align-items: center;
+            }
+            .profile-img {
+                width: 130px;
+            }
             .match-item { flex-direction: column; align-items: flex-start; gap: 12px; }
             .btn { width: 100%; box-sizing: border-box; }
             .half-buttons { width: 100%; }
@@ -174,16 +196,18 @@
     <header>
         <img src="/images/ben-u20-action-profile-small-soft.jpg" alt="Benjamin Everett" class="profile-img">
         
-        <h1>Benjamin Everett | Goalkeeper</h1>
-        <p class="subtitle">Match & Highlight Archive</p>
-        <a href="https://cv.beneverettgk.com" class="btn btn-cv">← Back to CV</a>
+        <div class="header-text">
+            <h1>Benjamin Everett</h1>
+            <p class="subtitle">Goalkeeper | Match & Highlight Archive</p>
+            <a href="https://cv.beneverettgk.com/new-01.html" class="btn btn-cv">← Back to CV</a>
+        </div>
     </header>
 
     <h2>Barbados U20 National Men's Team</h2>
     <div class="match-list">
         <div class="match-item">
             <div class="match-info">
-                <span class="match-name">Concacaf U20 Qualifiers Highlights!</span>
+                <span class="match-name">Concacaf U20 Qualifiers Highlights</span>
             </div>
             <a href="https://youtu.be/qu2BKwHQkZA?si=AMMpc8acF_dnZCYW" class="btn btn-action" target="_blank">Watch Highlights</a>
         </div>
@@ -202,7 +226,7 @@
 
         <div class="match-item">
             <div class="match-info">
-                <span class="match-name">2025 Barbados Prime Minister's Cup Highlights!</span>
+                <span class="match-name">2025 Barbados Prime Minister's Cup Highlights</span>
             </div>
             <a href="https://www.youtube.com/watch?v=jsenTfaSekQ" class="btn btn-action" target="_blank">Watch Highlights</a>
         </div>
