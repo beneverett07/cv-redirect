@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Archive | Benjamin Everett GK</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #0d47a1;
+            --accent: #ffd700;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #202124;
+            --text-light: #5f6368;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 { margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { 
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .playlist-banner {
+            background: #f1f3f4;
+            border-left: 5px solid #ff0000;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .match-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .match-item {
+            background: var(--card);
+            padding: 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .match-item:hover { transform: translateX(5px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        .match-info { flex-grow: 1; }
+        .match-name { font-weight: 700; font-size: 1.1rem; display: block; }
+        .match-date { font-size: 0.9rem; color: var(--text-light); }
+
+        .btn {
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-yt { background: #ff0000; color: white; }
+        .btn-fifa { background: #000; color: white; }
+        .btn-outline { border: 2px solid var(--secondary); color: var(--secondary); }
+
+        .half-buttons { display: flex; gap: 5px; }
+
+        @media (max-width: 600px) {
+            .match-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .playlist-banner { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <strong>Benjamin Everett | Goalkeeper</strong>
+</nav>
+
+<div class="container">
+    <div class="intro">
+        <h1>2025 Season Match Archive</h1>
+        <p>Full match recordings and highlights for Kickstart Rush</p>
+        <a href="https://cv.beneverettgk.com" class="btn btn-outline">← Back to CV</a>
+    </div>
+
+    <div class="playlist-banner">
+        <div>
+            <strong>2025 BFA Champions Cup Playlist</strong>
+            <div class="match-date">Complete video collection</div>
+        </div>
+        <a href="https://youtube.com/playlist?list=PLsSIYE4kSlkvbEJpagIcSfK6RG29NH_aX&si=ZNcPorN23VAIkjFK" class="btn btn-yt" target="_blank">View Playlist</a>
+    </div>
+
+    <h2>The Barbados Prime Minister's Cup 2025</h2>
+    <div class="match-list">
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Empire</span>
+                <span class="match-date">Group Stage | 19 Sep 2025</span>
+            </div>
+            <a href="https://youtu.be/ZJKNLmmcE1Y?t=7140" class="btn btn-yt" target="_blank">Watch Match</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Paradise</span>
+                <span class="match-date">Group Stage | 20 Oct 2025</span>
+            </div>
+            <div class="half-buttons">
+                <a href="https://youtu.be/xNWyzaCfNEI?t=8151" class="btn btn-yt" target="_blank">1st Half</a>
+                <a href="https://youtu.be/0yOj9fg-ZnU" class="btn btn-yt" target="_blank">2nd Half</a>
+            </div>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Greens Utd.</span>
+                <span class="match-date">Round of 16 | 1 Nov 2025</span>
+            </div>
+            <a href="https://youtu.be/314o7Zz-6FY?t=7507" class="btn btn-yt" target="_blank">Watch Match</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Deacons FC vs Kickstart Rush</span>
+                <span class="match-date">Quarterfinals | 18 Nov 2025</span>
+            </div>
+            <a href="https://youtu.be/lrGSTo611aA?t=8027" class="btn btn-yt" target="_blank">Watch Match</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Wotton FC</span>
+                <span class="match-date">Semi-finals | 24 Nov 2025</span>
+            </div>
+            <a href="https://youtu.be/2YyK8mZ244w?t=152" class="btn btn-yt" target="_blank">Watch Match</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Weymouth Wales</span>
+                <span class="match-date">Final | 1 Dec 2025</span>
+            </div>
+            <a href="https://youtu.be/P9560RxLAsQ?t=9784" class="btn btn-yt" target="_blank">Watch Match</a>
+        </div>
+    </div>
+
+    <h2>2025 BFA Premier League Matches</h2>
+    <div class="match-list">
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">UWI Blackbirds vs Kickstart Rush</span>
+                <span class="match-date">19 Jan 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/uwi-blackbirds-v-kickstart-rush-bfa-premier-league-2025-live-stream-2025/6c962b91-7104-42fb-b09a-6c8d448ffb6c" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Paradise FC</span>
+                <span class="match-date">2 Feb 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/d0c07b5e-e83d-475f-ba5b-758ea9aab14c" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Gall Hill</span>
+                <span class="match-date">9 Feb 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/kickstart-rush-v-gall-hill-bfa-premier-league-2025-live-stream-2025/e38fd54a-2a18-4ec1-a8da-071a060a643b" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Deacons FC</span>
+                <span class="match-date">16 Feb 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/kickstart-rush-v-deacons-fc-bfa-premier-league-2025-live-stream-2025/7148f3f1-b170-42f4-8a49-9bdd620d3a9b" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Wotton FC</span>
+                <span class="match-date">23 Feb 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/kickstart-rush-v-wotton-fc-bfa-premier-league-2025-live-stream-2025/017fe82b-b3ca-4baf-b9e8-479f3df8632a" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Brittons Hill FC vs Kickstart Rush</span>
+                <span class="match-date">2 Mar 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/brittons-hill-fc-v-kickstart-rush-bfa-premier-league-2025-live-stream-2025/d07da08e-db70-4268-b484-806f0e8435fa" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Ellerton FC</span>
+                <span class="match-date">9 Mar 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/kickstart-rush-v-ellerton-fc-bfa-premier-league-2025-live-stream-2025/bdc218e5-2d43-4572-8215-56e4626b6d15" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Wotton FC vs Kickstart Rush</span>
+                <span class="match-date">29 Apr 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/wotton-fc-v-kickstart-rush-bfa-premier-league-2025-2025/5c848be4-69e8-40ba-a9a4-ab149edcc196" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Kickstart Rush vs Brittons Hill FC</span>
+                <span class="match-date">4 May 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/kickstart-rush-v-brittons-hill-fc-bfa-premier-league-2025-2025/af8895b1-3498-4994-86e5-6d4bd4a5b78c" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+
+        <div class="match-item">
+            <div class="match-info">
+                <span class="match-name">Ellerton FC vs Kickstart Rush</span>
+                <span class="match-date">18 May 2025 | FIFA+</span>
+            </div>
+            <a href="https://www.plus.fifa.com/en/content/ellerton-fc-v-kickstart-rush-bfa-premier-league-2025-2025/029eee51-8ce9-4de0-9162-d1f235e2e56b" class="btn btn-fifa" target="_blank">Watch on FIFA+</a>
+        </div>
+    </div>
+
+    <footer style="margin-top: 5rem; text-align: center; color: var(--text-light); padding: 2rem;">
+        &copy; 2025 Benjamin Everett GK Archive
+    </footer>
+</div>
+
+</body>
+</html>
