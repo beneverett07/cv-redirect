@@ -1,13 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Benjamin Everett – Goalkeeper CV</title>
   <style>
+    /* Add smooth scrolling to the whole page */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffffff;
@@ -73,37 +76,42 @@
     a:hover {
       color: #B85A22; /* Optional: keeps same color on hover */
     }
-	h3.label {
-	  color: #548AB7;
-	  font-weight: bold;
-	  margin-bottom: 0px;  /* tighten space below heading */
-	}
+    h3.label {
+      color: #548AB7;
+      font-weight: bold;
+      margin-bottom: 0px;  /* tighten space below heading */
+    }
     .section {
       padding-left: 8px;
       padding-right: 8px;
       margin-bottom: 20px;
     }
     .headline {
-  text-align: center;
-  margin-bottom: 30px;
-}
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.headline h1 {
-  font-size: 36px;       /* Increase name size */
-  margin: 0;
-  font-weight: bold;
-}
+    .headline h1 {
+      font-size: 36px;       /* Increase name size */
+      margin: 0;
+      font-weight: bold;
+    }
 
-.headline h3 {
-  font-size: 20px;        /* Proportional title size */
-  margin: 4px 0 0 0;
-  font-weight: normal;
-  color: #555;
-}
+    .headline h3 {
+      font-size: 20px;        /* Proportional title size */
+      margin: 4px 0 0 0;
+      font-weight: normal;
+      color: #555;
+    }
 
-.mobile-only-headline {
-  display: none;
-}
+    .mobile-only-headline {
+      display: none;
+    }
+
+    /* Hide Quick Nav on Desktop */
+    .mobile-nav-pills {
+      display: none;
+    }
 
     @media (max-width: 600px) {
       .container {
@@ -142,15 +150,36 @@
         font-size: 13px;
       }
 
-     .mobile-only-headline {
+      .mobile-only-headline {
         order: -1;
         margin-bottom: 20px;
         text-align: center;
-        display: block; /* or another display value like flex, grid, etc. */
+        display: block; 
+      }
+
+      /* Style the Quick Nav Pills for Mobile */
+      .mobile-nav-pills {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .mobile-nav-pills a {
+        background-color: #548AB7;
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      
+      .mobile-nav-pills a:hover {
+        background-color: #3b6688;
       }
     }
-
-
   </style>
 </head>
 <body>
@@ -159,39 +188,47 @@
       <div class="mobile-only-headline">
        <h1>BENJAMIN EVERETT</h1>
        <h3>GOALKEEPER</h3>
+       
+       <div class="mobile-nav-pills">
+           <a href="#career-section">Career</a>
+           <a href="#video-section">Video</a>
+           <a href="#contact-section">Contact</a>
+       </div>
+
       </div>
       <img src="/images/ben-u20-action-profile-small-soft.jpg" alt="Benjamin Everett">
       <div class="section">
         <h3 class="label">PROFILE</h3>
         <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
       </div>
-	  <div class="section">
-		<h3 class="label">CONTACT</h3>
-  		<p>
-   		📞 <a href="https://wa.me/12462547443">+1 (246) 254-7443</a> <img src="images/WhatsApp-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"><br>
-    	✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br> 
-    	<a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
+      
+      <div class="section" id="contact-section">
+        <h3 class="label">CONTACT</h3>
+        <p>
+        📞 <a href="https://wa.me/12462547443">+1 (246) 254-7443</a> <img src="images/WhatsApp-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"><br>
+        ✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br> 
+        <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
         <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
         <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
         <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
-
-		
-
-		</p>
-	  </div>
-		<div class="section">
+        </p>
+      </div>
+      
+      <div class="section">
         <h3 class="label">DETAILS</h3>
         <p>Date of birth: October 12, 2007<br>
            Passports: Barbados 🇧🇧 / United States 🇺🇸<br>
-		   Residence: Valencia, Spain 🇪🇸 / Barbados 🇧🇧<br>
+           Residence: Valencia, Spain 🇪🇸 / Barbados 🇧🇧<br>
            Height: 1.79m / 5'10.5"<br>
            Weight: 74kg / 163lbs</p>
       </div>
-      <div class="section">
+      
+      <div class="section" id="video-section">
         <h3 class="label">VIDEO</h3>
         <p><a href="https://highlights.beneverettgk.com">Click Here for Latest Highlight Video</a><br>
-		   <a href="https://cv.beneverettgk.com/video.html">Click Here for Full Match Videos</a></p>
-	  </div>
+           <a href="https://cv.beneverettgk.com/video.html">Click Here for Full Match Videos</a></p>
+      </div>
+      
       <div class="section">
         <h3 class="label">REFERENCES</h3>
         <p><strong>Renaldo Gilkes</strong>, CONCACAF A<br>
@@ -203,7 +240,7 @@
         <p><strong>Daniel Rowe M.Sc. CSCS</strong><br>
         Head Performance Coach, Become Elite Academy<br>
         <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
-		+1 (246) 834-0847</p>
+        +1 (246) 834-0847</p>
 
         <p><strong>Christian Benjamin</strong>, USSF, USC, Advanced National GK Diploma<br>
         Owner and Founder of KeeperStop.com<br>
@@ -216,21 +253,23 @@
         +1 (246) 844-9644</p>
       </div>
     </div>
+    
     <div class="right-column">
       <div class="headline">
        <h1>BENJAMIN EVERETT</h1>
        <h3>GOALKEEPER</h3>
       </div>
-    <h2>FOOTBALL CAREER</h2>
+      
+    <h2 id="career-section">FOOTBALL CAREER</h2>
 <ul>
-	  <li><p><strong>C.F. Godella, Valencia, Spain</strong><br>
-	  Jan. 2026 – Present</p></li>
-	  <li><p><strong>Spain Rush-SPF Academy, Valencia, Spain</strong><br>
-	  Jan. 2026 – Present</p></li>
-	  <li><p><strong>Barbados U20 National Men's Team</strong>, Concacaf U20 Qualifiers, Costa Rica<br>
-		  Feb. 24 – Mar. 4 2026</p></li>
+      <li><p><strong>C.F. Godella, Valencia, Spain</strong><br>
+      Jan. 2026 – Present</p></li>
+      <li><p><strong>Spain Rush-SPF Academy, Valencia, Spain</strong><br>
+      Jan. 2026 – Present</p></li>
+      <li><p><strong>Barbados U20 National Men's Team</strong>, Concacaf U20 Qualifiers, Costa Rica<br>
+         Feb. 24 – Mar. 4 2026</p></li>
       <li><p><strong>Kickstart Rush 1st Team, The Prime Minister's Cup</strong><br>
-	  Sep. 1 - Dec. 1 2025 - 2nd Place<br>
+      Sep. 1 - Dec. 1 2025 - 2nd Place<br>
       6 appearances, 70% Save Percentage (32/46 shots)<br>
       <strong>&#x1F3C6; 2025 Prime Minister's Cup Best Goalkeeper Award</strong></p></li>
 
@@ -254,7 +293,7 @@
       BFA Div. 1 debut, age 15 – April 2023<br>
       10 appearances, 3x Clean Sheets<br>
       2nd Place in Div. 1, Promoted to Premier League</p></li>
-	  <li>NextUP 2024 Football Combine, Barbados, Goalkeeper Award – Jun. 24–26, 2024</li>
+      <li>NextUP 2024 Football Combine, Barbados, Goalkeeper Award – Jun. 24–26, 2024</li>
       <li>35th Barbados Cup, Kickstart Rush U17, Champions, GK (age 16) – Apr. 2024</li>
       <li>Barbados U20 National Men’s Team, Provisional Squad, GK (age 16) – Jan. 2024</li>
       <li>Rush Soccer International Rush Cup, FL, Kickstart Rush U16, 3rd Place – Nov. 2023</li>
@@ -276,11 +315,11 @@
       <h2>COACHING CERTIFICATIONS</h2>
       <ul>
         <li>U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846<br>
-			- Introduction to Grassroots Coaching - Apr. 2025<br>
-			- Introduction to Safe and Healthy Playing Environments - May. 2025<br>
-			- Grassroots 4v4 Online Coaching License - May 2025<br>
-			- Grassroots 7v7 Online Coaching License - Jul. 2025<br>
-			- Grassroots 9v9 Online Coaching License - Nov. 2025<br>
+            - Introduction to Grassroots Coaching - Apr. 2025<br>
+            - Introduction to Safe and Healthy Playing Environments - May. 2025<br>
+            - Grassroots 4v4 Online Coaching License - May 2025<br>
+            - Grassroots 7v7 Online Coaching License - Jul. 2025<br>
+            - Grassroots 9v9 Online Coaching License - Nov. 2025<br>
             </li>
         <li>Coaching Association of Canada, NCCP# 7006931<br>
             National Coaching Certification Program Level 1 – Nov. 2025</li>
