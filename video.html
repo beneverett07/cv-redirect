@@ -38,6 +38,19 @@
             border-bottom: 2px solid var(--border-color);
         }
 
+        /* Subtly feathered profile image */
+        .profile-img {
+            width: 180px; 
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto; 
+            border-radius: 8px; 
+            
+            /* Tighter fade effect (starts solid until 92%, fully transparent at 100%) */
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+        }
+
         h1 { 
             margin: 0 0 5px 0; 
             font-size: 1.8rem; 
@@ -159,6 +172,8 @@
 
 <div class="container">
     <header>
+        <img src="/images/ben-u20-action-profile.jpeg" alt="Benjamin Everett" class="profile-img">
+        
         <h1>Benjamin Everett | Goalkeeper</h1>
         <p class="subtitle">2025 Match Archive</p>
         <a href="https://cv.beneverettgk.com" class="btn btn-cv">← Back to CV</a>
