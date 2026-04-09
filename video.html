@@ -6,26 +6,26 @@
     <title>Match Archive | Benjamin Everett GK</title>
     <style>
         :root {
-            --primary: #1a73e8;
-            --secondary: #0d47a1;
-            --accent: #ffd700;
-            --bg: #f8f9fa;
-            --card: #ffffff;
-            --text: #202124;
+            /* Color scheme extracted from image_0.png */
+            --lime-kit: #32ff6a; /* The vibrant jersey color */
+            --dark-graphic: #1a2a20; /* The dark pattern/text color on the kit */
+            --bg-neutral: #ffffff;
+            --card-neutral: #f4f6f8;
+            --text-main: #202124;
             --text-light: #5f6368;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-neutral);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             line-height: 1.5;
         }
 
         .navbar {
-            background: var(--secondary);
+            background: var(--dark-graphic);
             color: white;
             padding: 1rem 2rem;
             text-align: center;
@@ -44,25 +44,28 @@
         }
 
         h1 { margin-bottom: 0.5rem; font-size: 2rem; }
+        
+        /* Heading with the lime green accent */
         h2 { 
-            border-bottom: 3px solid var(--primary);
+            border-bottom: 3px solid var(--lime-kit);
             padding-bottom: 0.5rem;
             margin-top: 3rem;
-            color: var(--secondary);
+            color: var(--dark-graphic);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .playlist-banner {
-            background: #f1f3f4;
-            border-left: 5px solid #ff0000;
+            background: var(--card-neutral);
+            border-left: 5px solid #ff0000; /* Standard YouTube red for recognized branding */
             padding: 1.5rem;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .match-list {
@@ -72,17 +75,22 @@
         }
 
         .match-item {
-            background: var(--card);
+            background: var(--card-neutral);
             padding: 1.25rem;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
         }
 
-        .match-item:hover { transform: translateX(5px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Hover effect with lime kit outline */
+        .match-item:hover { 
+            transform: translateX(5px); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-color: var(--lime-kit);
+        }
 
         .match-info { flex-grow: 1; }
         .match-name { font-weight: 700; font-size: 1.1rem; display: block; }
@@ -96,11 +104,19 @@
             font-size: 0.85rem;
             text-align: center;
             white-space: nowrap;
+            transition: opacity 0.2s;
         }
+        
+        .btn:hover { opacity: 0.8; }
 
         .btn-yt { background: #ff0000; color: white; }
         .btn-fifa { background: #000; color: white; }
-        .btn-outline { border: 2px solid var(--secondary); color: var(--secondary); }
+        
+        /* Outlined button matching the dark graphic color */
+        .btn-outline { 
+            border: 2px solid var(--dark-graphic); 
+            color: var(--dark-graphic); 
+        }
 
         .half-buttons { display: flex; gap: 5px; }
 
@@ -268,8 +284,8 @@
         </div>
     </div>
 
-    <footer style="margin-top: 5rem; text-align: center; color: var(--text-light); padding: 2rem;">
-        &copy; 2025 Benjamin Everett GK Archive
+    <footer style="margin-top: 5rem; text-align: center; background: var(--dark-graphic); color: white; padding: 2rem; border-radius: 8px;">
+        &copy; 2026 Benjamin Everett
     </footer>
 </div>
 
