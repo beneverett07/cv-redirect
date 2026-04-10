@@ -143,23 +143,35 @@
         font-size: 13px;
       }
 
-      .mobile-nav-pills {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 12px;
-      }
+.nav-label {
+      font-size: 10px; /* Slightly smaller to save vertical space */
+      font-weight: bold;
+      color: #548AB7;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-      .mobile-nav-pills a {
-        background-color: #548AB7;
-        color: white;
-        text-decoration: none;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 10px;
-        font-weight: bold;
-      }
+    .mobile-nav-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px; /* Tighter gap to fit more on one line */
+      margin-top: 8px;
+    }
+
+    .mobile-nav-pills a {
+      background-color: #548AB7;
+      color: white;
+      text-decoration: none;
+      /* Reduced padding (3px top/bottom, 8px left/right) */
+      padding: 3px 8px; 
+      border-radius: 4px;
+      /* Bigger text for better readability on older screens */
+      font-size: 12px; 
+      font-weight: bold;
+      line-height: 1.2;
+    }
     }
 
     @media (min-width: 601px) {
@@ -174,11 +186,15 @@
       <div class="mobile-only-headline">
        <h1>BENJAMIN EVERETT</h1>
        <h3>GOALKEEPER</h3>
+       
+       <div class="nav-label">Go to...</div>
+
        <div class="mobile-nav-pills">
            <a href="#profile-section">Profile</a>
            <a href="#career-section">Career</a>
            <a href="#video-section">Video</a>
            <a href="#contact-section">Contact</a>
+           <a href="#details-section">Details</a>
            <a href="#references-section">References</a>
        </div>
       </div>
