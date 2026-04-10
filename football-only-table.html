@@ -49,7 +49,7 @@
     h3 { font-size: 16px; font-weight: normal; margin-top: 4px; color: #444; }
     p { font-size: 14px; line-height: 1.4; margin: 0 0 10px 0; }
     
-    /* --- TABLE WITH VERTICAL BORDERS --- */
+    /* --- TABLE WITH REFINED PADDING --- */
     .career-table {
       width: 100%;
       border-collapse: collapse;
@@ -59,23 +59,22 @@
     .career-table td {
       vertical-align: top;
       padding-bottom: 12px;
-      /* Right border for the entire table area */
-      border-right: 1px solid #ccc; 
+      border-right: 1px solid #ccc; /* Outer right border */
     }
 
     .career-table td.date-col {
       width: 25%;
-      padding-right: 12px;
-      color: #548AB7; /* Blue dates */
+      padding-right: 6px; /* Reduced space before the middle line */
+      color: #548AB7;
       font-weight: normal; 
       font-size: 11px;
       line-height: 1.4;
-      /* Middle border line */
-      border-right: 1px solid #ccc; 
+      border-right: 1px solid #ccc; /* Middle line */
     }
 
     .career-table td.details-col {
       padding-left: 12px;
+      padding-right: 15px; /* Added more space before the outer right border */
     }
 
     .career-table td.details-col p {
@@ -111,7 +110,7 @@
       
       .container {
         flex-direction: column;
-        padding: 10px; /* 10px Safety Gutter for older devices */
+        padding: 10px; /* 10px Safety Gutter for 320px screens */
         gap: 0;
       }
 
@@ -129,14 +128,15 @@
         display: block; 
       }
 
-      /* Adjusting internal spacing to protect 320px width */
+      /* Balanced table padding for ultra-narrow screens */
       .career-table td.date-col {
-        width: 30%; 
-        padding-right: 8px;
+        width: 28%; 
+        padding-right: 4px; /* Minimal space to maximize content width */
       }
 
       .career-table td.details-col {
         padding-left: 8px;
+        padding-right: 10px; /* Balanced right-side breathing room */
       }
 
       .career-table td.details-col p {
@@ -166,6 +166,7 @@
       .back-to-top { display: none; }
     }
   </style>
+  
 </head>
 <body>
 <div class="container">
