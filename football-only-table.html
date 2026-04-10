@@ -16,7 +16,7 @@
       padding: 40px;
     }
 
-    /* Target for the back-to-top links */
+    /* Anchor target for back-to-top links */
     #top { position: absolute; top: 0; }
 
     .container {
@@ -38,10 +38,18 @@
 
     img { width: 100%; border-radius: 6px; margin-bottom: 2px; }
     h1 { font-size: 28px; margin-bottom: 0; }
-    h2 { font-size: 20px; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 6px; }
+    h2 { 
+      font-size: 20px; 
+      margin-top: 20px; 
+      border-bottom: 1px solid #ccc; 
+      padding-bottom: 6px; 
+      color: #000; 
+    }
+    
     h3 { font-size: 16px; font-weight: normal; margin-top: 4px; color: #444; }
     p { font-size: 14px; line-height: 1.4; margin: 0 0 10px 0; }
     
+    /* --- TABLE WITH VERTICAL BORDERS --- */
     .career-table {
       width: 100%;
       border-collapse: collapse;
@@ -51,22 +59,29 @@
     .career-table td {
       vertical-align: top;
       padding-bottom: 12px;
+      /* Right border for the entire table area */
+      border-right: 1px solid #ccc; 
     }
 
-    /* RESTORED BLUE: Using #548AB7 to match your section labels */
     .career-table td.date-col {
       width: 25%;
       padding-right: 12px;
-      color: #548AB7; 
-      font-weight: 500; 
-      font-size: 14px;
+      color: #548AB7; /* Blue dates */
+      font-weight: normal; 
+      font-size: 11px;
       line-height: 1.4;
+      /* Middle border line */
+      border-right: 1px solid #ccc; 
+    }
+
+    .career-table td.details-col {
+      padding-left: 12px;
     }
 
     .career-table td.details-col p {
       margin-top: 0;
       margin-bottom: 4px;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     a { color: #B85A22; text-decoration: underline; word-break: break-word; }
@@ -96,7 +111,7 @@
       
       .container {
         flex-direction: column;
-        padding: 10px; /* Reclaims 20px of width for narrow 320px screens */
+        padding: 10px; /* 10px Safety Gutter for older devices */
         gap: 0;
       }
 
@@ -114,10 +129,14 @@
         display: block; 
       }
 
-      /* Keep dates Blue and 11px, but expand width slightly for narrow phones */
+      /* Adjusting internal spacing to protect 320px width */
       .career-table td.date-col {
         width: 30%; 
         padding-right: 8px;
+      }
+
+      .career-table td.details-col {
+        padding-left: 8px;
       }
 
       .career-table td.details-col p {
@@ -147,7 +166,6 @@
       .back-to-top { display: none; }
     }
   </style>
-
 </head>
 <body>
 <div class="container">
@@ -209,7 +227,7 @@
     
     <div class="right-column">
       <div class="headline">
-       <h1>BENJAMIN EVERETT</h1>
+       <h1>BENJAMIN EVERETT</h1><br>
        <h3>GOALKEEPER</h3>
       </div>
       
