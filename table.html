@@ -179,26 +179,31 @@
       .mobile-nav-pills a:hover {
         background-color: #3b6688;
       }
-      .career-table {
+ .career-table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 20px;
-     }
-     .career-table td {
-      vertical-align: top;
+    }
+    
+    .career-table td {
+      vertical-align: top; /* Forces true top alignment */
       padding-bottom: 15px;
       font-size: 14px;
       line-height: 1.4;
-     }
-     .date-col {
-      width: 30%; /* Adjust this percentage to give the date column more or less room */
+    }
+    
+    .date-col {
+      width: 30%; 
       padding-right: 15px;
       color: #555;
       font-weight: 500;
-     }
-     .details-col p {
+      font-size: 11px; /* 25% smaller than the base text */
+    }
+    
+    .details-col p {
+      margin-top: 0; /* Removes the hidden browser spacing causing the misalignment */
       margin-bottom: 4px;
-     }
+    }
     }
   </style>
 </head>
