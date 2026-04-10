@@ -6,10 +6,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Benjamin Everett – Goalkeeper CV</title>
   <style>
-    /* Add smooth scrolling to the whole page */
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,6 +14,8 @@
       margin: 0;
       padding: 40px;
     }
+
+    /* Primary Layout */
     .container {
       max-width: 1000px;
       margin: auto;
@@ -26,143 +25,92 @@
     .left-column {
       background-color: #f2f2f2;
       width: 35%;
+      padding-bottom: 20px;
     }
     .right-column {
       width: 65%;
     }
+
     img {
       width: 100%;
       border-radius: 6px;
-      margin-bottom: 2px;
+      display: block;
     }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 0;
-    }
+
+    h1 { font-size: 28px; margin: 0; }
     h2 {
       font-size: 20px;
       margin-top: 20px;
       border-bottom: 1px solid #ccc;
       padding-bottom: 6px;
     }
-    h3 {
-      font-size: 16px;
-      font-weight: normal;
-      margin-top: 4px;
-      color: #444;
+    h3 { font-size: 16px; font-weight: normal; margin-top: 4px; color: #444; }
+    p, li { font-size: 14px; line-height: 1.4; margin: 0 0 10px 0; }
+    
+    a { color: #B85A22; text-decoration: underline; word-break: break-word; }
+    h3.label { color: #548AB7; font-weight: bold; margin-bottom: 5px; margin-top: 20px; }
+    
+    .section { padding: 0 15px; margin-bottom: 20px; }
+    
+    .headline { text-align: center; margin-bottom: 30px; }
+    .headline h1 { font-size: 36px; font-weight: bold; }
+    .headline h3 { font-size: 20px; color: #555; }
+
+    .mobile-only-headline, .mobile-nav-pills { display: none; }
+
+    /* --- CAREER TABLE FIX --- */
+    .career-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
     }
-    p {
-      font-size: 14px;
+    
+    .career-table td {
+      vertical-align: top;
+      padding-bottom: 12px;
+      border: none;
+    }
+    
+    /* Force the smaller date font */
+    .date-col {
+      width: 28%;
+      padding-right: 15px;
+      font-size: 11px !important; /* 25% smaller than 14px */
+      color: #666;
+      font-weight: 600;
       line-height: 1.4;
-      margin: 0 0 10px 0;
     }
-    ul {
-      margin: 0;
-      padding-left: 20px;
-      list-style-type: disc;
+    
+    .details-col {
+      width: 72%;
     }
-    li {
+
+    .details-col p {
+      margin-top: 0;
+      margin-bottom: 5px;
       font-size: 14px;
-      line-height: 1.4;
-      margin: 0;
-      padding: 0;
-    }
-    a {
-      color: #B85A22;
-      text-decoration: underline;
-      word-break: break-word;
     }
 
-    a:hover {
-      color: #B85A22; /* Optional: keeps same color on hover */
-    }
-    h3.label {
-      color: #548AB7;
-      font-weight: bold;
-      margin-bottom: 0px;  /* tighten space below heading */
-    }
-    .section {
-      padding-left: 8px;
-      padding-right: 8px;
-      margin-bottom: 20px;
-    }
-    .headline {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .headline h1 {
-      font-size: 36px;       /* Increase name size */
-      margin: 0;
-      font-weight: bold;
-    }
-
-    .headline h3 {
-      font-size: 20px;        /* Proportional title size */
-      margin: 4px 0 0 0;
-      font-weight: normal;
-      color: #555;
-    }
-
-    .mobile-only-headline {
-      display: none;
-    }
-
-    /* Hide Quick Nav on Desktop */
-    .mobile-nav-pills {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .left-column,
-      .right-column {
-        width: 100%;
-      }
-
-      .headline {
-        order: -1;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-
-      .headline h1 {
-        font-size: 28px;
-      }
-
-      .headline h3 {
-        font-size: 16px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      h3 {
-        font-size: 14px;
-      }
-
-      p, li {
-        font-size: 13px;
-      }
-
+    /* Mobile Responsive Rules */
+    @media (max-width: 768px) {
+      body { padding: 0; }
+      .container { flex-direction: column; gap: 0; }
+      .left-column, .right-column { width: 100%; }
+      
+      .right-column { padding: 20px; box-sizing: border-box; }
+      .headline { display: none; } /* Use mobile headline instead */
+      
       .mobile-only-headline {
-        order: -1;
-        margin-bottom: 20px;
+        display: block;
+        padding: 20px 10px 10px 10px;
         text-align: center;
-        display: block; 
       }
 
-      /* Style the Quick Nav Pills for Mobile */
       .mobile-nav-pills {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         margin-top: 15px;
       }
 
@@ -170,70 +118,130 @@
         background-color: #548AB7;
         color: white;
         text-decoration: none;
-        padding: 5px 12px;
-        border-radius: 6px;
+        padding: 5px 10px;
+        border-radius: 4px;
         font-size: 11px;
         font-weight: bold;
       }
-      
-      .mobile-nav-pills a:hover {
-        background-color: #3b6688;
-      }
-    } /* THIS CLOSES THE MEDIA QUERY */
 
-    /* TABLE CSS MOVED OUTSIDE THE MEDIA QUERY */
-    .career-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    
-    .career-table td {
-      vertical-align: top; /* Forces true top alignment */
-      padding-bottom: 15px;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    
-    .career-table td.date-col {
-      width: 30%; 
-      padding-right: 15px;
-      color: #555;
-      font-weight: 500;
-      font-size: 11px; /* 11px is roughly 25% smaller than the 14px text */
-    }
-    
-    .details-col p {
-      margin-top: 0; /* Removes the hidden browser spacing causing the misalignment */
-      margin-bottom: 4px;
+      .date-col { width: 35%; }
+      .details-col { width: 65%; }
     }
   </style>
 </head>
 <body>
+
 <div class="container">
     <div class="left-column">
       <div class="mobile-only-headline">
        <h1>BENJAMIN EVERETT</h1>
        <h3>GOALKEEPER</h3>
-       
        <div class="mobile-nav-pills">
            <a href="#profile-section">Profile</a>
            <a href="#career-section">Career</a>
            <a href="#video-section">Video</a>
            <a href="#contact-section">Contact</a>
-           <a href="#details-section">Details</a>
            <a href="#references-section">References</a>
        </div>
-
       </div>
-      <img src="/images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett profile image">
+
+      <img src="/images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett">
+      
       <div class="section" id="profile-section">
         <h3 class="label">PROFILE</h3>
-        <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
+        <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership.</p>
       </div>
       
       <div class="section" id="contact-section">
         <h3 class="label">CONTACT</h3>
         <p>
-        📞 <a href="https://wa.me/12462547443">+1 (246) 254-7443</a> <img src="images/WhatsApp-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"><br>
-        ✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br>
+        📞 <a href="https://wa.me/12462547443">+1 (246) 254-7443</a><br>
+        ✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br> 
+        Socials: @beneverettgk
+        </p>
+      </div>
+      
+      <div class="section" id="details-section">
+        <h3 class="label">DETAILS</h3>
+        <p>Date of birth: Oct 12, 2007<br>
+           Passports: Barbados 🇧🇧 / USA 🇺🇸<br>
+           Height: 1.79m / 5'10.5"</p>
+      </div>
+
+      <div class="section" id="video-section">
+        <h3 class="label">VIDEO</h3>
+        <p><a href="https://highlights.beneverettgk.com">Latest Highlight Video</a><br>
+           <a href="https://cv.beneverettgk.com/video.html">Full Match Videos</a></p>
+      </div>
+      
+      <div class="section" id="references-section">
+        <h3 class="label">REFERENCES</h3>
+        <p><strong>Renaldo Gilkes</strong><br>rgilkes@kickstartrush.com</p>
+        <p><strong>Christian Benjamin</strong><br>christian@keeperstop.com</p>
+      </div>
+    </div>
+    
+    <div class="right-column">
+      <div class="headline">
+       <h1>BENJAMIN EVERETT</h1>
+       <h3>GOALKEEPER</h3>
+      </div>
+      
+      <h2 id="career-section">FOOTBALL CAREER</h2>
+      <table class="career-table">
+        <tr>
+          <td class="date-col">Jan. 2026 – Present</td>
+          <td class="details-col">
+            <p><strong>C.F. Godella, Valencia, Spain</strong></p>
+            <p><strong>Spain Rush-SPF Academy, Valencia, Spain</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="date-col">Feb. 24 – Mar. 4 2026</td>
+          <td class="details-col">
+            <p><strong>Barbados U20 National Men's Team</strong>, Concacaf U20 Qualifiers</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="date-col">Sep. – Dec. 2025</td>
+          <td class="details-col">
+            <p><strong>Kickstart Rush 1st Team, Prime Minister's Cup</strong><br>
+            2nd Place | <strong>&#x1F3C6; Best Goalkeeper Award</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="date-col">Jun. – Jul. 2025</td>
+          <td class="details-col">
+            <p><strong>BFA Champions Cup</strong><br>
+            2nd Place | <strong>&#x1F3C6; Best Goalkeeper Award</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="date-col">Jan. – May 2025</td>
+          <td class="details-col">
+            <p><strong>BFA Premier League</strong><br>
+            6th Place | 11 appearances</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="date-col">Jan. – Nov. 2024</td>
+          <td class="details-col">
+            <p><strong>BFA Premier League + Reserve League</strong><br>
+            Debut age 16 | 11 apps, 3x Clean Sheets</p>
+          </td>
+        </tr>
+      </table>
+
+      <h2>COACHING</h2>
+      <ul>
+        <li>U9 Head Coach – Kickstart Rush FC</li>
+        <li>Youth GK Coach – Kickstart Rush FC</li>
+      </ul>
+
+      <h2>EDUCATION</h2>
+      <p>Homeschooled – graduation year 2026</p>
+    </div>
+</div>
+
+</body>
+</html>
