@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Benjamin Everett – Goalkeeper CV</title>
-  <style>
+<style>
     html { scroll-behavior: smooth; }
 
     body {
@@ -14,6 +14,9 @@
       margin: 0;
       padding: 40px;
     }
+
+    /* Target the top for the back-to-top links */
+    #top { position: absolute; top: 0; }
 
     .container {
       max-width: 1000px;
@@ -25,117 +28,129 @@
     .left-column {
       background-color: #f2f2f2;
       width: 35%;
-      border-radius: 8px; /* Adjust this number to change the roundness */
+      border-radius: 8px;
     }
 
     .right-column {
       width: 65%;
     }
 
-    img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 2px;
-    }
-
+    img { width: 100%; border-radius: 6px; margin-bottom: 2px; }
     h1 { font-size: 28px; margin-bottom: 0; }
-    
-    h2 {
-      font-size: 20px;
-      margin-top: 20px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 6px;
-    }
-
+    h2 { font-size: 20px; margin-top: 20px; border-bottom: 1px solid #ccc; padding-bottom: 6px; color: #548AB7; }
     h3 { font-size: 16px; font-weight: normal; margin-top: 4px; color: #444; }
-    
     p { font-size: 14px; line-height: 1.4; margin: 0 0 10px 0; }
     
-    ul { margin: 0; padding-left: 20px; list-style-type: disc; }
-    
-    li { font-size: 14px; line-height: 1.4; margin: 0 0 8px 0; }
-
-    a { color: #B85A22; text-decoration: underline; word-break: break-word; }
-
-    h3.label {
-      color: #548AB7;
-      font-weight: bold;
-      margin-bottom: 5px;
-      margin-top: 20px;
-    }
-
-    .section {
-      padding-left: 15px;
-      padding-right: 15px;
-      margin-bottom: 20px;
-    }
-
-    .headline { text-align: center; margin-bottom: 30px; }
-    .headline h1 { font-size: 36px; margin: 0; font-weight: bold; }
-    .headline h3 { font-size: 20px; margin: 4px 0 0 0; font-weight: normal; color: #555; }
-
-    .mobile-only-headline { display: none; }
-    .mobile-nav-pills { display: none; }
-
-    /* --- COMPACT CAREER TABLE STYLES --- */
+    /* Career Table - Shared Styles */
     .career-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .career-table td {
       vertical-align: top;
-      padding-bottom: 8px; /* Reduced from 15px to tighten row spacing */
-      border: none;
+      padding-bottom: 12px;
     }
 
-      .career-table td.date-col {
-      width: 25%; /* Slightly wider to accommodate the larger font */
-      padding-right: 15px;
-      
-      color: #548AB7;
-      font-weight: 500;
-      font-size: 16px;   /* Same as the right column paragraphs */
-      
+    .career-table td.date-col {
+      width: 25%;
+      padding-right: 12px;
+      color: #000000;
+      font-weight: bold;
+      font-size: 14px;
       line-height: 1.4;
-      white-space: nowrap;
     }
 
     .career-table td.details-col p {
       margin-top: 0;
-      margin-bottom: 2px; /* Tightened space between paragraphs in a single entry */
-      font-size: 16px;
+      margin-bottom: 4px;
+      font-size: 14px;
     }
 
+    a { color: #B85A22; text-decoration: underline; word-break: break-word; }
+    h3.label { color: #548AB7; font-weight: bold; margin-bottom: 5px; margin-top: 20px; }
+    
+    .section { padding-left: 15px; padding-right: 15px; margin-bottom: 20px; }
+    
+    .headline { text-align: center; margin-bottom: 30px; }
+    .headline h1 { font-size: 36px; font-weight: bold; }
+    .headline h3 { font-size: 20px; font-weight: normal; color: #555; }
+
+    .mobile-only-headline, .mobile-nav-pills { display: none; }
+
+    .back-to-top {
+      display: block;
+      text-align: right;
+      font-size: 11px;
+      color: #548AB7;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* --- MOBILE OPTIMIZATION (320px - 375px Floor) --- */
     @media (max-width: 600px) {
-      .container { flex-direction: column; padding: 20px; }
-      .left-column, .right-column { width: 100%; }
+      body { padding: 0; }
+      
+      .container {
+        flex-direction: column;
+        padding: 10px; /* 10px Safety Gutter for 2015-era screens */
+        gap: 0;
+      }
+
+      .left-column, .right-column {
+        width: 100%;
+        border-radius: 0;
+      }
+
       .headline { display: none; }
+      
       .mobile-only-headline {
         order: -1;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         text-align: center;
-        display: block;
+        display: block; 
       }
+
+      /* Adjust Table for ultra-narrow 320px screens */
+      .career-table td.date-col {
+        width: 30%; /* Slightly wider to prevent date-wrapping */
+        font-size: 12px; /* Drops size slightly to keep layout stable */
+        padding-right: 8px;
+      }
+
+      .career-table td.details-col p {
+        font-size: 13px;
+      }
+
       .mobile-nav-pills {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 15px;
+        gap: 6px;
+        margin-top: 12px;
       }
+
       .mobile-nav-pills a {
         background-color: #548AB7;
         color: white;
         text-decoration: none;
-        padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 10px;
         font-weight: bold;
       }
+
+      /* Ensure back-to-top is hidden on desktop, visible on mobile */
+      .back-to-top { display: block; }
+    }
+
+    @media (min-width: 601px) {
+      .back-to-top { display: none; }
     }
   </style>
+
 </head>
 <body>
 <div class="container">
