@@ -179,7 +179,10 @@
       .mobile-nav-pills a:hover {
         background-color: #3b6688;
       }
- .career-table {
+    } /* THIS CLOSES THE MEDIA QUERY */
+
+    /* TABLE CSS MOVED OUTSIDE THE MEDIA QUERY */
+    .career-table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 20px;
@@ -192,18 +195,17 @@
       line-height: 1.4;
     }
     
-.career-table td.date-col {
+    .career-table td.date-col {
       width: 30%; 
       padding-right: 15px;
       color: #555;
       font-weight: 500;
-      font-size: 11px; /* This will now successfully override the 14px default */
+      font-size: 11px; /* 11px is roughly 25% smaller than the 14px text */
     }
     
     .details-col p {
       margin-top: 0; /* Removes the hidden browser spacing causing the misalignment */
       margin-bottom: 4px;
-    }
     }
   </style>
 </head>
@@ -234,206 +236,4 @@
         <h3 class="label">CONTACT</h3>
         <p>
         📞 <a href="https://wa.me/12462547443">+1 (246) 254-7443</a> <img src="images/WhatsApp-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"><br>
-        ✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br> 
-        <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
-        <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
-        <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
-        <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" width="16" height="16" style="width: 16px; height: 16px; vertical-align: middle;"></a>
-        </p>
-      </div>
-      
-      <div class="section" id="details-section">
-        <h3 class="label">DETAILS</h3>
-        <p>Date of birth: October 12, 2007<br>
-           Passports: Barbados 🇧🇧 / United States 🇺🇸<br>
-           Residence: Valencia, Spain 🇪🇸 / Barbados 🇧🇧<br>
-           Height: 1.79m / 5'10.5"<br>
-           Weight: 74kg / 163lbs</p>
-      </div>
-      
-      <div class="section" id="video-section">
-        <h3 class="label">VIDEO</h3>
-        <p><a href="https://highlights.beneverettgk.com">Click Here for Latest Highlight Video</a><br>
-           <a href="https://cv.beneverettgk.com/video.html">Click Here for Full Match Videos</a></p>
-      </div>
-      
-      <div class="section" id="references-section">
-        <h3 class="label">REFERENCES</h3>
-        <p><strong>Renaldo Gilkes</strong>, CONCACAF A<br>
-        Technical Director, Kickstart Rush FC<br>
-        Head Coach, Kickstart Rush 1st Team<br>
-        <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
-        +1 (246) 825-0607</p>
-
-        <p><strong>Daniel Rowe M.Sc. CSCS</strong><br>
-        Head Performance Coach, Become Elite Academy<br>
-        <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
-        +1 (246) 834-0847</p>
-
-        <p><strong>Christian Benjamin</strong>, USSF, USC, Advanced National GK Diploma<br>
-        Owner and Founder of KeeperStop.com<br>
-        <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
-        +1 (508) 221-6819</p>
-
-        <p><strong>Chad Bynoe</strong>, CONCACAF C<br>
-        Assistant Coach, Kickstart Rush 1st Team<br>
-        Physical Trainer, Barbados Men’s National Team<br>
-        +1 (246) 844-9644</p>
-      </div>
-    </div>
-    
-    <div class="right-column">
-      <div class="headline">
-       <h1>BENJAMIN EVERETT</h1>
-       <h3>GOALKEEPER</h3>
-      </div>
-      
-<h2 id="career-section">FOOTBALL CAREER</h2>
-    <table class="career-table">
-      <tbody>
-        <tr>
-          <td class="date-col">Jan. 2026 – Present</td>
-          <td class="details-col">
-            <p><strong>C.F. Godella, Valencia, Spain</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. 2026 – Present</td>
-          <td class="details-col">
-            <p><strong>Spain Rush-SPF Academy, Valencia, Spain</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Feb. 24 – Mar. 4 2026</td>
-          <td class="details-col">
-            <p><strong>Barbados U20 National Men's Team</strong>, Concacaf U20 Qualifiers, Costa Rica</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Sep. 1 - Dec. 1 2025</td>
-          <td class="details-col">
-            <p><strong>Kickstart Rush 1st Team, The Prime Minister's Cup</strong><br>
-            2nd Place<br>
-            6 appearances, 70% Save Percentage (32/46 shots)<br>
-            <strong>&#x1F3C6; 2025 Prime Minister's Cup Best Goalkeeper Award</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jun. - Jul. 2025</td>
-          <td class="details-col">
-            <p><strong>Kickstart Rush 1st Team, Barbados Football Association Champions Cup</strong><br>
-            2nd Place<br>
-            5 appearances, 1x Clean Sheet, 78% Save Percentage (14/18 shots), 1x Penalty Save, 4x Penalty Shootout Save<br>
-            <strong>&#x1F3C6; 2025 BFA Champion's Cup Best Goalkeeper Award</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. - May. 2025</td>
-          <td class="details-col">
-            <p><strong>Kickstart Rush 1st Team, BFA Premier League</strong><br>
-            6th Place<br>
-            11 appearances, 2x Clean Sheet, 67% Save Percentage (40/60 shots)</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. - Nov. 2024</td>
-          <td class="details-col">
-            <p><strong>Kickstart Rush 1st Team, BFA Premier League + Barbados Reserve League + The Prime Minister’s Cup</strong><br>
-            BFA Premier League debut, age 16 – January 2024<br>
-            11 appearances, 3x Clean Sheets<br>
-            3rd Place in Premier League, 4th Place in The Prime Minister’s Cup</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. - Nov. 2023</td>
-          <td class="details-col">
-            <p><strong>Kickstart Rush 1st Team (BFA Division 1 + Champions Cup + Republic Cup)</strong><br>
-            BFA Div. 1 debut, age 15 – April 2023<br>
-            10 appearances, 3x Clean Sheets<br>
-            2nd Place in Div. 1, Promoted to Premier League</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jun. 24–26, 2024</td>
-          <td class="details-col">
-            <p>NextUP 2024 Football Combine, Barbados, Goalkeeper Award</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Apr. 2024</td>
-          <td class="details-col">
-            <p>35th Barbados Cup, Kickstart Rush U17, Champions, GK (age 16)</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. 2024</td>
-          <td class="details-col">
-            <p>Barbados U20 National Men’s Team, Provisional Squad, GK (age 16)</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Nov. 2023</td>
-          <td class="details-col">
-            <p>Rush Soccer International Rush Cup, FL, Kickstart Rush U16, 3rd Place</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Aug. 2023</td>
-          <td class="details-col">
-            <p>Rush South Rush Cup, LA, Rush Select Boys 2, GK, U19 Tournament Champions</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. 2023 – Dec. 2024</td>
-          <td class="details-col">
-            <p>Kickstart Rush U17, GK</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. 2021 – Dec. 2022</td>
-          <td class="details-col">
-            <p>Kickstart Rush U15, CB, RB</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Jan. 2016 – Dec. 2020</td>
-          <td class="details-col">
-            <p>Kickstart Rush U9–U13, GK</p>
-          </td>
-        </tr>
-        <tr>
-          <td class="date-col">Feb. 2019 – Mar. 2020</td>
-          <td class="details-col">
-            <p>BFA U13 Future Tridents Elite, National Development Program, GK</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-      <h2>COACHING CAREER</h2>
-      <ul>
-        <li>U9 Head Coach – Kickstart Rush FC – Sep. 2024 – Dec. 2025</li>
-        <li>Youth GK Coach – Kickstart Rush FC – Jan. 2025 – Dec. 2025</li>
-        <li>U9–U13 GK Coach – Joshua James Goalkeeping School – Sep. 2024 – Dec. 2025</li>
-        <li>U17 Assistant Coach – Kickstart Rush FC – Jan. 2025 – Jul. 2025</li>
-      </ul>
-
-      <h2>COACHING CERTIFICATIONS</h2>
-      <ul>
-        <li>U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846<br>
-            - Introduction to Grassroots Coaching - Apr. 2025<br>
-            - Introduction to Safe and Healthy Playing Environments - May. 2025<br>
-            - Grassroots 4v4 Online Coaching License - May 2025<br>
-            - Grassroots 7v7 Online Coaching License - Jul. 2025<br>
-            - Grassroots 9v9 Online Coaching License - Nov. 2025<br>
-            </li>
-        <li>Coaching Association of Canada, NCCP# 7006931<br>
-            National Coaching Certification Program Level 1 – Nov. 2025</li>
-      </ul>
-
-      <h2>EDUCATION</h2>
-      <p>Homeschooled – graduation year 2026</p>
-    </div>
-  </div>
-</body>
-</html>
+        ✉️ <a href="mailto:ben@beneverettgk.com">ben@beneverettgk.com</a><br>
