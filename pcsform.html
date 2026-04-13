@@ -3,144 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Record Form</title>
+    <title>Protégé Computer Services - Service Record</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; background: #f4f4f4; }
-        .form-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1, h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .field { display: flex; flex-direction: column; }
-        label { font-weight: bold; margin-bottom: 5px; font-size: 0.9em; }
-        input, textarea, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #fafafa; padding: 15px; border-radius: 4px; }
-        .checkbox-item { display: flex; align-items: center; font-size: 0.85em; }
-        .checkbox-item input { margin-right: 10px; }
-        .actions { margin-top: 30px; display: flex; gap: 10px; }
-        button { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.4; padding: 20px; max-width: 900px; margin: auto; background: #f0f2f5; }
+        .form-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 3px solid #2c3e50; padding-bottom: 10px; }
+        .header h1 { margin: 0; color: #2c3e50; letter-spacing: 2px; }
+        .contact-info { font-size: 0.85em; color: #555; }
+        
+        .section-title { background: #2c3e50; color: white; padding: 8px 15px; margin: 20px 0 10px 0; font-size: 1em; text-transform: uppercase; }
+        
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .full-width { grid-column: span 2; }
+        .field { display: flex; flex-direction: column; margin-bottom: 10px; }
+        label { font-weight: bold; font-size: 0.85em; margin-bottom: 4px; color: #333; }
+        input, textarea, select { padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 1em; }
+        
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85em; }
+        .service-item { display: flex; align-items: center; padding: 5px; border-bottom: 1px solid #eee; }
+        .service-item input { margin-right: 10px; }
+
+        .parts-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .parts-table th, .parts-table td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
+        .parts-table th { background: #ecf0f1; font-size: 0.85em; }
+
+        .status-group { display: flex; gap: 20px; margin: 20px 0; font-weight: bold; }
+        .actions { margin-top: 30px; display: flex; gap: 15px; border-top: 2px solid #eee; padding-top: 20px; }
+        button { padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; font-weight: bold; transition: 0.2s; }
         .btn-download { background: #27ae60; color: white; }
-        .btn-reset { background: #e74c3c; color: white; }
+        .btn-download:hover { background: #219150; }
+        .btn-reset { background: #95a5a6; color: white; }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h1>SERVICE RECORD</h1>
-    <p><strong>PROTÉGÉ COMPUTER SERVICES</strong></p>
+    <div class="header">
+        <h1>PROTÉGÉ COMPUTER SERVICES</h1>
+        <div class="contact-info">
+            2206 Overdene Gardens, Dayrells Road, St. Michael, Barbados [cite: 3, 4, 5, 6]<br>
+            Tel: (246) 426-2951 | Cell: (246) 231-7612 | Email: admin@protegecomputers.net [cite: 6, 7]
+        </div>
+        <h2 style="margin-top:15px; color:#c0392b;">SERVICE RECORD</h2>
+    </div>
 
     <form id="serviceForm">
         <div class="grid">
-            <div class="field">
-                <label>Organization/Client</label>
-                <input type="text" name="client" required>
-            </div>
-            <div class="field">
-                <label>Telephone No.</label>
-                <input type="tel" name="phone">
-            </div>
-            <div class="field" style="grid-column: span 2;">
-                <label>Address</label>
-                <input type="text" name="address">
-            </div>
-            <div class="field">
-                <label>Technician</label>
-                <input type="text" name="technician">
-            </div>
-            <div class="field">
-                <label>Date</label>
-                <input type="date" name="date">
-            </div>
-            <div class="field">
-                <label>Start Time</label>
-                <input type="time" name="startTime">
-            </div>
-            <div class="field">
-                <label>End Time</label>
-                <input type="time" name="endTime">
-            </div>
-            <div class="field" style="grid-column: span 2;">
-                <label>Equipment/Project</label>
-                <input type="text" name="equipment">
-            </div>
+            <div class="field full-width"><label>Organization/Client</label><input type="text" name="client"></div>
+            <div class="field"><label>Telephone No.</label><input type="text" name="phone"></div>
+            <div class="field"><label>Address</label><input type="text" name="address"></div>
+            <div class="field"><label>Technician</label><input type="text" name="technician"></div>
+            <div class="field"><label>Date</label><input type="date" name="date"></div>
+            <div class="field"><label>Start Time</label><input type="time" name="startTime"></div>
+            <div class="field"><label>End Time</label><input type="time" name="endTime"></div>
+            <div class="field full-width"><label>Equipment/Project</label><input type="text" name="equipment"></div>
         </div>
 
-        <div class="field">
-            <label>Reported Problem / Service Requests</label>
-            <textarea name="problem" rows="3"></textarea>
+        <div class="section-title">Reported Problem / Service Requests</div>
+        <textarea name="problem" rows="3" style="width:100%; box-sizing: border-box;"></textarea>
+
+        <div class="section-title">Services Provided</div>
+        <div class="services-grid">
+            <div class="service-item"><input type="checkbox" name="srv" value="Cable Installation"> Cable deployment/Installation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Network Management"> Network Management/Deployment</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Diagnostic General"> Consultation/Diagnostic General</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Network Setup"> Network Setup & Configuration</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Diagnostic Private"> Consultation/Diagnostic Private</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Network Troubleshooting"> Network Troubleshooting</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Data Management"> Data Management</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="New System Setup"> New System Setup</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Data Recovery"> Data Recovery</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="New Workstation Setup"> New Workstation Setup</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Device Troubleshooting"> Device Troubleshooting</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="OS/Software Repair"> OS/Software Error Repair</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Full System Reinstall"> Full System Reinstallation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Printer Installation"> Printer Installation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Hardware Clean"> Hardware Clean & Service</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Software Installation"> Software Installation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Hardware Repair Comm"> Hardware Repair (Commercial)</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="System Assembly"> System Assembly/Reassembly</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Hardware Repair Dom"> Hardware Repair (Domestic)</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Performance Tuning"> System Performance Tuning</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Hardware Setup"> Hardware Setup/Installation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Security Camera Setup"> Security Camera Setup</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Hardware Upgrade"> Hardware Upgrade</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Security Camera Trouble"> Security Camera Troubleshooting</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Network Cable Inst"> Network Cable Installation</div>
+            <div class="service-item"><input type="checkbox" name="srv" value="Virus Removal"> Virus & Spyware Removal</div>
         </div>
 
-        <h2>Services Provided</h2>
-        <div class="checkbox-group">
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Cable Installation"> Cable Installation</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Network Management"> Network Management</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Diagnostic General"> Consultation/Diagnostic General</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Data Management"> Data Management</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Data Recovery"> Data Recovery</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Device Troubleshooting"> Device Troubleshooting</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="OS Repair"> OS/Software Error Repair</div>
-            <div class="checkbox-item"><input type="checkbox" name="service" value="Virus Removal"> Virus & Spyware Removal</div>
-            </div>
+        <div class="section-title">Parts / Material / Software Used</div>
+        <table class="parts-table" id="partsTable">
+            <thead>
+                <tr><th>Qty</th><th>Supplier</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><input type="text" name="qty1" style="width:40px"></td><td><input type="text" name="sup1"></td><td><input type="text" name="desc1" style="width:100%"></td></tr>
+                <tr><td><input type="text" name="qty2" style="width:40px"></td><td><input type="text" name="sup2"></td><td><input type="text" name="desc2" style="width:100%"></td></tr>
+            </tbody>
+        </table>
 
-        <h2>Closing Details</h2>
-        <div class="field">
-            <label>Technician's Comments</label>
-            <textarea name="comments" rows="3"></textarea>
-        </div>
+        <div class="section-title">Technician's Comments</div>
+        <textarea name="techComments" rows="3" style="width:100%; box-sizing: border-box;"></textarea>
 
-        <div class="grid" style="margin-top: 15px;">
-            <div class="field">
-                <label>Job Status</label>
-                <select name="status">
-                    <option value="Completed">Completed</option>
-                    <option value="Not Completed">Not Completed</option>
-                </select>
-            </div>
+        <div class="status-group">
+            Job Status:
+            <label><input type="radio" name="status" value="Completed"> Completed [cite: 24]</label>
+            <label><input type="radio" name="status" value="Not Completed"> Not Completed [cite: 25]</label>
         </div>
 
         <div class="actions">
-            <button type="button" class="btn-download" onclick="downloadCSV()">Download CSV</button>
-            <button type="reset" class="btn-reset">Clear Form</button>
+            <button type="button" class="btn-download" onclick="exportToCSV()">Download Data (CSV)</button>
+            <button type="reset" class="btn-reset">Reset Form</button>
         </div>
     </form>
 </div>
 
 <script>
-    function downloadCSV() {
+    function exportToCSV() {
         const form = document.getElementById('serviceForm');
         const formData = new FormData(form);
         
-        // Collect checkboxes separately
+        // Handle multi-select checkboxes
         const services = [];
-        document.querySelectorAll('input[name="service"]:checked').forEach(cb => {
-            services.push(cb.value);
-        });
-
-        const data = {
+        document.querySelectorAll('input[name="srv"]:checked').forEach(c => services.push(c.value));
+        
+        const rowData = {
             Client: formData.get('client'),
-            Phone: formData.get('phone'),
             Date: formData.get('date'),
             Technician: formData.get('technician'),
-            Equipment: formData.get('equipment'),
             Services: services.join('; '),
-            Status: formData.get('status')
+            Status: formData.get('status'),
+            Comments: formData.get('techComments').replace(/\n/g, ' ')
         };
 
-        const csvRows = [];
-        const headers = Object.keys(data);
-        csvRows.push(headers.join(','));
-        
-        const values = headers.map(header => {
-            const val = data[header].replace(/"/g, '""'); // Escape quotes
-            return `"${val}"`;
-        });
-        csvRows.push(values.join(','));
+        let csvContent = "data:text/csv;charset=utf-8," 
+            + Object.keys(rowData).join(",") + "\n"
+            + Object.values(rowData).map(v => `"${v || ''}"`).join(",");
 
-        const csvContent = csvRows.join('\n');
-        const blob = new Blob([csvContent], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.setAttribute('href', url);
-        a.setAttribute('download', `ServiceRecord_${data.Client || 'Export'}.csv`);
-        a.click();
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `Service_Record_${rowData.Client || 'Entry'}.csv`);
+        document.body.appendChild(link);
+        link.click();
     }
 </script>
 
