@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Record Form</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; background: #f4f4f4; }
+        .form-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .field { display: flex; flex-direction: column; }
+        label { font-weight: bold; margin-bottom: 5px; font-size: 0.9em; }
+        input, textarea, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #fafafa; padding: 15px; border-radius: 4px; }
+        .checkbox-item { display: flex; align-items: center; font-size: 0.85em; }
+        .checkbox-item input { margin-right: 10px; }
+        .actions { margin-top: 30px; display: flex; gap: 10px; }
+        button { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-download { background: #27ae60; color: white; }
+        .btn-reset { background: #e74c3c; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>SERVICE RECORD</h1>
+    <p><strong>PROTÉGÉ COMPUTER SERVICES</strong></p>
+
+    <form id="serviceForm">
+        <div class="grid">
+            <div class="field">
+                <label>Organization/Client</label>
+                <input type="text" name="client" required>
+            </div>
+            <div class="field">
+                <label>Telephone No.</label>
+                <input type="tel" name="phone">
+            </div>
+            <div class="field" style="grid-column: span 2;">
+                <label>Address</label>
+                <input type="text" name="address">
+            </div>
+            <div class="field">
+                <label>Technician</label>
+                <input type="text" name="technician">
+            </div>
+            <div class="field">
+                <label>Date</label>
+                <input type="date" name="date">
+            </div>
+            <div class="field">
+                <label>Start Time</label>
+                <input type="time" name="startTime">
+            </div>
+            <div class="field">
+                <label>End Time</label>
+                <input type="time" name="endTime">
+            </div>
+            <div class="field" style="grid-column: span 2;">
+                <label>Equipment/Project</label>
+                <input type="text" name="equipment">
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Reported Problem / Service Requests</label>
+            <textarea name="problem" rows="3"></textarea>
+        </div>
+
+        <h2>Services Provided</h2>
+        <div class="checkbox-group">
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Cable Installation"> Cable Installation</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Network Management"> Network Management</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Diagnostic General"> Consultation/Diagnostic General</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Data Management"> Data Management</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Data Recovery"> Data Recovery</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Device Troubleshooting"> Device Troubleshooting</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="OS Repair"> OS/Software Error Repair</div>
+            <div class="checkbox-item"><input type="checkbox" name="service" value="Virus Removal"> Virus & Spyware Removal</div>
+            </div>
+
+        <h2>Closing Details</h2>
+        <div class="field">
+            <label>Technician's Comments</label>
+            <textarea name="comments" rows="3"></textarea>
+        </div>
+
+        <div class="grid" style="margin-top: 15px;">
+            <div class="field">
+                <label>Job Status</label>
+                <select name="status">
+                    <option value="Completed">Completed</option>
+                    <option value="Not Completed">Not Completed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="button" class="btn-download" onclick="downloadCSV()">Download CSV</button>
+            <button type="reset" class="btn-reset">Clear Form</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function downloadCSV() {
+        const form = document.getElementById('serviceForm');
+        const formData = new FormData(form);
+        
+        // Collect checkboxes separately
+        const services = [];
+        document.querySelectorAll('input[name="service"]:checked').forEach(cb => {
+            services.push(cb.value);
+        });
+
+        const data = {
+            Client: formData.get('client'),
+            Phone: formData.get('phone'),
+            Date: formData.get('date'),
+            Technician: formData.get('technician'),
+            Equipment: formData.get('equipment'),
+            Services: services.join('; '),
+            Status: formData.get('status')
+        };
+
+        const csvRows = [];
+        const headers = Object.keys(data);
+        csvRows.push(headers.join(','));
+        
+        const values = headers.map(header => {
+            const val = data[header].replace(/"/g, '""'); // Escape quotes
+            return `"${val}"`;
+        });
+        csvRows.push(values.join(','));
+
+        const csvContent = csvRows.join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('href', url);
+        a.setAttribute('download', `ServiceRecord_${data.Client || 'Export'}.csv`);
+        a.click();
+    }
+</script>
+
+</body>
+</html>
