@@ -188,6 +188,39 @@
             .half-buttons { width: 100%; }
             .half-buttons .btn { flex: 1; }
         }
+
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
     </style>
 </head>
 <body>
@@ -202,6 +235,21 @@
             <!-- <a href="https://cv.beneverettgk.com" class="btn btn-cv">← Back to CV</a> -->
         </div>
     </header>
+
+    <div class="video-section">
+        <div class="video-label">
+            <span style="color: var(--sky-blue);">●</span> Featured: 2025 Goalkeeper Highlights
+        </div>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/1Tn1UmK_Syg" 
+                title="Ben Everett 2025 Goalkeeper Highlights" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
 
     <h2>Barbados U20 National Men's Team</h2>
     <div class="match-list">
