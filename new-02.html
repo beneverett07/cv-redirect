@@ -234,7 +234,7 @@
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
             body {
-                padding: 15px;
+                padding: 10px; /* Small outer padding */
             }
 
             .cv-container {
@@ -242,7 +242,12 @@
                 flex-direction: column;
             }
 
-            .sidebar-top, .sidebar-bottom {
+            .sidebar-top {
+                /* Reduced padding to allow image to nearly touch edges */
+                padding: 15px 15px 30px 15px; 
+            }
+            
+            .sidebar-bottom {
                 padding: 30px 25px;
             }
 
@@ -250,9 +255,14 @@
                 padding: 40px 25px;
             }
 
+            .profile-img-container {
+                margin-bottom: 15px; /* Closer to the nav pills */
+            }
+
             .profile-img {
-                max-width: 90%; /* Image fills almost the width of the screen */
-                margin: 0 auto;
+                width: 100%; 
+                max-width: 100%; /* Forces image to fill the container width */
+                margin: 0;
             }
 
             .header h1 {
@@ -267,16 +277,18 @@
             /* Nav Pills Display on Mobile */
             .mobile-nav {
                 display: block;
-                margin-top: 30px;
-                padding-top: 25px;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 0;
+                margin-bottom: 30px;
+                padding-top: 0;
+                border-top: none;
+                text-align: center; /* Center under the image */
             }
 
             .nav-label {
                 display: block;
                 color: #9ca3af;
-                font-size: 0.9rem;
-                margin-bottom: 12px;
+                font-size: 0.8rem; /* Smaller label */
+                margin-bottom: 8px;
                 text-transform: uppercase;
                 letter-spacing: 1px;
             }
@@ -284,15 +296,16 @@
             .nav-pills {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 10px;
+                justify-content: center;
+                gap: 6px; /* Tighter gap */
             }
 
             .nav-pills a {
                 background-color: var(--secondary-color);
                 color: #fff;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 0.9rem;
+                padding: 6px 12px; /* Smaller padding */
+                border-radius: 15px; /* Smaller pill shape */
+                font-size: 0.8rem; /* Smaller text */
                 font-weight: 500;
             }
 
@@ -333,18 +346,6 @@
             <img src="images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett" class="profile-img">
         </div>
 
-        <h2 id="sec-profile">PROFILE</h2>
-        <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
-
-        <h2 id="sec-details">DETAILS</h2>
-        <ul>
-            <li><strong>Date of birth:</strong> October 12, 2007</li>
-            <li><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</li>
-            <li><strong>Residence:</strong> Valencia, Spain 🇪🇸</li>
-            <li><strong>Height:</strong> 1.79m / 5'10.5"</li>
-            <li><strong>Weight:</strong> 74kg / 163lbs</li>
-        </ul>
-
         <div class="mobile-nav">
             <span class="nav-label">Go to...</span>
             <div class="nav-pills">
@@ -356,6 +357,18 @@
                 <a href="#sec-references">References</a>
             </div>
         </div>
+
+        <h2 id="sec-profile">PROFILE</h2>
+        <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
+
+        <h2 id="sec-details">DETAILS</h2>
+        <ul>
+            <li><strong>Date of birth:</strong> October 12, 2007</li>
+            <li><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</li>
+            <li><strong>Residence:</strong> Valencia, Spain 🇪🇸</li>
+            <li><strong>Height:</strong> 1.79m / 5'10.5"</li>
+            <li><strong>Weight:</strong> 74kg / 163lbs</li>
+        </ul>
     </div>
 
     <div class="main-content">
