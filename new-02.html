@@ -21,10 +21,14 @@
             margin: 0;
             padding: 40px;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
+        /* Desktop Grid Layout */
         .cv-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 35% 65%;
+            grid-template-rows: auto 1fr;
             max-width: 1200px;
             margin: 0 auto;
             background-color: #ffffff;
@@ -33,12 +37,21 @@
             overflow: hidden;
         }
 
-        /* Sidebar Styling */
-        .sidebar {
-            width: 35%;
+        /* Sidebar Styling Split for Layout Purposes */
+        .sidebar-top {
+            grid-column: 1;
+            grid-row: 1;
             background-color: var(--sidebar-bg);
             color: var(--sidebar-text);
-            padding: 40px 30px;
+            padding: 40px 30px 10px 30px;
+        }
+
+        .sidebar-bottom {
+            grid-column: 1;
+            grid-row: 2;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 0 30px 40px 30px;
         }
 
         .profile-img-container {
@@ -51,10 +64,9 @@
             max-width: 325px;
             height: auto;
             object-fit: contain;
-            /* Removed border and border-radius so the transparent PNG dictates the shape */
         }
 
-        .sidebar h2 {
+        .sidebar-top h2, .sidebar-bottom h2 {
             color: var(--secondary-color);
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 8px;
@@ -65,17 +77,17 @@
             letter-spacing: 1px;
         }
 
-        .sidebar p, .sidebar ul {
+        .sidebar-top p, .sidebar-top ul, .sidebar-bottom ul {
             font-size: 0.95rem;
             margin-bottom: 10px;
         }
 
-        .sidebar ul {
+        .sidebar-top ul, .sidebar-bottom ul {
             list-style: none;
             padding: 0;
         }
 
-        .sidebar li {
+        .sidebar-top li, .sidebar-bottom li {
             margin-bottom: 4px;
         }
 
@@ -114,7 +126,7 @@
         }
 
         .social-group .contact-icon {
-            margin-right: 0; /* Reset margin for grouped icons */
+            margin-right: 0;
         }
 
         .contact-text {
@@ -134,7 +146,8 @@
         }
 
         .main-content {
-            width: 65%;
+            grid-column: 2;
+            grid-row: 1 / span 2;
             padding: 40px 50px;
         }
 
@@ -212,20 +225,118 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Navigation Pills (Hidden on Desktop) */
+        .mobile-nav {
+            display: none;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .cv-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar-top, .sidebar-bottom {
+                padding: 30px 25px;
+            }
+
+            .main-content {
+                padding: 40px 25px;
+            }
+
+            .profile-img {
+                max-width: 90%; /* Image fills almost the width of the screen */
+                margin: 0 auto;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header h3 {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            /* Nav Pills Display on Mobile */
+            .mobile-nav {
+                display: block;
+                margin-top: 30px;
+                padding-top: 25px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-label {
+                display: block;
+                color: #9ca3af;
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .nav-pills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-pills a {
+                background-color: var(--secondary-color);
+                color: #fff;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            /* Stack Table Rows on Mobile */
+            .career-table, .career-table tbody, .career-table tr, .career-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .career-table tr {
+                margin-bottom: 20px;
+                border-bottom: 1px solid #e5e7eb;
+                padding-bottom: 20px;
+            }
+
+            .career-table tr:last-child {
+                border-bottom: none;
+            }
+
+            .career-table td {
+                padding: 0;
+                border-bottom: none;
+            }
+
+            .date-col {
+                margin-bottom: 8px;
+                padding-right: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="cv-container">
-    <div class="sidebar">
+    
+    <div class="sidebar-top">
         <div class="profile-img-container">
             <img src="images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett" class="profile-img">
         </div>
 
-        <h2>PROFILE</h2>
+        <h2 id="sec-profile">PROFILE</h2>
         <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
 
-        <h2>DETAILS</h2>
+        <h2 id="sec-details">DETAILS</h2>
         <ul>
             <li><strong>Date of birth:</strong> October 12, 2007</li>
             <li><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</li>
@@ -234,62 +345,16 @@
             <li><strong>Weight:</strong> 74kg / 163lbs</li>
         </ul>
 
-        <h2>CONTACT</h2>
-        <div class="contact-wrapper">
-            <div class="contact-row">
-                <a href="https://wa.me/12462547443"><img src="images/WhatsApp-20x20-rs.png" alt="WhatsApp" class="contact-icon"></a>
-                <span class="contact-text">+1 (246) 254-7443</span>
+        <div class="mobile-nav">
+            <span class="nav-label">Go to...</span>
+            <div class="nav-pills">
+                <a href="#sec-profile">Profile</a>
+                <a href="#sec-details">Details</a>
+                <a href="#sec-career">Career</a>
+                <a href="#sec-contact">Contact</a>
+                <a href="#sec-video">Video</a>
+                <a href="#sec-references">References</a>
             </div>
-            <div class="contact-row">
-                <span class="emoji-icon">✉️</span>
-                <a href="mailto:ben@beneverettgk.com" class="contact-text">ben@beneverettgk.com</a>
-            </div>
-            <div class="contact-row">
-                <div class="social-group">
-        <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" alt="YouTube-BenEverettGK" class="contact-icon"></a>
-        <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" alt="Instagram-BenEverettGK" class="contact-icon"></a>
-        <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn-BenEverettGK" class="contact-icon"></a>
-        <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" alt="Facebook-BenEverettGK" class="contact-icon"></a>
-               </div>
-                <span class="contact-text">@beneverettgk</span>
-            </div>
-        </div>
-
-        <h2>VIDEO</h2>
-        <ul>
-            <li><strong>Highlight Video:</strong> <a href="https://highlights.beneverettgk.com">Click Here</a></li>
-            <li><strong>Full Match Videos:</strong> <a href="https://cv.beneverettgk.com/video.html">Click Here</a></li>
-        </ul>
-
-        <h2>REFERENCES</h2>
-        
-        <div class="reference-block">
-            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
-            Owner and Founder of KeeperStop.com<br>
-            <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
-            +1 (508) 221-6819
-        </div>
-
-        <div class="reference-block">
-            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
-            Assistant Coach, Kickstart Rush Men's 1st Team<br>
-            Physical Trainer, Barbados Men's National Team<br>
-            +1 (246) 844-9644
-        </div>
-
-        <div class="reference-block">
-            <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
-            Technical Director, Kickstart Rush FC<br>
-            <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
-            +1 (246) 825-0607
-        </div>
-
-        <div class="reference-block">
-            <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
-            Head Coach, Kickstart Rush Men's 1st Team<br>
-            Head Performance Coach, Become Elite Academy<br>
-            <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
-            +1 (246) 834-0847
         </div>
     </div>
 
@@ -299,7 +364,7 @@
             <h3>GOALKEEPER</h3>
         </div>
 
-        <h2>FOOTBALL CAREER</h2>
+        <h2 id="sec-career">FOOTBALL CAREER</h2>
         <table class="career-table">
             <tr>
                 <td class="date-col">Jan. 2026 - Present</td>
@@ -402,6 +467,67 @@
             </tr>
         </table>
     </div>
+
+    <div class="sidebar-bottom">
+        <h2 id="sec-contact">CONTACT</h2>
+        <div class="contact-wrapper">
+            <div class="contact-row">
+                <a href="https://wa.me/12462547443"><img src="images/WhatsApp-20x20-rs.png" alt="WhatsApp" class="contact-icon"></a>
+                <span class="contact-text">+1 (246) 254-7443</span>
+            </div>
+            <div class="contact-row">
+                <span class="emoji-icon">✉️</span>
+                <a href="mailto:ben@beneverettgk.com" class="contact-text">ben@beneverettgk.com</a>
+            </div>
+            <div class="contact-row">
+                <div class="social-group">
+                    <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" alt="YouTube-BenEverettGK" class="contact-icon"></a>
+                    <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" alt="Instagram-BenEverettGK" class="contact-icon"></a>
+                    <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn-BenEverettGK" class="contact-icon"></a>
+                    <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" alt="Facebook-BenEverettGK" class="contact-icon"></a>
+                </div>
+                <span class="contact-text">@beneverettgk</span>
+            </div>
+        </div>
+
+        <h2 id="sec-video">VIDEO</h2>
+        <ul>
+            <li><strong>Highlight Video:</strong> <a href="https://highlights.beneverettgk.com">Click Here</a></li>
+            <li><strong>Full Match Videos:</strong> <a href="https://cv.beneverettgk.com/video.html">Click Here</a></li>
+        </ul>
+
+        <h2 id="sec-references">REFERENCES</h2>
+        
+        <div class="reference-block">
+            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
+            Owner and Founder of KeeperStop.com<br>
+            <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
+            +1 (508) 221-6819
+        </div>
+
+        <div class="reference-block">
+            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
+            Assistant Coach, Kickstart Rush Men's 1st Team<br>
+            Physical Trainer, Barbados Men's National Team<br>
+            +1 (246) 844-9644
+        </div>
+
+        <div class="reference-block">
+            <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
+            Technical Director, Kickstart Rush FC<br>
+            <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
+            +1 (246) 825-0607
+        </div>
+
+        <div class="reference-block">
+            <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
+            Head Coach, Kickstart Rush Men's 1st Team<br>
+            Head Performance Coach, Become Elite Academy<br>
+            <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
+            +1 (246) 834-0847
+        </div>
+    </div>
+
 </div>
 
 </body>
