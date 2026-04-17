@@ -10,7 +10,7 @@
             --secondary-color: #10b981;
             --text-color: #333;
             --bg-color: #f3f4f6;
-            --sidebar-bg: #111827;
+            --sidebar-bg: #123769; /* Matched to PDF color */
             --sidebar-text: #f9fafb;
         }
 
@@ -54,16 +54,22 @@
             padding: 0 30px 40px 30px;
         }
 
+        /* Desktop Image Container */
         .profile-img-container {
             text-align: center;
-            margin-bottom: 30px;
+            /* Negative margins pull the image out to the edges */
+            margin-top: -25px; 
+            margin-left: -15px;
+            margin-right: -15px;
+            margin-bottom: 25px;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 325px;
+            max-width: 100%; /* No restrictions */
             height: auto;
             object-fit: contain;
+            display: block;
         }
 
         .sidebar-top h2, .sidebar-bottom h2 {
@@ -223,12 +229,14 @@
         /* Inline Row Override for bottom timeline items */
         .inline-row .career-date, 
         .inline-row .team-name {
-            display: inline;
-            margin-bottom: 0;
+            display: inline !important;
+            margin-bottom: 0 !important;
         }
 
-        .inline-row .career-date {
-            margin-right: 8px; /* Adds space between the date and the team name */
+        .inline-row .career-date::after {
+            content: " - ";
+            color: var(--text-color);
+            font-weight: normal;
         }
 
         .stats-list {
@@ -264,7 +272,7 @@
             }
 
             .sidebar-top {
-                padding: 15px 15px 15px 15px; 
+                padding: 15px; 
             }
             
             .sidebar-bottom {
@@ -275,8 +283,12 @@
                 padding: 20px 25px 40px 25px; 
             }
 
+            /* MOBILE IMAGE FIX: Pull to edges of the 15px padding */
             .profile-img-container {
-                margin-bottom: 10px; 
+                margin-top: -15px;
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-bottom: 15px; 
             }
 
             .profile-img {
@@ -317,10 +329,10 @@
 
             .nav-label {
                 display: block;
-                color: #fff;
+                color: #9ca3af;
                 font-size: 0.8rem;
                 margin-bottom: 5px; 
-                /* text-transform: uppercase; */
+                text-transform: uppercase;
                 letter-spacing: 1px;
             }
 
@@ -422,8 +434,18 @@
                 padding: 20px 30px !important;
             }
 
-            .profile-img-container { margin-bottom: 10px !important; }
-            .profile-img { max-width: 160px !important; }
+            /* --- PRINT IMAGE FIX --- */
+            .profile-img-container { 
+                margin-top: -10px !important; 
+                margin-left: -10px !important;
+                margin-right: -10px !important;
+                margin-bottom: 10px !important; 
+            }
+            
+            .profile-img { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+            }
             
             .desktop-header h1 { font-size: 2rem !important; margin-bottom: 0 !important; }
             .desktop-header h3 { font-size: 1rem !important; margin-bottom: 15px !important; }
@@ -579,7 +601,7 @@
                 <td>
                     <span class="career-date">Jun. 24-26, 2024</span>
                     <span class="team-name">NextUP Football Combine, Barbados</span>
-                    - 🏆 <strong>Goalkeeper Award</strong>
+                    🏆 <strong>Goalkeeper Award</strong>
                 </td>
             </tr>
             <tr class="inline-row">
