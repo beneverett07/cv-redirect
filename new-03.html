@@ -10,7 +10,7 @@
             --secondary-color: #10b981;
             --text-color: #333;
             --bg-color: #f3f4f6;
-            --sidebar-bg: #111827;
+            --sidebar-bg: #123769; /* Matched to PDF color */
             --sidebar-text: #f9fafb;
         }
 
@@ -220,6 +220,17 @@
             display: block;
         }
 
+        /* Inline Row Override for bottom timeline items */
+        .inline-row .career-date, 
+        .inline-row .team-name {
+            display: inline;
+            margin-bottom: 0;
+        }
+
+        .inline-row .career-date {
+            margin-right: 8px; /* Adds space between the date and the team name */
+        }
+
         .stats-list {
             margin: 4px 0 0 0;
             padding-left: 20px;
@@ -253,7 +264,7 @@
             }
 
             .sidebar-top {
-                padding: 15px 15px 15px 15px; /* Tightened bottom padding */
+                padding: 15px 15px 15px 15px; 
             }
             
             .sidebar-bottom {
@@ -261,11 +272,11 @@
             }
 
             .main-content {
-                padding: 20px 25px 40px 25px; /* Tightened top padding */
+                padding: 20px 25px 40px 25px; 
             }
 
             .profile-img-container {
-                margin-bottom: 10px; /* Tightened */
+                margin-bottom: 10px; 
             }
 
             .profile-img {
@@ -281,13 +292,13 @@
 
             .mobile-header {
                 display: block;
-                margin-bottom: 12px; /* Space between header and pills */
+                margin-bottom: 12px; 
             }
 
             .mobile-header h1 {
-                font-size: 1.7rem; /* Scaled down to fit on one line */
+                font-size: 1.7rem; 
                 letter-spacing: 1px;
-                color: #ffffff; /* Make readable against blue sidebar background */
+                color: #ffffff; 
             }
 
             .mobile-header h3 {
@@ -298,7 +309,7 @@
             .mobile-nav {
                 display: block;
                 margin-top: 0;
-                margin-bottom: 15px; /* Tightened from 30px */
+                margin-bottom: 15px; 
                 padding-top: 0;
                 border-top: none;
                 text-align: center;
@@ -308,7 +319,7 @@
                 display: block;
                 color: #9ca3af;
                 font-size: 0.8rem;
-                margin-bottom: 5px; /* Tightened */
+                margin-bottom: 5px; 
                 text-transform: uppercase;
                 letter-spacing: 1px;
             }
@@ -317,7 +328,7 @@
             .nav-pills {
                 display: grid;
                 grid-template-columns: repeat(3, auto);
-                gap: 5px; /* Tightened */
+                gap: 5px; 
                 justify-content: center;
                 max-width: 320px;
                 margin: 0 auto;
@@ -326,15 +337,15 @@
             .nav-pills a {
                 background-color: var(--secondary-color);
                 color: #fff;
-                padding: 5px 10px; /* Tightened padding inside buttons */
+                padding: 5px 10px; 
                 border-radius: 12px;
-                font-size: 0.75rem; /* Slightly smaller text */
+                font-size: 0.75rem; 
                 font-weight: 500;
                 text-align: center;
             }
 
             .sidebar-top h2 {
-                margin-top: 20px; /* Reduced spacing before 'PROFILE' */
+                margin-top: 20px; 
             }
 
             .career-table, .career-table tbody, .career-table tr, .career-table td {
@@ -362,7 +373,6 @@
         /* --- PRINT STYLES FOR SINGLE PAGE PDF --- */
         @media print {
             @page {
-                /* Removed 'size' declaration to restore print scaling options */
                 margin: 0.5cm;
             }
 
@@ -436,7 +446,7 @@
             .career-table td { 
                 display: table-cell !important; 
                 border-bottom: 1px solid #e5e7eb !important; 
-                padding: 5px 0 !important; /* Squished to accommodate stacking text */
+                padding: 5px 0 !important; 
             }
             
             .career-date {
@@ -564,50 +574,51 @@
                     </ul>
                 </td>
             </tr>
-            <tr>
+            
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Jun. 24-26, 2024</span>
                     <span class="team-name">NextUP Football Combine, Barbados</span>
-                    Goalkeeper Award
+                    - Goalkeeper Award
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Apr. 2024</span>
                     <span class="team-name">35th Barbados Cup, Kickstart Rush U17, Champions, GK</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Jan. 2024</span>
                     <span class="team-name">Barbados U20 National Men's Team, Provisional Squad, GK (age 16)</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Nov. 2023</span>
                     <span class="team-name">International Rush Cup, FL - Kickstart Rush U16, 3rd Place</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Aug. 2023</span>
                     <span class="team-name">South Rush Cup, LA, GK, U19 Champions (age 15)</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Jan. 2023 - Dec. 2024</span>
                     <span class="team-name">Kickstart Rush U17, GK</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Jan. 2021 - Dec. 2022</span>
                     <span class="team-name">Kickstart Rush U15, CB, RB</span>
                 </td>
             </tr>
-            <tr>
+            <tr class="inline-row">
                 <td>
                     <span class="career-date">Jan. 2016 - Dec. 2020</span>
                     <span class="team-name">Kickstart Rush U9-U13, GK</span>
