@@ -151,20 +151,33 @@
             padding: 40px 50px;
         }
 
-        .header h1 {
+        /* Header Styling */
+        .desktop-header h1, .mobile-header h1 {
             color: var(--primary-color);
-            font-size: 3rem;
             margin: 0 0 5px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .header h3 {
+        .desktop-header h3, .mobile-header h3 {
             color: var(--secondary-color);
-            font-size: 1.5rem;
             margin: 0 0 40px 0;
             text-transform: uppercase;
             letter-spacing: 3px;
+        }
+
+        .desktop-header h1 {
+            font-size: 3rem;
+        }
+
+        .desktop-header h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Hide mobile header by default */
+        .mobile-header {
+            display: none; 
+            text-align: center;
         }
 
         .main-content h2 {
@@ -240,7 +253,7 @@
             }
 
             .sidebar-top {
-                padding: 15px 15px 30px 15px; 
+                padding: 15px 15px 15px 15px; /* Tightened bottom padding */
             }
             
             .sidebar-bottom {
@@ -248,11 +261,11 @@
             }
 
             .main-content {
-                padding: 40px 25px;
+                padding: 20px 25px 40px 25px; /* Tightened top padding */
             }
 
             .profile-img-container {
-                margin-bottom: 15px;
+                margin-bottom: 10px; /* Tightened */
             }
 
             .profile-img {
@@ -261,19 +274,31 @@
                 margin: 0;
             }
 
-            .header h1 {
-                font-size: 2.2rem;
+            /* Display Mobile Header / Hide Desktop Header */
+            .desktop-header {
+                display: none;
             }
 
-            .header h3 {
-                font-size: 1.2rem;
-                margin-bottom: 30px;
+            .mobile-header {
+                display: block;
+                margin-bottom: 12px; /* Space between header and pills */
+            }
+
+            .mobile-header h1 {
+                font-size: 1.7rem; /* Scaled down to fit on one line */
+                letter-spacing: 1px;
+                color: #ffffff; /* Make readable against blue sidebar background */
+            }
+
+            .mobile-header h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0;
             }
 
             .mobile-nav {
                 display: block;
                 margin-top: 0;
-                margin-bottom: 30px;
+                margin-bottom: 15px; /* Tightened from 30px */
                 padding-top: 0;
                 border-top: none;
                 text-align: center;
@@ -283,16 +308,16 @@
                 display: block;
                 color: #9ca3af;
                 font-size: 0.8rem;
-                margin-bottom: 8px;
+                margin-bottom: 5px; /* Tightened */
                 text-transform: uppercase;
                 letter-spacing: 1px;
             }
 
-            /* Displayed in exactly two rows using grid */
+            /* Nav pills layout */
             .nav-pills {
                 display: grid;
                 grid-template-columns: repeat(3, auto);
-                gap: 8px;
+                gap: 5px; /* Tightened */
                 justify-content: center;
                 max-width: 320px;
                 margin: 0 auto;
@@ -301,11 +326,15 @@
             .nav-pills a {
                 background-color: var(--secondary-color);
                 color: #fff;
-                padding: 6px 12px;
-                border-radius: 15px;
-                font-size: 0.8rem;
+                padding: 5px 10px; /* Tightened padding inside buttons */
+                border-radius: 12px;
+                font-size: 0.75rem; /* Slightly smaller text */
                 font-weight: 500;
                 text-align: center;
+            }
+
+            .sidebar-top h2 {
+                margin-top: 20px; /* Reduced spacing before 'PROFILE' */
             }
 
             .career-table, .career-table tbody, .career-table tr, .career-table td {
@@ -333,7 +362,7 @@
         /* --- PRINT STYLES FOR SINGLE PAGE PDF --- */
         @media print {
             @page {
-                size: letter portrait;
+                /* Removed 'size' declaration to restore print scaling options */
                 margin: 0.5cm;
             }
 
@@ -342,8 +371,12 @@
                 print-color-adjust: exact !important;
             }
 
-            .pdf-btn, .mobile-nav {
+            .pdf-btn, .mobile-nav, .mobile-header {
                 display: none !important;
+            }
+
+            .desktop-header {
+                display: block !important;
             }
 
             body {
@@ -382,8 +415,8 @@
             .profile-img-container { margin-bottom: 10px !important; }
             .profile-img { max-width: 160px !important; }
             
-            .header h1 { font-size: 2rem !important; margin-bottom: 0 !important; }
-            .header h3 { font-size: 1rem !important; margin-bottom: 15px !important; }
+            .desktop-header h1 { font-size: 2rem !important; margin-bottom: 0 !important; }
+            .desktop-header h3 { font-size: 1rem !important; margin-bottom: 15px !important; }
             
             .sidebar-top h2, .sidebar-bottom h2, .main-content h2 {
                 font-size: 1.1rem !important;
@@ -429,6 +462,11 @@
             <img src="images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett" class="profile-img">
         </div>
 
+        <div class="mobile-header">
+            <h1>BENJAMIN EVERETT</h1>
+            <h3>GOALKEEPER</h3>
+        </div>
+
         <div class="mobile-nav">
             <span class="nav-label">Go to...</span>
             <div class="nav-pills">
@@ -455,7 +493,7 @@
     </div>
 
     <div class="main-content">
-        <div class="header">
+        <div class="desktop-header">
             <h1>BENJAMIN EVERETT</h1>
             <h3>GOALKEEPER</h3>
         </div>
@@ -622,7 +660,7 @@
             <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
             +1 (246) 834-0847
         </div>
-      
+       
         <div class="reference-block">
             <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
             Owner and Founder of KeeperStop.com<br>
