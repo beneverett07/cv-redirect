@@ -117,7 +117,7 @@
     .inline-row .team-name { font-size: 0.95rem !important; }
 
     /* --- Contact & References --- */
-    .contact-wrapper { display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem; }
+    .contact-wrapper { display: flex; flex-direction: column; gap: 2px; font-size: 0.95rem; }
     .contact-row { display: flex; align-items: center; }
     .contact-icon { width: 24px; height: 24px; margin-right: 12px; object-fit: contain; }
     .emoji-icon { font-size: 20px; width: 24px; margin-right: 12px; text-align: center; display: inline-block; }
@@ -126,7 +126,12 @@
 
     .reference-block { margin-bottom: 20px; font-size: 0.9rem; }
     .reference-name { font-weight: bold; color: var(--secondary-color); }
-
+    
+    /* --- Video List --- */
+    .video-list {
+        line-height: 1.5; /* Standard is usually 1.5, increase this number for more gap */
+    }
+    
     /* --- Navigation (Mobile Only) --- */
     .mobile-header, .mobile-nav { display: none; }
 
@@ -262,7 +267,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <span class="career-date">Jan. - May. 2025</span>
+                        <span class="career-date">Jan. - May 2025</span>
                         <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League</span>
                         <ul class="stats-list">
                             <li>6th Place, 11 appearances, 2x Clean Sheet, 67% Save Percentage (40/60 shots)</li>
@@ -358,7 +363,7 @@
                 <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
                     <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
                         <li>Introduction to Grassroots Coaching - Apr. 2025</li>
-                        <li>Introduction to Safe and Healthy Playing Environments - May. 2025</li>
+                        <li>Introduction to Safe and Healthy Playing Environments - May 2025</li>
                         <li>Grassroots 4v4 Online Coaching License - May 2025</li>
                         <li>Grassroots 7v7 Online Coaching License - Jul. 2025</li>
                         <li>Grassroots 9v9 Online Coaching License - Nov. 2025</li>
@@ -399,7 +404,7 @@
         </div>
 
         <h2 id="sec-video">VIDEO</h2>
-        <ul>
+        <ul class="video-list">
             <li><strong>Highlight Video:</strong> <a href="https://highlights.beneverettgk.com">Click Here</a></li>
             <li><strong>Full Match Videos:</strong> <a href="https://cv.beneverettgk.com/video.html">Click Here</a></li>
         </ul>
