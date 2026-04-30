@@ -29,7 +29,7 @@
     .cv-container {
         display: grid;
         grid-template-columns: 65% 35%;
-        grid-template-rows: auto auto; /* Adjusted for extra sections */
+        grid-template-rows: auto auto;
         max-width: 1200px;
         margin: 0 auto;
         background-color: #ffffff;
@@ -53,7 +53,6 @@
     .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 10px; }
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
 
-    /* Positions Coaching/Education under Career on desktop */
     @media (min-width: 769px) {
         .extra-sections {
             grid-column: 1;
@@ -112,7 +111,6 @@
     .team-name { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 4px; line-height: 1.2;}
     .stats-list { margin: 4px 0 0 0; padding-left: 20px; font-size: 0.95rem; color: #4b5563; }
 
-    /* Tightened Inline Rows for Football Career */
     .inline-row td { padding: 2px 0 !important; }
     .inline-row .career-date, .inline-row .team-name { display: inline !important; line-height: 1.2 !important; }
     .inline-row .career-date::after { content: " - "; color: var(--text-color); font-weight: normal; margin: 0 4px; }
@@ -140,7 +138,7 @@
         .main-content { padding: 20px 25px 0 25px; order: 1; }
         .sidebar-top { padding: 15px 25px; order: 2; }
         .sidebar-bottom { padding: 15px 25px; order: 3; }
-        .extra-sections { padding: 20px 25px 40px 25px; order: 4; } /* Appears last on mobile */
+        .extra-sections { padding: 20px 25px 40px 25px; order: 4; }
 
         .profile-img-container { margin: -15px -15px 5px -15px; }
         .desktop-header { display: none; }
@@ -233,9 +231,7 @@
                 <td>
                     <span class="career-date">Feb. 24 - Mar. 4 2026</span>
                     <span class="team-name">Barbados U20 National Men's Team</span>
-                    <ul class="stats-list">
-                        <li>Concacaf U20 Qualifiers, Costa Rica, 3 Caps as starting GK</li>
-                    </ul>
+                    Concacaf U20 Qualifiers, Costa Rica, 3 Caps as starting GK
                 </td>
             </tr>
             <tr>
@@ -270,31 +266,48 @@
             <tr>
                 <td>
                     <span class="career-date">Jan. - Nov. 2024</span>
-                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League & Reserve League</span>
+                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League & Reserve League, & The Prime Minister's Cup</span>
                     <ul class="stats-list">
                         <li>BFA Premier League debut, age 16 - Jan 2024</li>
                         <li>11 appearances, 3x clean sheets</li>
+                        <li>3rd Place in Premier League, 4th Place in The Prime Minister's Cup</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="career-date">Jan. - Nov. 2023</span>
+                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Div. 1 & Champions Cup</span>
+                    <ul class="stats-list">
+                        <li>BFA Div. 1 debut, age 15 - Apr 2023</li>
+                        <li>10 appearances, 3x clean sheets</li>
+                        <li>2nd Place in Div. 1, Promoted to Premier League</li>
                     </ul>
                 </td>
             </tr>
             <tr class="inline-row">
-                <td>
-                    <span class="career-date">Jun. 2024</span>
-                    <span class="team-name">NextUP Football Combine, Barbados</span>
-                    🏆 <strong>Goalkeeper Award</strong>
-                </td>
+                <td><span class="career-date">Jun. 24-26, 2024</span> <span class="team-name">NextUP Football Combine, Barbados</span> 🏆 <strong>GK Award</strong></td>
             </tr>
             <tr class="inline-row">
-                <td>
-                    <span class="career-date">Apr. 2024</span>
-                    <span class="team-name">35th Barbados Cup, Kickstart Rush U17, Champions, GK</span>
-                </td>
+                <td><span class="career-date">Apr. 2024</span> <span class="team-name">35th Barbados Cup, Kickstart Rush U17, Champions, GK</span></td>
             </tr>
             <tr class="inline-row">
-                <td>
-                    <span class="career-date">Jan. 2016 - Dec. 2020</span>
-                    <span class="team-name">Kickstart Rush U9-U13, GK</span>
-                </td>
+                <td><span class="career-date">Jan. 2024</span> <span class="team-name">Barbados U20 National Team, Provisional Squad, GK</span></td>
+            </tr>
+            <tr class="inline-row">
+                <td><span class="career-date">Nov. 2023</span> <span class="team-name">International Rush Cup, FL - Kickstart Rush U16, 3rd Place</span></td>
+            </tr>
+            <tr class="inline-row">
+                <td><span class="career-date">Aug. 2023</span> <span class="team-name">South Rush Cup, LA, GK, U19 Champions (age 15)</span></td>
+            </tr>
+            <tr class="inline-row">
+                <td><span class="career-date">Jan. 2023 - Dec. 2024</span> <span class="team-name">Kickstart Rush U17, GK</span></td>
+            </tr>
+            <tr class="inline-row">
+                <td><span class="career-date">Jan. 2021 - Dec. 2022</span> <span class="team-name">Kickstart Rush U15, CB, RB</span></td>
+            </tr>
+            <tr class="inline-row">
+                <td><span class="career-date">Jan. 2016 - Dec. 2020</span> <span class="team-name">Kickstart Rush U9-U13, GK</span></td>
             </tr>
         </table>
     </div>
@@ -315,6 +328,7 @@
                     <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" alt="YouTube" class="contact-icon"></a>
                     <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" alt="Instagram" class="contact-icon"></a>
                     <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn" class="contact-icon"></a>
+                    <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" alt="Facebook" class="contact-icon"></a>
                 </div>
                 <span class="contact-text">@beneverettgk</span>
             </div>
@@ -330,13 +344,27 @@
         <div class="reference-block">
             <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
             Technical Director, Kickstart Rush FC<br>
+            Head Coach, Kickstart Rush Men's 1st Team<br>
             <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
             +1 (246) 825-0607
         </div>
         <div class="reference-block">
             <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
             Head Performance Coach, Become Elite Academy<br>
+            <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
             +1 (246) 834-0847
+        </div>
+        <div class="reference-block">
+            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
+            Owner and Founder of KeeperStop.com<br>
+            <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
+            +1 (508) 221-6819
+        </div>
+        <div class="reference-block">
+            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
+            Assistant Coach, Kickstart Rush Men's 1st Team<br>
+            Physical Trainer, Barbados Men's National Team<br>
+            +1 (246) 844-9644
         </div>
     </div>
 
@@ -351,14 +379,16 @@
 
         <h2 id="sec-certs">COACHING CERTIFICATIONS</h2>
         <ul class="stats-list" style="padding-left: 20px; list-style-type: disc;">
-            <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
+            <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846" target="_blank">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
                 <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
                     <li>Introduction to Grassroots Coaching - Apr. 2025</li>
                     <li>Introduction to Safe and Healthy Playing Environments - May. 2025</li>
-                    <li>Grassroots 4v4/7v7/9v9 Online Coaching Licenses - 2025</li>
+                    <li>Grassroots 4v4 Online Coaching License - May 2025</li>
+                    <li>Grassroots 7v7 Online Coaching License - Jul. 2025</li>
+                    <li>Grassroots 9v9 Online Coaching License - Nov. 2025</li>
                 </ul>
             </li>
-            <li style="margin-top: 10px;"><a href="https://thelocker.coach.ca/access/account/public">Coaching Association of Canada, NCCP# 7006931</a><br>
+            <li style="margin-top: 10px;"><a href="https://thelocker.coach.ca/access/account/public" target="_blank">Coaching Association of Canada, NCCP# 7006931</a><br>
                 National Coaching Certification Program Level 1 – Jul. 2025</li>
         </ul>
 
@@ -368,6 +398,7 @@
             <li>AIP Language Institute, Valencia, Spain – Spanish – Jan. 2026 – Present</li>
         </ul>
     </div>
+</div>
 
-</div> </body>
+</body>
 </html>
