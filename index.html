@@ -32,7 +32,8 @@
         grid-template-rows: auto auto;
         max-width: 1200px;
         margin: 0 auto;
-        background-color: #ffffff;
+        /* The container itself is dark blue to seamlessly fill any gaps in the right column */
+        background-color: var(--sidebar-bg); 
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         overflow: hidden;
     }
@@ -41,11 +42,12 @@
         grid-column: 1;
         grid-row: 1;
         padding: 40px 50px 0 50px;
+        background-color: #ffffff; /* Explicitly white to contrast the container */
     }
 
     .sidebar-top, .sidebar-bottom {
         grid-column: 2;
-        background-color: var(--sidebar-bg);
+        background-color: transparent; /* Allows container background to show through */
         color: var(--sidebar-text);
         padding: 0 30px;
     }
@@ -53,11 +55,13 @@
     .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 10px; }
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
 
+    /* Extra Sections (Coaching, etc) */
     @media (min-width: 769px) {
         .extra-sections {
             grid-column: 1;
             grid-row: 2;
             padding: 0 50px 40px 50px;
+            background-color: #ffffff; /* Explicitly white */
         }
     }
 
@@ -111,6 +115,7 @@
     .team-name { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 4px; line-height: 1.2;}
     .stats-list { margin: 4px 0 0 0; padding-left: 20px; font-size: 0.95rem; color: #4b5563; }
 
+    /* Tightened Inline Rows for Football Career */
     .inline-row td { padding: 2px 0 !important; }
     .inline-row .career-date, .inline-row .team-name { display: inline !important; line-height: 1.2 !important; }
     .inline-row .career-date::after { content: " - "; color: var(--text-color); font-weight: normal; margin: 0 4px; }
@@ -134,10 +139,12 @@
     /* --- Mobile Styles --- */
     @media (max-width: 768px) {
         body { padding: 10px; }
-        .cv-container { display: flex; flex-direction: column; }
-        .main-content { padding: 20px 25px 0 25px; order: 1; }
-        .sidebar-top { padding: 15px 25px; order: 2; }
-        .sidebar-bottom { padding: 15px 25px; order: 3; }
+        .cv-container { display: flex; flex-direction: column; background-color: #ffffff; }
+        
+        /* Flex Order controls the exact stack flow on mobile */
+        .sidebar-top { padding: 15px 25px; order: 1; background-color: var(--sidebar-bg); }
+        .main-content { padding: 20px 25px 0 25px; order: 2; }
+        .sidebar-bottom { padding: 15px 25px; order: 3; background-color: var(--sidebar-bg); }
         .extra-sections { padding: 20px 25px 40px 25px; order: 4; }
 
         .profile-img-container { margin: -15px -15px 5px -15px; }
@@ -160,9 +167,12 @@
     @media print {
         @page { margin: 0.5cm; }
         body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
-        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; }
-        .main-content { padding: 15px 25px !important; }
-        .sidebar-top, .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; }
+        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; background: #fff !important; }
+        .main-content { padding: 15px 25px !important; grid-row: 1 !important; }
+        .extra-sections { padding: 0 25px 15px 25px !important; grid-row: 2 !important; }
+        .sidebar-top { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-row: 1 !important; }
+        .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-row: 2 !important; }
+        
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
         .inline-row td { padding: 1px 0 !important; }
         .desktop-header h1 { font-size: 2rem !important; }
