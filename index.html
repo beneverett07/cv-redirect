@@ -29,19 +29,18 @@
     .cv-container {
         display: grid;
         grid-template-columns: 65% 35%;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto; /* Adjusted for extra sections */
         max-width: 1200px;
         margin: 0 auto;
         background-color: #ffffff;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        /* border-radius: 16px; */
         overflow: hidden;
     }
 
     .main-content {
         grid-column: 1;
-        grid-row: 1 / span 2;
-        padding: 40px 50px;
+        grid-row: 1;
+        padding: 40px 50px 0 50px;
     }
 
     .sidebar-top, .sidebar-bottom {
@@ -53,6 +52,15 @@
 
     .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 10px; }
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
+
+    /* Positions Coaching/Education under Career on desktop */
+    @media (min-width: 769px) {
+        .extra-sections {
+            grid-column: 1;
+            grid-row: 2;
+            padding: 0 50px 40px 50px;
+        }
+    }
 
     /* --- Components & Typography --- */
     .profile-img-container {
@@ -72,11 +80,11 @@
     .desktop-header h1 { color: var(--primary-color); font-size: 2.5rem; margin: 0; letter-spacing: 2px; }
     .desktop-header h3 { color: var(--secondary-color); font-size: 1.75rem; margin: 0 0 40px 0; letter-spacing: 3px; }
 
-    .main-content h2 {
+    h2 {
         color: var(--primary-color);
         border-bottom: 3px solid var(--primary-color);
         padding-bottom: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
         letter-spacing: 1px;
     }
 
@@ -96,7 +104,7 @@
     a:hover { text-decoration: underline; }
 
     /* --- Football Career Table --- */
-    .career-table { width: 100%; border-collapse: collapse; }
+    .career-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
     .career-table td { padding: 12px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
     .career-table tr:last-child td { border-bottom: none; }
 
@@ -129,10 +137,12 @@
     @media (max-width: 768px) {
         body { padding: 10px; }
         .cv-container { display: flex; flex-direction: column; }
-        .main-content { padding: 20px 25px 40px 25px; }
-        .sidebar-top, .sidebar-bottom { padding: 15px 25px; }
+        .main-content { padding: 20px 25px 0 25px; order: 1; }
+        .sidebar-top { padding: 15px 25px; order: 2; }
+        .sidebar-bottom { padding: 15px 25px; order: 3; }
+        .extra-sections { padding: 20px 25px 40px 25px; order: 4; } /* Appears last on mobile */
+
         .profile-img-container { margin: -15px -15px 5px -15px; }
-        
         .desktop-header { display: none; }
         .mobile-header { display: block; text-align: center; margin-bottom: 8px; }
         .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.2; }
@@ -241,7 +251,7 @@
             <tr>
                 <td>
                     <span class="career-date">Jun. - Jul. 2025</span>
-                    <span class="team-name">Kickstart Rush Men's 1st Team, Barbados Football Association (BFA) Champions Cup</span>
+                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Champions Cup</span>
                     <ul class="stats-list">
                         <li>2nd Place, 5 appearances, 1x Clean Sheet, 78% Save Percentage (14/18 shots), 1x Penalty Save, 4x Penalty Shootout Saves</li>
                         <li>🏆 <strong>2025 BFA Champion's Cup Best Goalkeeper Award</strong></li>
@@ -260,29 +270,16 @@
             <tr>
                 <td>
                     <span class="career-date">Jan. - Nov. 2024</span>
-                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League & Reserve League, & The Prime Minister's Cup</span>
+                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League & Reserve League</span>
                     <ul class="stats-list">
                         <li>BFA Premier League debut, age 16 - Jan 2024</li>
                         <li>11 appearances, 3x clean sheets</li>
-                        <li>3rd Place in Premier League, 4th Place in The Prime Minister's Cup</li>
                     </ul>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <span class="career-date">Jan. - Nov. 2023</span>
-                    <span class="team-name">Kickstart Rush Men's 1st Team, BFA Div. 1 & Champions Cup</span>
-                    <ul class="stats-list">
-                        <li>BFA Div. 1 debut, age 15 - Apr 2023</li>
-                        <li>10 appearances, 3x clean sheets</li>
-                        <li>2nd Place in Div. 1, Promoted to Premier League</li>
-                    </ul>
-                </td>
-            </tr>
-            
             <tr class="inline-row">
                 <td>
-                    <span class="career-date">Jun. 24-26, 2024</span>
+                    <span class="career-date">Jun. 2024</span>
                     <span class="team-name">NextUP Football Combine, Barbados</span>
                     🏆 <strong>Goalkeeper Award</strong>
                 </td>
@@ -295,71 +292,11 @@
             </tr>
             <tr class="inline-row">
                 <td>
-                    <span class="career-date">Jan. 2024</span>
-                    <span class="team-name">Barbados U20 National Men's Team, Provisional Squad, GK (age 16)</span>
-                </td>
-            </tr>
-            <tr class="inline-row">
-                <td>
-                    <span class="career-date">Nov. 2023</span>
-                    <span class="team-name">International Rush Cup, FL - Kickstart Rush U16, 3rd Place</span>
-                </td>
-            </tr>
-            <tr class="inline-row">
-                <td>
-                    <span class="career-date">Aug. 2023</span>
-                    <span class="team-name">South Rush Cup, LA, GK, U19 Champions (age 15)</span>
-                </td>
-            </tr>
-            <tr class="inline-row">
-                <td>
-                    <span class="career-date">Jan. 2023 - Dec. 2024</span>
-                    <span class="team-name">Kickstart Rush U17, GK</span>
-                </td>
-            </tr>
-            <tr class="inline-row">
-                <td>
-                    <span class="career-date">Jan. 2021 - Dec. 2022</span>
-                    <span class="team-name">Kickstart Rush U15, CB, RB</span>
-                </td>
-            </tr>
-            <tr class="inline-row">
-                <td>
                     <span class="career-date">Jan. 2016 - Dec. 2020</span>
                     <span class="team-name">Kickstart Rush U9-U13, GK</span>
                 </td>
             </tr>
         </table>
-
-<h2 id="sec-coaching-career">COACHING CAREER</h2>
-<ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
-    <li>U9 Head Coach – Kickstart Rush FC – Sep. 2024 – Dec. 2025</li>
-    <li>Youth GK Coach – Kickstart Rush FC – Jan. 2025 – Dec. 2025</li>
-    <li>U9–U13 GK Coach – Joshua James Goalkeeping School – Sep. 2024 – Dec. 2025</li>
-    <li>U17 Assistant Coach – Kickstart Rush FC – Jan. 2025 – Jul. 2025</li>
-</ul>
-
-<h2 id="sec-coaching-certs">COACHING CERTIFICATIONS</h2>
-<ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
-    <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
-        <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
-            <li>Introduction to Grassroots Coaching - Apr. 2025</li>
-            <li>Introduction to Safe and Healthy Playing Environments - May. 2025</li>
-            <li>Grassroots 4v4 Online Coaching License - May 2025</li>
-            <li>Grassroots 7v7 Online Coaching License - Jul. 2025</li>
-            <li>Grassroots 9v9 Online Coaching License - Nov. 2025</li>
-        </ul>
-    </li>
-    <li><a href="https://thelocker.coach.ca/access/account/public">Coaching Association of Canada, NCCP# 7006931</a><br>
-        National Coaching Certification Program Level 1 – Jul. 2025</li>
-</ul>
-
-<h2 id="sec-education">EDUCATION</h2>
-<ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
-    <li>Homeschooled – grad year 2026</li>
-    <li>AIP Language Institute, Valencia, Spain – Spanish – Jan. 2026 – Present</li>
-</ul>
-      
     </div>
 
     <div class="sidebar-bottom">
@@ -375,10 +312,9 @@
             </div>
             <div class="contact-row">
                 <div class="social-group">
-                    <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" alt="YouTube-BenEverettGK" class="contact-icon"></a>
-                    <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" alt="Instagram-BenEverettGK" class="contact-icon"></a>
-                    <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn-BenEverettGK" class="contact-icon"></a>
-                    <a href="https://www.facebook.com/beneverettgk"><img src="images/Facebook-20x20-rs.png" alt="Facebook-BenEverettGK" class="contact-icon"></a>
+                    <a href="https://www.youtube.com/@beneverettgk"><img src="images/YouTube-20x20-rs.png" alt="YouTube" class="contact-icon"></a>
+                    <a href="https://www.instagram.com/beneverettgk"><img src="images/Instagram-20x20-rs.png" alt="Instagram" class="contact-icon"></a>
+                    <a href="https://www.linkedin.com/in/beneverettgk"><img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn" class="contact-icon"></a>
                 </div>
                 <span class="contact-text">@beneverettgk</span>
             </div>
@@ -391,39 +327,47 @@
         </ul>
 
         <h2 id="sec-references">REFERENCES</h2>
-        
         <div class="reference-block">
             <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
             Technical Director, Kickstart Rush FC<br>
-            Head Coach, Kickstart Rush Men's 1st Team<br>
             <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
             +1 (246) 825-0607
         </div>
-
         <div class="reference-block">
             <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
             Head Performance Coach, Become Elite Academy<br>
-            <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
             +1 (246) 834-0847
         </div>
-       
-        <div class="reference-block">
-            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
-            Owner and Founder of KeeperStop.com<br>
-            <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
-            +1 (508) 221-6819
-        </div>
-
-        <div class="reference-block">
-            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
-            Assistant Coach, Kickstart Rush Men's 1st Team<br>
-            Physical Trainer, Barbados Men's National Team<br>
-            +1 (246) 844-9644
-        </div>
-
     </div>
 
-</div>
+    <div class="extra-sections">
+        <h2 id="sec-coaching">COACHING CAREER</h2>
+        <ul class="stats-list" style="padding-left: 20px; list-style-type: disc;">
+            <li>U9 Head Coach – Kickstart Rush FC – Sep. 2024 – Dec. 2025</li>
+            <li>Youth GK Coach – Kickstart Rush FC – Jan. 2025 – Dec. 2025</li>
+            <li>U9–U13 GK Coach – Joshua James Goalkeeping School – Sep. 2024 – Dec. 2025</li>
+            <li>U17 Assistant Coach – Kickstart Rush FC – Jan. 2025 – Jul. 2025</li>
+        </ul>
 
-</body>
+        <h2 id="sec-certs">COACHING CERTIFICATIONS</h2>
+        <ul class="stats-list" style="padding-left: 20px; list-style-type: disc;">
+            <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
+                <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
+                    <li>Introduction to Grassroots Coaching - Apr. 2025</li>
+                    <li>Introduction to Safe and Healthy Playing Environments - May. 2025</li>
+                    <li>Grassroots 4v4/7v7/9v9 Online Coaching Licenses - 2025</li>
+                </ul>
+            </li>
+            <li style="margin-top: 10px;"><a href="https://thelocker.coach.ca/access/account/public">Coaching Association of Canada, NCCP# 7006931</a><br>
+                National Coaching Certification Program Level 1 – Jul. 2025</li>
+        </ul>
+
+        <h2 id="sec-education">EDUCATION</h2>
+        <ul class="stats-list" style="padding-left: 20px; list-style-type: disc;">
+            <li>Homeschooled – grad year 2026</li>
+            <li>AIP Language Institute, Valencia, Spain – Spanish – Jan. 2026 – Present</li>
+        </ul>
+    </div>
+
+</div> </body>
 </html>
