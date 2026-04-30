@@ -4,236 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Archive | Benjamin Everett | Goalkeeper</title>
-    <style>
-        :root {
-            /* Softer palette inspired by the photo */
-            --sky-blue: #3b82f6;      /* From the sky and ball panels */
-            --turf-green: #10b981;    /* Softer, natural green from the background */
-            --bg-page: #f8fafc;       /* Very soft grey-blue background */
-            --bg-card: #ffffff;       /* Clean white for the links */
-            --text-dark: #073763ff;     /* dark blue 3 - was Slate grey (#334155) */
-            --text-muted: #64748b;    /* Lighter slate for dates */
-            --border-color: #e2e8f0;  /* Soft border for structure */
-        }
+<style>
+    :root {
+        /* Palette updated to match your CV colors */
+        --sky-blue: #3b82f6;      
+        --turf-green: #10b981;    
+        --bg-page: #f8fafc;       
+        --bg-card: #ffffff;       
+        --text-dark: #073763ff;   /* Primary Dark Blue */
+        --text-muted: #64748b;    
+        --border-color: #e2e8f0;  
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-        }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-page);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
 
-        /* NEW HEADER LAYOUT */
+    /* --- NEW CINEMATIC HEADER --- */
+    header {
+        position: relative;
+        display: flex;
+        align-items: flex-end; /* Places text at the bottom of the 16:9 frame */
+        min-height: 400px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        overflow: hidden;
+        background-image: url('images/ALI_1344.JPG'); 
+        background-size: cover;
+        background-position: center;
+    }
+
+    .header-overlay {
+        width: 100%;
+        /* Semi-transparent Dark Blue Overlay */
+        background: rgba(7, 55, 99, 0.7); 
+        padding: 25px 40px;
+        backdrop-filter: blur(4px); /* Premium glass effect */
+    }
+
+    .header-text h1 { 
+        color: #ffffff !important; 
+        font-size: 2.5rem;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    
+    .header-text p.subtitle { 
+        color: rgba(255, 255, 255, 0.9) !important; 
+        margin: 0;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    /* --- SECTION TITLES --- */
+    h2 { 
+        font-size: 1.2rem;
+        color: var(--sky-blue);
+        margin: 35px 0 15px 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+
+    h2::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 18px;
+        background-color: var(--turf-green);
+        margin-right: 10px;
+        border-radius: 2px;
+    }
+
+    /* --- MATCH LISTS --- */
+    .match-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .match-item {
+        background: var(--bg-card);
+        padding: 12px 16px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .match-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        border-color: #cbd5e1;
+    }
+
+    .match-info { flex: 1; }
+    .match-name { font-weight: 600; font-size: 1rem; display: block; color: var(--text-dark); }
+    .match-date { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; display: block; }
+
+    /* --- BUTTONS --- */
+    .btn {
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .btn-action { 
+        background-color: var(--bg-page); 
+        color: var(--sky-blue);
+        border: 1px solid var(--sky-blue);
+    }
+
+    .btn-action:hover {
+        background-color: var(--sky-blue);
+        color: #ffffff;
+    }
+
+    .half-buttons { display: flex; gap: 6px; }
+
+    /* --- RESPONSIVE VIDEO --- */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.263%; /* (768 / 1365) * 100 */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #000;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    .video-label {
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    footer {
+        margin-top: 50px; 
+        text-align: center; 
+        color: var(--text-muted); 
+        font-size: 0.8rem; 
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    /* --- MOBILE OPTIMIZATION --- */
+    @media (max-width: 600px) {
         header {
-            display: flex;
+            min-height: 220px; /* Optimized for iPhone SE */
             align-items: center;
-            gap: 30px; /* Space between image and text */
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 2px solid var(--border-color);
         }
-
-        /* Subtly feathered profile image */
-        .profile-img {
-            width: 150px; /* Slightly smaller for side-by-side */
+        .header-overlay {
+            padding: 15px 20px;
+            text-align: left;
             height: auto;
-            border-radius: 8px; 
-            flex-shrink: 0; /* Prevents the image from squishing */
-            
-            /* Tighter fade effect */
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
         }
-
-        .header-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        h1 { 
-            margin: 0 0 5px 0; 
-            font-size: 2rem; 
-            color: var(--text-dark);
-            font-weight: 700;
-            line-height: 1.1;
-        }
+        .header-text h1 { font-size: 1.6rem; }
+        .header-text p.subtitle { font-size: 0.9rem; }
         
-        p.subtitle { 
-            margin: 0 0 15px 0; 
-            color: var(--text-muted); 
-            font-size: 1.05rem; 
-        }
-
-        h2 { 
-            font-size: 1.2rem;
-            color: var(--sky-blue);
-            margin: 35px 0 15px 0;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Subtle left border line for section headers */
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 18px;
-            background-color: var(--turf-green);
-            margin-right: 10px;
-            border-radius: 2px;
-        }
-
-        .match-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px; /* Consistent spacing */
-        }
-
-        .match-item {
-            background: var(--bg-card);
-            padding: 12px 16px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .match-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-color: #cbd5e1;
-        }
-
-        .match-info { flex: 1; }
-        .match-name { font-weight: 600; font-size: 1rem; display: block; color: var(--text-dark); }
-        .match-date { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; display: block; }
-
-        .btn {
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            text-align: center;
-        }
-
-        /* Primary action button using the sky blue */
-        .btn-action { 
-            background-color: var(--bg-page); 
-            color: var(--sky-blue);
-            border: 1px solid var(--sky-blue);
-        }
-
-        .btn-action:hover {
-            background-color: var(--sky-blue);
-            color: #ffffff;
-        }
-
-        /* Back to CV button */
-        .btn-cv {
-            display: inline-block;
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            padding: 6px 14px;
-            font-size: 0.8rem;
-        }
-        
-        .btn-cv:hover {
-            background: var(--bg-page);
-            color: var(--text-dark);
-        }
-
-        .half-buttons { display: flex; gap: 6px; }
-
-        footer {
-            margin-top: 50px; 
-            text-align: center; 
-            color: var(--text-muted); 
-            font-size: 0.8rem; 
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            .header-text {
-                align-items: center;
-            }
-            .profile-img {
-                width: 130px;
-            }
-            .match-item { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .btn { width: 100%; box-sizing: border-box; }
-            .half-buttons { width: 100%; }
-            .half-buttons .btn { flex: 1; }
-        }
-
-        /* Responsive Video Container */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.263%; /* (768 / 1365) * 100 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .video-label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-    </style>
+        .match-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+        .btn { width: 100%; box-sizing: border-box; }
+        .half-buttons { width: 100%; }
+        .half-buttons .btn { flex: 1; }
+    }
+</style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <img src="/images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett profile image" class="profile-img">
-        
+    <div class="header-overlay">
         <div class="header-text">
             <h1>Benjamin Everett</h1>
             <p class="subtitle">Goalkeeper | Match Archive</p>
-            <!-- <a href="https://cv.beneverettgk.com" class="btn btn-cv">← Back to CV</a> -->
         </div>
+    </div>
     </header>
 
     <div class="video-section">
