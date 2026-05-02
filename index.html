@@ -159,22 +159,35 @@ h1, h2, h3 { text-transform: uppercase; }
     .reference-block { margin-bottom: 20px; font-size: 0.9rem; }
     .reference-name { font-weight: bold; color: var(--secondary-color); }
     
-    /* --- Video List --- */
-    .video-list {
-        line-height: 1.5; /* Standard is usually 1.5, increase this number for more gap */
-    }
-
+    /* --- Video Section --- */
     .video-thumbnail {
+        max-width: 100%;
         width: 100%;
         height: auto;
+        display: block;
         border-radius: 4px;
         margin-bottom: 2px;
-        border: 2px solid transparent;
+        /* Thicker 4px border, transparent while not hovered */
+        border: 4px solid transparent; 
         transition: border-color 0.2s ease;
+        /* Ensures border doesn't change the image's layout size */
+        box-sizing: border-box; 
     }
-    
+
+    .video-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .video-list li {
+        margin: 0;
+    }
+
     .thumbnail-link:hover .video-thumbnail {
-        border-color: var(--secondary-color); /* Adds a green border when hovered to show it's clickable */
+        /* Matches your green secondary color */
+        border-color: var(--secondary-color); 
     }
     
     /* --- Navigation (Mobile Only) --- */
@@ -526,7 +539,7 @@ h1, h2, h3 { text-transform: uppercase; }
         </a>
 
         <ul class="video-list">
-            <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos>Click Here</a></li>
+            <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos">Click Here</a></li>
         </ul>
         <a href="#top" class="back-to-top">↑ Back to menu</a>
 
