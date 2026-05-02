@@ -54,7 +54,7 @@
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
 
     .sidebar-top p { margin-bottom: 0; } /* Removes extra space above Contact */
-    #sec-profile { margin-top: 0; } /* Pulls the heading tight to the image */
+    #sec-profile { margin-top: 0 !important; padding-top: 5px; } /* Pulls the heading tight to the image */
 
     /* Space out the extra section on desktop */
     .extra-section {
@@ -178,7 +178,7 @@ h1, h2, h3 { text-transform: uppercase; }
         list-style: none;
         padding: 0;
         margin: 0;
-        line-height: 1.5;
+        line-height: 1.2;
     }
 
     .video-list li {
@@ -195,17 +195,23 @@ h1, h2, h3 { text-transform: uppercase; }
 
     /* --- Mobile Styles --- */
     @media screen and (max-width: 768px) {
-        body { padding: 10px; }
-        .cv-container { display: flex; flex-direction: column; }
+        body { padding: 0; } /* Remove body padding to let sidebar hit edges */
         
-        /* MAGIC REORDERING: Positions sections safely on mobile without breaking grid */
-        .sidebar-top { padding: 15px 25px; order: 1; }
-        .main-content { display: contents; } /* Unboxes the wrappers so they can be ordered independently */
-        .career-section { padding: 20px 25px 20px 25px; order: 2; }
-        .sidebar-bottom { padding: 15px 25px; order: 3; }
-        .extra-section { padding: 20px 25px 40px 25px; order: 4; }
+        .cv-container { 
+            display: flex; 
+            flex-direction: column; /* Stacks everything vertically */
+        }
+        
+        /* Ensure each section maintains its own padding and background */
+        .sidebar-top { order: 1; padding: 15px 25px; }
+        .career-section { order: 2; padding: 20px 25px; background: #fff; }
+        .sidebar-bottom { order: 3; padding: 15px 25px; }
+        .extra-section { order: 4; padding: 20px 25px 40px 25px; background: #fff; }
 
-        .profile-img-container { margin: -15px -15px 0 -15px; } /* Reduced bottom margin to 0 */
+        /* Remove the 'display: contents' that was causing the padding issues */
+        .main-content { display: block; padding: 0; } 
+
+        .profile-img-container { margin: -15px -15px 0 -15px; }
         
         .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
         
@@ -253,51 +259,51 @@ h1, h2, h3 { text-transform: uppercase; }
 
     /* --- Print Styles --- */
     @media print {
-        @page { 
-            margin: 0.25in; /* Forces the 0.25" margins */
-        }
+        @page { margin: 0.25in; }
         
         body { 
             padding: 0; 
             background: #fff !important; 
             font-size: 11px !important; 
             line-height: 1.2 !important; 
-            /*zoom: 0.66;*/ /* Forces Chrome/Safari to render at 66% scale */
         }
         
-        /* Force strict grid retention */
-        .cv-container { display: grid !important; grid-template-columns: 65% 35% !important; box-shadow: none !important; width: 100% !important; }
-        .main-content { display: block !important; padding: 15px 25px !important; grid-column: 1 !important; grid-row: 1 / span 2 !important; }
-        .sidebar-top { 
-            padding: 15px 25px 0 25px !important; 
-            background: var(--sidebar-bg) !important; 
-            color: #fff !important; 
-            grid-column: 2 !important; 
-            grid-row: 1 !important; /* Move to top row */
+        .cv-container { 
+            display: grid !important; 
+            grid-template-columns: 65% 35% !important; 
+            width: 100% !important; 
+            background: var(--sidebar-bg) !important; /* Forces sidebar color to the edge */
+            -webkit-print-color-adjust: exact; /* Crucial for Chrome/Safari to print colors */
         }
 
-        .sidebar-bottom { 
-            padding: 0 25px 15px 25px !important; 
+        .main-content { 
+            background: #fff !important;
+            padding: 15px 25px !important; 
+            grid-column: 1 !important; 
+            grid-row: 1 / span 10 !important; 
+        }
+
+        .sidebar-top, .sidebar-bottom { 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
-            grid-column: 2 !important; 
-            grid-row: 1 !important; /* Join the top row */
-            margin-top: 300px !important; /* This manually sets the gap below your photo/bio */
+            grid-column: 2 !important;
+            padding: 15px 25px !important;
+            -webkit-print-color-adjust: exact;
         }
-        /* Prevent awkward page breaks slicing through text */
-        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; page-break-inside: avoid; }
-        h2 { break-after: avoid; page-break-after: avoid; }
+
+        /* This specifically fixes your gap issue */
+        .sidebar-top { grid-row: 1 !important; padding-bottom: 0 !important; }
+        .sidebar-bottom { grid-row: 1 !important; margin-top: 230px !important; }
+
+        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; }
+        h2 { break-after: avoid; }
         
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
         .inline-row td { padding: 1px 0 !important; }
         
-        /* Clean up the new header for print */
-        .top-header-wrapper { margin-bottom: 15px !important; }
-        .header-titles h1 { font-size: 2rem !important; margin-bottom: 5px !important; }
-        .header-titles h3 { font-size: 1rem !important; }
-        .header-stat-bar { background-color: transparent !important; padding: 0 !important; margin-bottom: 15px !important; gap: 5px 15px !important; justify-content: center !important; }
-        
-        /* Hide all digital-only elements */
+        /* Ensure thumbnail fits in PDF */
+        .video-thumbnail { border: 2px solid #fff !important; max-width: 100% !important; }
+
         .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { display: none !important; }
     }
 </style>
@@ -548,12 +554,14 @@ h1, h2, h3 { text-transform: uppercase; }
         <h2 id="sec-video">VIDEO</h2>
 
         <ul class="video-list">
-            <li><strong>Highlight Video</strong></li>
+    <li><strong>Highlight Video</strong></li>
+    <li>
         <a href="https://highlights.beneverettgk.com" target="_blank" title="Watch Highlight Video" class="thumbnail-link">
             <img src="images/highlight_video_thumbnail.jpg" alt="Watch Highlight Video" class="video-thumbnail">
         </a>
-            <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos"><strong>Click Here</strong></a></li>
-        </ul>
+    </li>
+    <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos"><strong>Click Here</strong></a></li>
+    </ul>
         <a href="#top" class="back-to-top">↑ Back to menu</a>
 
 <h2 id="sec-references">REFERENCES</h2>
