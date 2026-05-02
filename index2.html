@@ -179,7 +179,7 @@ h1, h2, h3 { text-transform: uppercase; }
         .sidebar-bottom { padding: 15px 25px; order: 3; }
         .extra-section { padding: 20px 25px 40px 25px; order: 4; }
 
-        .profile-img-container { margin: -15px -15px 5px -15px; }
+        .profile-img-container { margin: -15px -15px 0 -15px; } /* Reduced bottom margin to 0 */
         
         .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
         
@@ -191,12 +191,12 @@ h1, h2, h3 { text-transform: uppercase; }
             gap: 5px;
         }
       
-        .mobile-header { display: block; text-align: center; margin-bottom: 8px; }
-        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.2; }
-        .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.2; }
+        .mobile-header { display: block; text-align: center; margin-bottom: 5px; } /* Tighter gap above "Go to..." */
+        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin: 0 0 2px 0; } /* Removes default gaps */
+        .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.1; margin: 0; }
 
         .mobile-nav { display: block; text-align: center; margin-bottom: 15px; }
-        .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 5px; }
+        .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; } /* Tighter gap above the nav pills */
         .nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
         .nav-pills a { background: var(--secondary-color); color: #fff; padding: 5px 10px; border-radius: 12px; font-size: 0.75rem; }
 
@@ -227,8 +227,17 @@ h1, h2, h3 { text-transform: uppercase; }
 
     /* --- Print Styles --- */
     @media print {
-        @page { margin: 0.5cm; }
-        body { padding: 0; background: #fff !important; font-size: 11px !important; line-height: 1.2 !important; }
+        @page { 
+            margin: 0.25in; /* Forces the 0.25" margins */
+        }
+        
+        body { 
+            padding: 0; 
+            background: #fff !important; 
+            font-size: 11px !important; 
+            line-height: 1.2 !important; 
+            zoom: 0.66; /* Forces Chrome/Safari to render at 66% scale */
+        }
         
         /* Force strict grid retention */
         .cv-container { display: grid !important; grid-template-columns: 65% 35% !important; box-shadow: none !important; width: 100% !important; }
