@@ -268,7 +268,7 @@ h1, h2, h3 { text-transform: uppercase; }
             background: #fff !important; 
             font-size: 11px !important; 
             line-height: 1.2 !important; 
-            zoom: 0.66; /* Forces Chrome/Safari to render at 66% scale */
+            /* zoom: 0.66; */ /* Forces Chrome/Safari to render at 66% scale */
             -webkit-print-color-adjust: exact;
         }
         
@@ -301,6 +301,15 @@ h1, h2, h3 { text-transform: uppercase; }
             color: #fff !important; 
             grid-column: 2 !important; 
             grid-row: 2 !important; 
+        }
+
+        .sidebar-top p {
+            margin-bottom: 0 !important; /* Kills the paragraph "push" */
+        }
+
+        .sidebar-top h2, .sidebar-bottom h2 {
+            margin-top: 12px !important;  /* Uniform gap above all headers */
+            margin-bottom: 8px !important; /* Uniform gap below all headers */
         }
         
         /* Prevent awkward page breaks slicing through text */
