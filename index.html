@@ -268,9 +268,22 @@ h1, h2, h3 { text-transform: uppercase; }
         /* Force strict grid retention */
         .cv-container { display: grid !important; grid-template-columns: 65% 35% !important; box-shadow: none !important; width: 100% !important; }
         .main-content { display: block !important; padding: 15px 25px !important; grid-column: 1 !important; grid-row: 1 / span 2 !important; }
-        .sidebar-top { padding: 15px 25px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-column: 2 !important; grid-row: 1 !important; }
-        .sidebar-bottom { padding: 15px 25px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-column: 2 !important; grid-row: 2 !important; }
-        
+        .sidebar-top { 
+            padding: 15px 25px 0 25px !important; 
+            background: var(--sidebar-bg) !important; 
+            color: #fff !important; 
+            grid-column: 2 !important; 
+            grid-row: 1 !important; /* Move to top row */
+        }
+
+        .sidebar-bottom { 
+            padding: 0 25px 15px 25px !important; 
+            background: var(--sidebar-bg) !important; 
+            color: #fff !important; 
+            grid-column: 2 !important; 
+            grid-row: 1 !important; /* Join the top row */
+            margin-top: 300px !important; /* This manually sets the gap below your photo/bio */
+        }
         /* Prevent awkward page breaks slicing through text */
         .career-table tr, .reference-block, .stats-list li { break-inside: avoid; page-break-inside: avoid; }
         h2 { break-after: avoid; page-break-after: avoid; }
