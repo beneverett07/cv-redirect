@@ -72,29 +72,24 @@
         object-fit: contain;
     }
 
-    h1, h2, h3 { text-transform: uppercase; }
+h1, h2, h3 { text-transform: uppercase; }
     
     .top-header-wrapper { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: flex-start; 
-        margin-bottom: 35px; 
+        margin-bottom: 15px; /* Tighter gap since stats are directly below */
     }
     .header-titles h1 { color: var(--primary-color); font-size: 2.5rem; margin: 0; letter-spacing: 2px; line-height: 1.1; }
     .header-titles h3 { color: var(--secondary-color); font-size: 1.75rem; margin: 0; letter-spacing: 3px; }
     
-    .header-details { 
-        text-align: right; 
-        transform: translateY(45px); /* Pushes the section down to align with the Career heading */
+    .header-stat-bar {
+        display: flex;
+        flex-wrap: wrap; /* Allows it to flow nicely on smaller screens */
+        gap: 10px 25px; /* Spaces out the items */
+        background-color: var(--bg-color); /* Light grey background block */
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin-bottom: 35px;
+        font-size: 0.9rem;
     }
-    .header-details h2 { 
-        margin: 0 0 5px 0 !important; 
-        padding: 0 !important; 
-        border: none !important; 
-        font-size: 1rem !important; 
-        letter-spacing: 1px; 
-    }
-    .header-details ul { margin: 0; padding: 0; }
 
     .main-content h2 {
         color: var(--primary-color);
@@ -168,17 +163,13 @@
 
         .profile-img-container { margin: -15px -15px 5px -15px; }
         
-        .header-titles { display: none; }
-        .header-details { 
-            text-align: left; 
-            margin-bottom: 25px; 
-            transform: none !important; /* Prevents it from being pushed down on mobile */
-        }
-        .header-details h2 { 
-            font-size: 1.2rem !important; 
-            border-bottom: 3px solid var(--primary-color) !important; 
-            padding-bottom: 5px !important; 
-            margin-bottom: 10px !important; 
+        .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
+        
+        .header-stat-bar { 
+            background-color: transparent; /* Removes grey box on mobile for a cleaner look */
+            padding: 0 0 20px 0; 
+            flex-direction: column; /* Stacks the stats vertically on phones */
+            gap: 5px;
         }
       
         .mobile-header { display: block; text-align: center; margin-bottom: 8px; }
@@ -217,7 +208,7 @@
         .header-titles h1 { font-size: 2rem !important; }
         .header-titles h3 { font-size: 1rem !important; }
         .pdf-btn, .mobile-nav, .mobile-header, .back-to-top { display: none !important; }
-        .header-details { transform: none !important; }
+        .header-stat-bar { background-color: transparent !important; padding: 0 !important; }
     }
 </style>
 </head>
@@ -262,16 +253,14 @@
                     <h1>BENJAMIN EVERETT</h1>
                     <h3>GOALKEEPER</h3>
                 </div>
-                <div class="header-details" id="sec-details">
-                    <h2>DETAILS</h2>
-                    <ul>
-                        <li><strong>Date of birth:</strong> October 12, 2007</li>
-                        <li><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</li>
-                        <li><strong>Residence:</strong> Valencia, Spain 🇪🇸</li>
-                        <li><strong>Height:</strong> 1.79m / 5'10.5"</li>
-                        <li><strong>Weight:</strong> 74kg / 163lbs</li>
-                    </ul>
-                </div>
+            </div>
+
+            <div class="header-stat-bar" id="sec-details">
+                <span><strong>Date of birth:</strong> October 12, 2007</span>
+                <span><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</span>
+                <span><strong>Residence:</strong> Valencia, Spain 🇪🇸</span>
+                <span><strong>Height:</strong> 1.79m / 5'10.5"</span>
+                <span><strong>Weight:</strong> 74kg / 163lbs</span>
             </div>
 
             <h2 id="sec-career">FOOTBALL CAREER</h2>
