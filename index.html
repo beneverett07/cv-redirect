@@ -266,42 +266,49 @@ h1, h2, h3 { text-transform: uppercase; }
             background: #fff !important; 
             font-size: 11px !important; 
             line-height: 1.2 !important; 
+            -webkit-print-color-adjust: exact;
         }
         
         .cv-container { 
             display: grid !important; 
             grid-template-columns: 65% 35% !important; 
             width: 100% !important; 
-            background: var(--sidebar-bg) !important; /* Forces sidebar color to the edge */
-            -webkit-print-color-adjust: exact; /* Crucial for Chrome/Safari to print colors */
+            background: var(--sidebar-bg) !important; 
         }
 
         .main-content { 
             background: #fff !important;
             padding: 15px 25px !important; 
             grid-column: 1 !important; 
-            grid-row: 1 / span 10 !important; 
+            grid-row: 1 / span 20 !important; /* Ensure it spans the whole height */
         }
 
+        /* Set the sidebar to be a single flex column for print */
         .sidebar-top, .sidebar-bottom { 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
             grid-column: 2 !important;
-            padding: 15px 25px !important;
-            -webkit-print-color-adjust: exact;
+            padding: 10px 25px !important;
+            display: block !important;
+            position: relative !important;
         }
 
-        /* This specifically fixes your gap issue */
-        .sidebar-top { grid-row: 1 !important; padding-bottom: 0 !important; }
-        .sidebar-bottom { grid-row: 1 !important; margin-top: 230px !important; }
+        /* Remove the grid-row assignments that caused the overlap */
+        .sidebar-top { grid-row: 1 !important; }
+        .sidebar-bottom { grid-row: 2 !important; }
+
+        /* The Magic Fix: This pulls the bottom sidebar up to close the gap 
+           without hiding the top section */
+        .sidebar-bottom { 
+            margin-top: -200px !important; 
+        }
 
         .career-table tr, .reference-block, .stats-list li { break-inside: avoid; }
-        h2 { break-after: avoid; }
+        h2 { break-after: avoid; margin-top: 10px !important; }
         
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
         .inline-row td { padding: 1px 0 !important; }
         
-        /* Ensure thumbnail fits in PDF */
         .video-thumbnail { border: 2px solid #fff !important; max-width: 100% !important; }
 
         .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { display: none !important; }
