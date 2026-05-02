@@ -280,29 +280,39 @@ h1, h2, h3 { text-transform: uppercase; }
             background: #fff !important;
             padding: 15px 25px !important; 
             grid-column: 1 !important; 
-            grid-row: 1 / span 50 !important; /* Spans everything on the left */
+            grid-row: 1 / span 50 !important; 
         }
 
-        /* NEW LOGIC: This turns the right column into one long continuous container */
+        /* FIX: We tell the sidebar sections to span BOTH rows together.
+           This forces them to stack vertically instead of layering on top of each other. */
         .sidebar-top, .sidebar-bottom { 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
             grid-column: 2 !important;
+            grid-row: 1 / span 50 !important; /* Forces them into the same long column */
             padding: 0 25px !important;
             display: block !important;
-            margin: 0 !important; /* Removes all negative/positive margin interference */
         }
 
-        /* Reset the grid row so they just stack naturally 1 after another */
-        .sidebar-top { grid-row: 1 !important; padding-top: 15px !important; }
-        .sidebar-bottom { grid-row: 1 !important; padding-top: 0 !important; }
+        /* Now we just handle the vertical spacing between the elements */
+        .sidebar-top { 
+            padding-top: 15px !important; 
+        }
 
-        /* Space out the headers inside that stack */
+        .sidebar-bottom { 
+            padding-top: 0 !important; 
+            /* This ensures it starts right after the Profile text ends */
+            margin-top: 0 !important; 
+        }
+
+        /* Profile image needs to stay visible */
+        .profile-img-container {
+            margin: 0 -22px 10px -20px !important;
+        }
+
         h2 { margin-top: 15px !important; margin-bottom: 8px !important; break-after: avoid; }
-        
         .career-table tr, .reference-block, .stats-list li { break-inside: avoid; }
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
-        .inline-row td { padding: 1px 0 !important; }
         
         .video-thumbnail { border: 2px solid #fff !important; max-width: 100% !important; margin-bottom: 5px !important; }
 
