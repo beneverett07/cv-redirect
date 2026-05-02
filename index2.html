@@ -83,7 +83,10 @@
     .header-titles h1 { color: var(--primary-color); font-size: 2.5rem; margin: 0; letter-spacing: 2px; line-height: 1.1; }
     .header-titles h3 { color: var(--secondary-color); font-size: 1.75rem; margin: 0; letter-spacing: 3px; }
     
-    .header-details { text-align: right; }
+    .header-details { 
+        text-align: right; 
+        transform: translateY(45px); /* Pushes the section down to align with the Career heading */
+    }
     .header-details h2 { 
         margin: 0 0 5px 0 !important; 
         padding: 0 !important; 
@@ -166,7 +169,11 @@
         .profile-img-container { margin: -15px -15px 5px -15px; }
         
         .header-titles { display: none; }
-        .header-details { text-align: left; margin-bottom: 25px; }
+        .header-details { 
+            text-align: left; 
+            margin-bottom: 25px; 
+            transform: none !important; /* Prevents it from being pushed down on mobile */
+        }
         .header-details h2 { 
             font-size: 1.2rem !important; 
             border-bottom: 3px solid var(--primary-color) !important; 
@@ -210,6 +217,7 @@
         .header-titles h1 { font-size: 2rem !important; }
         .header-titles h3 { font-size: 1rem !important; }
         .pdf-btn, .mobile-nav, .mobile-header, .back-to-top { display: none !important; }
+        .header-details { transform: none !important; }
     }
 </style>
 </head>
