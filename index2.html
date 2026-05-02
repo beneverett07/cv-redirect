@@ -9,7 +9,7 @@
         --primary-color: #073763ff;
         --secondary-color: #10b981;
         --text-color: #333;
-        --bg-color: #f3f4f6;
+        --bg-color: #ffffff; /* 1. Sets your master background color to white */
         --sidebar-bg: #073763ff;
         --sidebar-text: #f9fafb;
     }
@@ -21,7 +21,7 @@
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        padding: 40px;
+        padding: 0; /* 2. Removes the gray gap around the edges */
         line-height: 1.5;
     }
 
@@ -33,11 +33,10 @@
         max-width: 1200px;
         margin: 0 auto;
         background-color: #ffffff;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        box-shadow: none; /* 3. Removes the 3D drop-shadow */
         /* border-radius: 16px; */
         overflow: hidden;
     }
-
     .main-content {
         grid-column: 1;
         grid-row: 1 / span 2;
@@ -169,7 +168,7 @@ h1, h2, h3 { text-transform: uppercase; }
     .mobile-header, .mobile-nav, .back-to-top { display: none; }
 
     /* --- Mobile Styles --- */
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
         body { padding: 10px; }
         .cv-container { display: flex; flex-direction: column; }
         
@@ -229,17 +228,29 @@ h1, h2, h3 { text-transform: uppercase; }
     /* --- Print Styles --- */
     @media print {
         @page { margin: 0.5cm; }
-        body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
-        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; }
-        .main-content { padding: 15px 25px !important; }
-        .sidebar-top, .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; }
+        body { padding: 0; background: #fff !important; font-size: 11px !important; line-height: 1.2 !important; }
+        
+        /* Force strict grid retention */
+        .cv-container { display: grid !important; grid-template-columns: 65% 35% !important; box-shadow: none !important; width: 100% !important; }
+        .main-content { display: block !important; padding: 15px 25px !important; grid-column: 1 !important; grid-row: 1 / span 2 !important; }
+        .sidebar-top { padding: 15px 25px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-column: 2 !important; grid-row: 1 !important; }
+        .sidebar-bottom { padding: 15px 25px !important; background: var(--sidebar-bg) !important; color: #fff !important; grid-column: 2 !important; grid-row: 2 !important; }
+        
+        /* Prevent awkward page breaks slicing through text */
+        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; page-break-inside: avoid; }
+        h2 { break-after: avoid; page-break-after: avoid; }
+        
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
         .inline-row td { padding: 1px 0 !important; }
+        
+        /* Clean up the new header for print */
         .top-header-wrapper { margin-bottom: 15px !important; }
-        .header-titles h1 { font-size: 2rem !important; }
+        .header-titles h1 { font-size: 2rem !important; margin-bottom: 5px !important; }
         .header-titles h3 { font-size: 1rem !important; }
-        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top { display: none !important; }
-        .header-stat-bar { background-color: transparent !important; padding: 0 !important; }
+        .header-stat-bar { background-color: transparent !important; padding: 0 !important; margin-bottom: 15px !important; gap: 5px 15px !important; justify-content: center !important; }
+        
+        /* Hide all digital-only elements */
+        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { display: none !important; }
     }
 </style>
 </head>
