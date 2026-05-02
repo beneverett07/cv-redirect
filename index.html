@@ -195,23 +195,17 @@ h1, h2, h3 { text-transform: uppercase; }
 
     /* --- Mobile Styles --- */
     @media screen and (max-width: 768px) {
-        body { padding: 0; } /* Remove body padding to let sidebar hit edges */
+        body { padding: 10px; }
+        .cv-container { display: flex; flex-direction: column; }
         
-        .cv-container { 
-            display: flex; 
-            flex-direction: column; /* Stacks everything vertically */
-        }
-        
-        /* Ensure each section maintains its own padding and background */
-        .sidebar-top { order: 1; padding: 15px 25px; }
-        .career-section { order: 2; padding: 20px 25px; background: #fff; }
-        .sidebar-bottom { order: 3; padding: 15px 25px; }
-        .extra-section { order: 4; padding: 20px 25px 40px 25px; background: #fff; }
+        /* MAGIC REORDERING: Positions sections safely on mobile without breaking grid */
+        .sidebar-top { padding: 15px 25px; order: 1; }
+        .main-content { display: contents; } /* Unboxes the wrappers so they can be ordered independently */
+        .career-section { padding: 20px 25px 20px 25px; order: 2; }
+        .sidebar-bottom { padding: 15px 25px; order: 3; }
+        .extra-section { padding: 20px 25px 40px 25px; order: 4; }
 
-        /* Remove the 'display: contents' that was causing the padding issues */
-        .main-content { display: block; padding: 0; } 
-
-        .profile-img-container { margin: -15px -15px 0 -15px; }
+        .profile-img-container { margin: -15px -15px 0 -15px; } /* Reduced bottom margin to 0 */
         
         .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
         
