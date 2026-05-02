@@ -102,7 +102,11 @@ h1, h2, h3 { text-transform: uppercase; }
         margin-bottom: 35px;
         font-size: 0.9rem;
     }
-
+    
+    .mobile-details-heading { 
+        display: none; /* Hidden on desktop */
+    }
+    
     .main-content h2 {
         color: var(--primary-color);
         border-bottom: 3px solid var(--primary-color);
@@ -178,7 +182,7 @@ h1, h2, h3 { text-transform: uppercase; }
         .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
         
         .header-stat-bar { 
-            background-color: transparent; /* Removes grey box on mobile for a cleaner look */
+            background-color: transparent;
             padding: 0 0 20px 0; 
             flex-direction: column; /* Stacks the stats vertically on phones */
             gap: 5px;
@@ -193,6 +197,17 @@ h1, h2, h3 { text-transform: uppercase; }
         .nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
         .nav-pills a { background: var(--secondary-color); color: #fff; padding: 5px 10px; border-radius: 12px; font-size: 0.75rem; }
 
+        .mobile-details-heading { 
+            display: block; 
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
         .career-table, .career-table tr, .career-table td { display: block; width: 100%; }
         .career-table tr { margin-bottom: 15px; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; }
         .career-table td { padding: 0; border-bottom: none; }
@@ -255,7 +270,7 @@ h1, h2, h3 { text-transform: uppercase; }
 
         <h2 id="sec-profile">PROFILE</h2>
         <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
-
+        <a href="#top" class="back-to-top">↑ Back to menu</a>
     </div>
 
     <div class="main-content">
@@ -267,13 +282,16 @@ h1, h2, h3 { text-transform: uppercase; }
                 </div>
             </div>
 
-            <div class="header-stat-bar" id="sec-details">
+            <h2 id="sec-details" class="mobile-details-heading">DETAILS</h2>
+            
+            <div class="header-stat-bar">
                 <span><strong>Date of birth:</strong> October 12, 2007</span>
                 <span><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</span>
                 <span><strong>Residence:</strong> Valencia, Spain 🇪🇸</span>
                 <span><strong>Height:</strong> 1.79m / 5'10.5"</span>
                 <span><strong>Weight:</strong> 74kg / 163lbs</span>
             </div>
+            <a href="#top" class="back-to-top">↑ Back to menu</a>
 
             <h2 id="sec-career">FOOTBALL CAREER</h2>
             <table class="career-table">
