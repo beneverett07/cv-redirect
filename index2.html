@@ -51,8 +51,11 @@
         padding: 0 30px;
     }
 
-    .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 10px; }
+    .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 0; } /* Removed bottom padding */
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
+
+    .sidebar-top p { margin-bottom: 0; } /* Removes extra space above Contact */
+    #sec-profile { margin-top: 0; } /* Pulls the heading tight to the image */
 
     /* Space out the extra section on desktop */
     .extra-section {
@@ -62,7 +65,7 @@
     /* --- Components & Typography --- */
     .profile-img-container {
         text-align: center;
-        margin: -30px -22px 5px -20px;
+        margin: -30px -22px -5px -20px; /* Changed bottom margin to -5px */
     }
 
     .profile-img {
@@ -291,8 +294,9 @@ h1, h2, h3 { text-transform: uppercase; }
                 <span><strong>Residence:</strong> Valencia, Spain 🇪🇸</span>
                 <span><strong>Height:</strong> 1.79m / 5'10.5"</span>
                 <span><strong>Weight:</strong> 74kg / 163lbs</span>
+                <a href="#top" class="back-to-top">↑ Back to menu</a>
             </div>
-            <a href="#top" class="back-to-top">↑ Back to menu</a>
+            
 
             <h2 id="sec-career">FOOTBALL CAREER</h2>
             <table class="career-table">
