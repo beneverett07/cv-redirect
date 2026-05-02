@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benjamin Everett - Goalkeeper CV</title>
+    <link rel="preload" as="image" href="images/ben-u20-action-profile-small-alpha.webp">
+
 <style>
     :root {
         --primary-color: #073763ff;
@@ -72,6 +74,7 @@
         height: auto;
         display: block;
         object-fit: contain;
+        aspect-ratio: 360 / 480; /* Explicitly reserves the 3:4 vertical space */
     }
 
 h1, h2, h3 { text-transform: uppercase; }
@@ -272,7 +275,14 @@ h1, h2, h3 { text-transform: uppercase; }
     
     <div class="sidebar-top">
         <div class="profile-img-container">
-            <img src="images/ben-u20-action-profile-small-alpha.png" alt="Benjamin Everett" class="profile-img">
+            <picture>
+                <source srcset="images/ben-u20-action-profile-small-alpha.webp" type="image/webp">
+                <img src="images/ben-u20-action-profile-small-alpha.png" 
+                     alt="Benjamin Everett" 
+                     class="profile-img" 
+                     width="360" 
+                     height="480">
+            </picture>
         </div>
 
         <div class="mobile-header">
