@@ -280,36 +280,31 @@ h1, h2, h3 { text-transform: uppercase; }
             background: #fff !important;
             padding: 15px 25px !important; 
             grid-column: 1 !important; 
-            grid-row: 1 / span 20 !important; /* Ensure it spans the whole height */
+            grid-row: 1 / span 50 !important; /* Spans everything on the left */
         }
 
-        /* Set the sidebar to be a single flex column for print */
+        /* NEW LOGIC: This turns the right column into one long continuous container */
         .sidebar-top, .sidebar-bottom { 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
             grid-column: 2 !important;
-            padding: 10px 25px !important;
+            padding: 0 25px !important;
             display: block !important;
-            position: relative !important;
+            margin: 0 !important; /* Removes all negative/positive margin interference */
         }
 
-        /* Remove the grid-row assignments that caused the overlap */
-        .sidebar-top { grid-row: 1 !important; }
-        .sidebar-bottom { grid-row: 2 !important; }
+        /* Reset the grid row so they just stack naturally 1 after another */
+        .sidebar-top { grid-row: 1 !important; padding-top: 15px !important; }
+        .sidebar-bottom { grid-row: 1 !important; padding-top: 0 !important; }
 
-        /* The Magic Fix: This pulls the bottom sidebar up to close the gap 
-           without hiding the top section */
-        .sidebar-bottom { 
-            margin-top: -200px !important; 
-        }
-
-        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; }
-        h2 { break-after: avoid; margin-top: 10px !important; }
+        /* Space out the headers inside that stack */
+        h2 { margin-top: 15px !important; margin-bottom: 8px !important; break-after: avoid; }
         
+        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; }
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
         .inline-row td { padding: 1px 0 !important; }
         
-        .video-thumbnail { border: 2px solid #fff !important; max-width: 100% !important; }
+        .video-thumbnail { border: 2px solid #fff !important; max-width: 100% !important; margin-bottom: 5px !important; }
 
         .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { display: none !important; }
     }
