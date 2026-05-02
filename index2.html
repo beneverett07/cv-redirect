@@ -163,6 +163,19 @@ h1, h2, h3 { text-transform: uppercase; }
     .video-list {
         line-height: 1.5; /* Standard is usually 1.5, increase this number for more gap */
     }
+
+    .video-thumbnail {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        border: 2px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+    
+    .thumbnail-link:hover .video-thumbnail {
+        border-color: var(--secondary-color); /* Adds a green border when hovered to show it's clickable */
+    }
     
     /* --- Navigation (Mobile Only) --- */
     .mobile-header, .mobile-nav, .back-to-top { display: none; }
