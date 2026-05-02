@@ -257,101 +257,18 @@ h1, h2, h3 { text-transform: uppercase; }
         }
     }
 
-    /* --- Print Styles --- */
+        /* --- Print Styles --- */
     @media print {
-        /* @page { 
-            margin: 0.25in; 
-        } */
-        
-        body { 
-            padding: 0 !important; 
-            margin: 0 !important;
-            background: #fff !important; 
-            -webkit-print-color-adjust: exact;
-        }
-        
-        .cv-container { 
-            display: grid !important; 
-            grid-template-columns: 65% 35% !important; 
-            width: 100% !important;
-            max-width: none !important; 
-            margin: 0 !important;
-            box-shadow: none !important;
-            /* Force padding to stay INSIDE the 100% width calculation */
-            box-sizing: border-box !important; 
-        }
-
-        .main-content { 
-            display: block !important; 
-            grid-column: 1 !important; 
-            grid-row: 1 / span 2 !important; 
-            /* Reset padding: the 15px is the internal gap from the blue line. 
-               The 0 on the left removes that 0.125" extra 'push' you see. */
-            padding: 15px 25px 15px 0 !important; 
-            box-sizing: border-box !important;
-        }
-
-        .sidebar-top { 
-            padding: 15px 25px !important; 
-            background: var(--sidebar-bg) !important; 
-            color: #fff !important; 
-            grid-column: 2 !important; 
-            grid-row: 1 !important; 
-        }
-
-        .sidebar-bottom { 
-            padding: 15px 25px !important; 
-            background: var(--sidebar-bg) !important; 
-            color: #fff !important; 
-            grid-column: 2 !important; 
-            grid-row: 2 !important; 
-        }
-
-        .sidebar-top p {
-            margin-bottom: 0 !important; /* Kills the paragraph "push" */
-        }
-
-        .sidebar-top h2, .sidebar-bottom h2 {
-            margin-top: 12px !important;  /* Uniform gap above all headers */
-            margin-bottom: 8px !important; /* Uniform gap below all headers */
-        }
-        
-        /* Prevent awkward page breaks slicing through text */
-        .career-table tr, .reference-block, .stats-list li { 
-            break-inside: avoid; 
-            page-break-inside: avoid; 
-        }
-
-        h2 { 
-            break-after: avoid; 
-            page-break-after: avoid; 
-        }
-        
-        .career-table td { 
-            padding: 3px 0 !important; 
-            border-bottom: 1px solid #eee !important; 
-        }
-
-        .inline-row td { 
-            padding: 1px 0 !important; 
-        }
-        
-        /* Clean up the header for print */
-        .top-header-wrapper { margin-bottom: 15px !important; }
-        .header-titles h1 { font-size: 2rem !important; margin-bottom: 5px !important; }
-        .header-titles h3 { font-size: 1rem !important; }
-        .header-stat-bar { 
-            background-color: transparent !important; 
-            padding: 0 !important; 
-            margin-bottom: 15px !important; 
-            gap: 5px 15px !important; 
-            justify-content: center !important; 
-        }
-        
-        /* Hide all digital-only elements */
-        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { 
-            display: none !important; 
-        }
+        @page { margin: 0.5cm; }
+        body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
+        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; }
+        .main-content { padding: 15px 25px !important; }
+        .sidebar-top, .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; }
+        .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
+        .inline-row td { padding: 1px 0 !important; }
+        .desktop-header h1 { font-size: 2rem !important; }
+        .desktop-header h3 { font-size: 1rem !important; margin-bottom: 15px !important; }
+        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top { display: none !important; }
     }
 </style>
 </head>
