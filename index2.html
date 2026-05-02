@@ -75,8 +75,8 @@
 h1, h2, h3 { text-transform: uppercase; }
     
     .top-header-wrapper { 
-        margin-bottom: 25px; /* Added a little more breathing room below the titles */
-        text-align: center; /* Centers the name and title */
+        margin-bottom: 15px; /* Reduced to even out the top gap */
+        text-align: center; 
     }
     .header-titles h1 { 
         color: var(--primary-color); 
@@ -95,11 +95,11 @@ h1, h2, h3 { text-transform: uppercase; }
     .header-stat-bar {
         display: flex;
         flex-wrap: wrap; 
-        justify-content: center; /* Centers the stats row */
+        justify-content: center; 
         gap: 10px 25px; 
-        background-color: transparent; /* Removes the grey background */
-        padding: 0 0 15px 0; /* Adjusted padding since there's no background box */
-        margin-bottom: 35px;
+        background-color: transparent; 
+        padding: 0; /* Removed bottom padding since background is gone */
+        margin-bottom: 15px; /* Reduced from 35px to match top gap */
         font-size: 0.9rem;
     }
     
@@ -119,7 +119,7 @@ h1, h2, h3 { text-transform: uppercase; }
         color: var(--secondary-color);
         border-bottom: 2px solid var(--secondary-color);
         padding-bottom: 8px;
-        margin: 30px 0 15px 0;
+        margin: 15px 0 15px 0; /* Reduced top margin from 30px to 15px */
         font-size: 1.2rem;
         letter-spacing: 1px;
     }
@@ -182,9 +182,10 @@ h1, h2, h3 { text-transform: uppercase; }
         .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
         
         .header-stat-bar { 
-            background-color: transparent;
-            padding: 0 0 20px 0; 
-            flex-direction: column; /* Stacks the stats vertically on phones */
+            background-color: transparent; 
+            padding: 0; /* Removes old mobile padding */
+            margin-bottom: 5px; /* Overrides the desktop margin to pull link up */
+            flex-direction: column; 
             gap: 5px;
         }
       
