@@ -259,17 +259,20 @@ h1, h2, h3 { text-transform: uppercase; }
 
     /* --- Print Styles --- */
     @media print {
-        @page { margin: 0.25in; }
+        @page { 
+            margin: 0.25in; 
+        }
         
         body { 
             padding: 0; 
             background: #fff !important; 
             font-size: 11px !important; 
             line-height: 1.2 !important; 
-            zoom: 0.66; /* Restored 66% scale for Chrome/Safari */
+            zoom: 0.66; /* Forces Chrome/Safari to render at 66% scale */
             -webkit-print-color-adjust: exact;
         }
         
+        /* Restore original grid retention */
         .cv-container { 
             display: grid !important; 
             grid-template-columns: 65% 35% !important; 
@@ -284,9 +287,8 @@ h1, h2, h3 { text-transform: uppercase; }
             grid-row: 1 / span 2 !important; 
         }
 
-        /* Letting these stack naturally within the grid rows */
         .sidebar-top { 
-            padding: 15px 25px 0 25px !important; 
+            padding: 15px 25px !important; 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
             grid-column: 2 !important; 
@@ -294,30 +296,49 @@ h1, h2, h3 { text-transform: uppercase; }
         }
 
         .sidebar-bottom { 
-            padding: 0 25px 15px 25px !important; 
+            padding: 15px 25px !important; 
             background: var(--sidebar-bg) !important; 
             color: #fff !important; 
             grid-column: 2 !important; 
             grid-row: 2 !important; 
-            /* With 66% zoom, a smaller manual pull-up is safer */
-            margin-top: -120px !important; 
+        }
+        
+        /* Prevent awkward page breaks slicing through text */
+        .career-table tr, .reference-block, .stats-list li { 
+            break-inside: avoid; 
+            page-break-inside: avoid; 
         }
 
-        /* Prevent awkward page breaks slicing through text */
-        .career-table tr, .reference-block, .stats-list li { break-inside: avoid; page-break-inside: avoid; }
-        h2 { break-after: avoid; page-break-after: avoid; }
+        h2 { 
+            break-after: avoid; 
+            page-break-after: avoid; 
+        }
         
-        .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
-        .inline-row td { padding: 1px 0 !important; }
+        .career-table td { 
+            padding: 3px 0 !important; 
+            border-bottom: 1px solid #eee !important; 
+        }
+
+        .inline-row td { 
+            padding: 1px 0 !important; 
+        }
         
-        /* Clean up header for print */
+        /* Clean up the header for print */
         .top-header-wrapper { margin-bottom: 15px !important; }
         .header-titles h1 { font-size: 2rem !important; margin-bottom: 5px !important; }
         .header-titles h3 { font-size: 1rem !important; }
-        .header-stat-bar { background-color: transparent !important; padding: 0 !important; margin-bottom: 15px !important; gap: 5px 15px !important; justify-content: center !important; }
+        .header-stat-bar { 
+            background-color: transparent !important; 
+            padding: 0 !important; 
+            margin-bottom: 15px !important; 
+            gap: 5px 15px !important; 
+            justify-content: center !important; 
+        }
         
-        /* Hide digital elements */
-        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { display: none !important; }
+        /* Hide all digital-only elements */
+        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top, .mobile-details-heading { 
+            display: none !important; 
+        }
     }
 </style>
 </head>
