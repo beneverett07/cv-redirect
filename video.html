@@ -46,8 +46,13 @@
     .header-overlay {
         width: 100%;
         background: rgba(7, 55, 99, 0.7); 
-        padding: 25px 40px;
+        padding: 15px 40px;
         backdrop-filter: blur(4px);
+        max-height: 33.33%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
     }
 
     .header-text h1 { 
@@ -219,13 +224,15 @@
 
     @media (max-width: 600px) {
         header { min-height: 220px; }
-        .header-text h1 { font-size: min(1.6rem, 7.5vw); white-space: nowrap; }
-        .header-text p.subtitle { font-size: 0.9rem; }
+        .header-overlay { padding: 8px 15px; } 
+        .header-text h1 { font-size: min(1.6rem, 7vw); white-space: nowrap; }
+        .header-text p.subtitle { font-size: min(0.9rem, 4vw); white-space: nowrap; }
         .match-item { flex-direction: column; align-items: flex-start; gap: 12px; }
         .btn { width: 100%; box-sizing: border-box; }
         .half-buttons { width: 100%; }
         summary::after { font-size: 0.6rem; }
     }
+    
 </style>
 </head>
 <body>
