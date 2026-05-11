@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Everett - Goalkeeper CV</title>
+    <link rel="preload" as="image" href="images/ben-u20-action-profile-small-alpha.webp">
+
+<style>
+    :root {
+        --primary-color: #073763ff;
+        --secondary-color: #10b981;
+        --text-color: #333;
+        --bg-color: #f3f4f6;
+        --sidebar-bg: #073763ff;
+        --sidebar-text: #f9fafb;
+    }
+
+    /* --- Base Elements --- */
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.5;
+    }
+
+    /* --- Layout Structure --- */
+    .cv-container {
+        display: grid;
+        grid-template-columns: 65% 35%;
+        grid-template-rows: auto 1fr;
+        max-width: 1200px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+    }
+    .main-content {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        padding: 40px 50px;
+    }
+
+    .sidebar-top, .sidebar-bottom {
+        grid-column: 2;
+        background-color: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        padding: 0 30px;
+    }
+
+    .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 0; } /* Removed bottom padding */
+    .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
+
+    .sidebar-top p { margin-bottom: 0; } /* Removes extra space above Contact */
+    #sec-profile { margin-top: 0 !important; padding-top: 5px; } /* Pulls the heading tight to the image */
+
+    /* Space out the extra section on desktop */
+    .extra-section {
+        padding-top: 30px; 
+    }
+
+    /* --- Components & Typography --- */
+    .profile-img-container {
+        text-align: center;
+        margin: -30px -22px -5px -20px; /* Changed bottom margin to -5px */
+    }
+
+    .profile-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        aspect-ratio: 360 / 480; /* Explicitly reserves the 3:4 vertical space */
+    }
+
+h1, h2, h3 { text-transform: uppercase; }
+    
+    .top-header-wrapper { 
+        margin-bottom: 15px; /* Reduced to even out the top gap */
+        text-align: center; 
+    }
+    .header-titles h1 { 
+        color: var(--primary-color); 
+        font-size: 2.5rem; 
+        margin: 0 0 8px 0; /* The 8px bottom margin creates the extra space between name and GOALKEEPER */
+        letter-spacing: 2px; 
+        line-height: 1.1; 
+    }
+    .header-titles h3 { 
+        color: var(--secondary-color); 
+        font-size: 1.75rem; 
+        margin: 0; 
+        letter-spacing: 3px; 
+    }
+    
+    .header-stat-bar {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 10px 25px; 
+        background-color: transparent; 
+        padding: 0; /* Removed bottom padding since background is gone */
+        margin-bottom: 15px; /* Reduced from 35px to match top gap */
+        font-size: 0.9rem;
+    }
+    
+    .mobile-details-heading { 
+        display: none; /* Hidden on desktop */
+    }
+    
+    .main-content h2 {
+        color: var(--primary-color);
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-top h2, .sidebar-bottom h2 {
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 8px;
+        margin: 15px 0 15px 0; /* Reduced top margin from 30px to 15px */
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    p, ul { font-size: 0.95rem; margin-bottom: 10px; }
+    ul { list-style: none; padding: 0; line-height: 1.2;}
+    li { margin-bottom: 4px; }
+    a { color: var(--secondary-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* --- Football Career Table --- */
+    .career-table { width: 100%; border-collapse: collapse; }
+    .career-table td { padding: 12px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+    .career-table tr:last-child td { border-bottom: none; }
+
+    .career-date { font-weight: bold; color: var(--primary-color); display: block; font-size: 0.95rem; }
+    .team-name { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 4px; line-height: 1.2;}
+    .stats-list { margin: 4px 0 0 0; padding-left: 20px; font-size: 0.95rem; color: #4b5563; }
+
+    /* Tightened Inline Rows for Football Career */
+    .inline-row td { padding: 2px 0 !important; }
+    .inline-row .career-date, .inline-row .team-name { display: inline !important; line-height: 1.2 !important; }
+    .inline-row .career-date::after { content: " - "; color: var(--text-color); font-weight: normal; margin: 0 4px; }
+    .inline-row .career-date { font-size: 0.9rem !important; }
+    .inline-row .team-name { font-size: 0.95rem !important; }
+
+    /* --- Contact & References --- */
+    .contact-wrapper { display: flex; flex-direction: column; gap: 2px; font-size: 0.95rem; }
+    .contact-row { display: flex; align-items: center; }
+    .contact-icon { width: 24px; height: 24px; margin-right: 12px; object-fit: contain; }
+    .emoji-icon { font-size: 20px; width: 24px; margin-right: 12px; text-align: center; display: inline-block; }
+    .social-group { display: flex; gap: 6px; margin-right: 12px; }
+    .contact-text { color: var(--secondary-color); font-weight: 500; }
+
+    .reference-block { margin-bottom: 20px; font-size: 0.9rem; }
+    .reference-name { font-weight: bold; color: var(--secondary-color); }
+    
+    /* --- Video Section --- */
+    .video-thumbnail {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        /* Thicker 4px border, transparent while not hovered */
+        border: 4px solid transparent; 
+        transition: border-color 0.2s ease;
+        /* Ensures border doesn't change the image's layout size */
+        box-sizing: border-box; 
+    }
+
+    .video-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .video-list li {
+        margin: 0;
+    }
+
+    .thumbnail-link:hover .video-thumbnail {
+        /* Matches your green secondary color */
+        border-color: var(--secondary-color); 
+    }
+    
+    /* --- Navigation (Mobile Only) --- */
+    .mobile-header, .mobile-nav, .back-to-top { display: none; }
+
+    /* --- Mobile Styles --- */
+    @media screen and (max-width: 768px) {
+        body { padding: 10px; }
+        .cv-container { display: flex; flex-direction: column; margin: 5px 10px 20px 10px; border-radius: 16px;}
+        
+        /* MAGIC REORDERING: Positions sections safely on mobile without breaking grid */
+        .sidebar-top { padding: 15px 25px; order: 1; }
+        .main-content { display: contents; } /* Unboxes the wrappers so they can be ordered independently */
+        .career-section { padding: 20px 25px 20px 25px; order: 2; }
+        .sidebar-bottom { padding: 15px 25px; order: 3; }
+        .extra-section { padding: 20px 25px 40px 25px; order: 4; }
+
+        .profile-img-container { margin: -15px -15px 0 -15px; } /* Reduced bottom margin to 0 */
+        
+        .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
+        
+        .header-stat-bar { 
+            background-color: transparent; 
+            padding: 0; /* Removes old mobile padding */
+            margin-bottom: 5px; /* Overrides the desktop margin to pull link up */
+            flex-direction: column; 
+            gap: 5px;
+        }
+      
+        .mobile-header { display: block; text-align: center; margin-bottom: 5px; } /* Tighter gap above "Go to..." */
+        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin: 0 0 2px 0; } /* Removes default gaps */
+        .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.1; margin: 0; }
+
+        .mobile-nav { display: block; text-align: center; margin-bottom: 15px; }
+        .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; } /* Tighter gap above the nav pills */
+        .nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
+        .nav-pills a { background: var(--secondary-color); color: #fff; padding: 5px 10px; border-radius: 12px; font-size: 0.75rem; }
+
+        .mobile-details-heading { 
+            display: block; 
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .career-table, .career-table tr, .career-table td { display: block; width: 100%; }
+        .career-table tr { margin-bottom: 15px; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; }
+        .career-table td { padding: 0; border-bottom: none; }
+
+        .back-to-top {
+            display: inline-block;
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+    }
+
+        /* --- Print Styles --- */
+    @media print {
+        @page { margin: 0.5cm; }
+        body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
+        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; }
+        .main-content { padding: 15px 25px !important; }
+        .sidebar-top, .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; }
+        .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
+        .inline-row td { padding: 1px 0 !important; }
+        .desktop-header h1 { font-size: 2rem !important; }
+        .desktop-header h3 { font-size: 1rem !important; margin-bottom: 15px !important; }
+        .pdf-btn, .mobile-nav, .mobile-header, .back-to-top { display: none !important; }
+    }
+</style>
+</head>
+<body id="top">
+
+<div class="cv-container">
+    
+    <div class="sidebar-top">
+        <div class="profile-img-container">
+            <picture>
+                <source srcset="images/ben-u20-action-profile-small-alpha.webp" type="image/webp">
+                <img src="images/ben-u20-action-profile-small-alpha.png" 
+                     alt="Benjamin Everett" 
+                     class="profile-img" 
+                     width="360" 
+                     height="480">
+            </picture>
+        </div>
+
+        <div class="mobile-header">
+            <h1>BENJAMIN EVERETT</h1>
+            <h3>GOALKEEPER</h3>
+        </div>
+
+        <div class="mobile-nav">
+            <span class="nav-label">Go to...</span>
+            <div class="nav-pills">
+                <a href="#sec-profile">Profile</a>
+                <a href="#sec-details">Details</a>
+                <a href="#sec-career">Career</a>
+                <a href="#sec-contact">Contact</a>
+                <a href="#sec-video">Video</a>
+                <a href="#sec-references">References</a>
+                <a href="#sec-coaching">Coaching</a>
+                <a href="#sec-certs">Certs</a>
+                <a href="#sec-education">Education</a>
+            </div>
+        </div>
+
+        <h2 id="sec-profile">PROFILE</h2>
+        <p>Explosive, agile and highly motivated goalkeeper, combining exceptional reflexes, positional awareness, precise footwork, strong distribution and tactical leadership. My ability to read and anticipate plays and communicate with my team allows me to proactively and positively influence outcomes.</p>
+        <a href="#top" class="back-to-top">↑ Back to menu</a>
+    </div>
+
+    <div class="main-content">
+        <div class="career-section">
+            <div class="top-header-wrapper">
+                <div class="header-titles">
+                    <h1>BENJAMIN EVERETT</h1>
+                    <h3>GOALKEEPER</h3>
+                </div>
+            </div>
+
+            <h2 id="sec-details" class="mobile-details-heading">DETAILS</h2>
+            
+            <div class="header-stat-bar">
+                <span><strong>Date of birth:</strong> October 12, 2007</span>
+                <span><strong>Passports:</strong> Barbados 🇧🇧 / USA 🇺🇸</span>
+                <span><strong>Location:</strong> Valencia, Spain 🇪🇸</span>
+                <span><strong>Height:</strong> 179cm / 5'11"</span>
+                <span><strong>Weight:</strong> 74kg / 163lbs</span>
+                <span><strong>Foot:</strong> Both (right dominant)</span>
+                <a href="#top" class="back-to-top">↑ Back to menu</a>
+            </div>
+            
+
+            <h2 id="sec-career">FOOTBALL CAREER</h2>
+            <table class="career-table">
+                <tr>
+                    <td>
+                        <span class="career-date">2026 Feb. 24 - Mar. 4</span>
+                        <span class="team-name">Barbados U20 National Team</span>
+                        <ul class="stats-list">
+                            <li><strong>Concacaf U20 Qualifiers, Costa Rica</strong></li>
+                              <ul>
+                                <li>3 Caps as starting GK (243 Minutes Played)</li>
+                                <li>Fixtures: 90' vs. Costa Rica, 90' vs. St. Maarten, 63' vs. Bermuda (Squad Rotation Sub)</li>
+                              </ul>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="career-date">2025 Jan. - Dec.</span>
+                        <span class="team-name">Kickstart Rush Men's 1st Team</span>
+                        <div style="margin: 5px 0; font-weight: bold; color: #333;">
+                            22 Total Appearances | 3x Clean Sheets
+                        </div>
+        
+                        <div style="margin-top: 10px;">
+                        <strong style="font-size: 0.95em;">The Prime Minister's Cup (2nd Place)</strong>
+                        <ul class="stats-list" style="margin-bottom: 8px;">
+                            <li>6 appearances, 70% Save Percentage (32/46 shots), 2x MOTM</li>
+                            <li>🏆 <strong>The Prime Minister's Cup Best Goalkeeper Award</strong></li>
+                        </ul>
+
+                        <strong style="font-size: 0.95em;">Barbados Football Association (BFA) Champions Cup (2nd Place)</strong>
+                        <ul class="stats-list" style="margin-bottom: 8px;">
+                            <li>5 appearances, 78% Save Percentage (14/18 shots), 1x Clean Sheet</li>
+                            <li>1x Penalty Save, 4x Penalty Shootout Saves</li>
+                            <li>🏆 <strong>BFA Champions Cup Best Goalkeeper Award</strong></li>
+                        </ul>
+
+                        <strong style="font-size: 0.95em;">BFA Premier League (Top Flight)</strong>
+                        <ul class="stats-list">
+                            <li>11 appearances, 67% Save Percentage (40/60 shots), 2x Clean Sheets</li>
+                        </ul>
+                        </div>
+                    </td>
+                </tr>
+              <tr>
+                    <td>
+                        <span class="career-date">2026 Jan. - Present</span>
+                        <span class="team-name">Spain Rush-SPF Academy & Godella C.F. Juvenil, Valencia, Spain</span>
+                          <ul>
+                            <li>Daily technical training and weekly competitive matches.</li>
+                            <li>Licensed with Godella C.F. (Valencia Football Federation).</li>
+                          </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="career-date">2024 Jan. - Nov.</span>
+                        <span class="team-name">Kickstart Rush Men's 1st Team, BFA Premier League & Reserve League, & The Prime Minister's Cup</span>
+                        <ul class="stats-list">
+                            <li>BFA Premier League debut, age 16 - Jan. 2024</li>
+                            <li>11 appearances, 3x clean sheets</li>
+                            <li>3rd Place in Premier League, 4th Place in The Prime Minister's Cup</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="career-date">2023 Jan. - Nov.</span>
+                        <span class="team-name">Kickstart Rush Men's 1st Team, BFA Div. 1 & Champions Cup</span>
+                        <ul class="stats-list">
+                            <li>BFA Div. 1 debut, age 15 - Apr. 2023</li>
+                            <li>10 appearances, 3x clean sheets</li>
+                            <li>2nd Place in Div. 1, Promoted to Premier League</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2024 Jun. 24-26</span>
+                        <span class="team-name">NextUP Football Combine, Barbados</span>
+                        🏆 <strong>Goalkeeper Award</strong>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2024 Apr.</span>
+                        <span class="team-name">35th Barbados Cup, Kickstart Rush U17, Champions, GK</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2024 Jan.</span>
+                        <span class="team-name">Barbados U20 National Men's Team, Provisional Squad, GK (age 16)</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2023 Nov.</span>
+                        <span class="team-name">International Rush Cup, FL - Kickstart Rush U16, 3rd Place</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2023 Aug.</span>
+                        <span class="team-name">South Rush Cup, LA, GK, U19 Champions (age 15)</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2023 Jan. - 2024 Dec.</span>
+                        <span class="team-name">Kickstart Rush U17, GK</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2021 Jan. - 2022 Dec.</span>
+                        <span class="team-name">Kickstart Rush U15, CB, RB</span>
+                    </td>
+                </tr>
+                <tr class="inline-row">
+                    <td>
+                        <span class="career-date">2016 Jan. - 2020 Dec.</span>
+                        <span class="team-name">Kickstart Rush U9-U13, GK</span>
+                    </td>
+                </tr>
+            </table>
+            <a href="#top" class="back-to-top">↑ Back to menu</a>
+        </div>
+
+        <div class="extra-section">
+            <h2 id="sec-coaching">COACHING CAREER</h2>
+            <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
+                <li>U9 Head Coach – Kickstart Rush FC – Sep. 2024 – Dec. 2025</li>
+                <li>Youth GK Coach – Kickstart Rush FC – Jan. 2025 – Dec. 2025</li>
+                <li>U9–U13 GK Coach – Joshua James Goalkeeping School – Sep. 2024 – Dec. 2025</li>
+                <li>U17 Assistant Coach – Kickstart Rush FC – Jan. 2025 – Jul. 2025</li>
+            </ul>
+            <a href="#top" class="back-to-top">↑ Back to menu</a>
+
+            <h2 id="sec-certs">COACHING CERTIFICATIONS</h2>
+            <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
+                <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
+                    <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
+                        <li>Introduction to Grassroots Coaching - Apr. 2025</li>
+                        <li>Introduction to Safe and Healthy Playing Environments - May 2025</li>
+                        <li>Grassroots 4v4 Online Coaching License - May 2025</li>
+                        <li>Grassroots 7v7 Online Coaching License - Jul. 2025</li>
+                        <li>Grassroots 9v9 Online Coaching License - Nov. 2025</li>
+                    </ul>
+                </li>
+                <li><a href="https://thelocker.coach.ca/access/account/public">Coaching Association of Canada, NCCP# 7006931</a><br>
+                    National Coaching Certification Program Level 1 – Jul. 2025</li>
+            </ul>
+            <a href="#top" class="back-to-top">↑ Back to menu</a>
+
+            <h2 id="sec-education">EDUCATION</h2>
+            <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
+                <li>Homeschooled – grad year 2026</li>
+                <li>AIP Language Institute, Valencia, Spain – Spanish – Jan. 2026 – Present</li>
+            </ul>
+            <a href="#top" class="back-to-top">↑ Back to menu</a>
+        </div>
+    </div>
+
+    <div class="sidebar-bottom">
+        <h2 id="sec-contact">CONTACT</h2>
+        <div class="contact-wrapper">
+            <div class="contact-row">
+                <a href="https://wa.me/12462547443"><img src="images/WhatsApp-20x20-rs.png" alt="WhatsApp" class="contact-icon">
+                <span class="contact-text">+1 (246) 254-7443</span></a>
+            </div>
+            <div class="contact-row">
+                <span class="emoji-icon">✉️</span>
+                <a href="mailto:ben@beneverettgk.com" class="contact-text">ben@beneverettgk.com</a>
+            </div>
+            <div class="contact-row">
+              <div class="social-group">
+                <a href="https://www.youtube.com/@beneverettgk" title="beneverettgk on YouTube">
+                    <img src="images/YouTube-20x20-rs.png" alt="YouTube" class="contact-icon">
+                </a>
+                <a href="https://www.instagram.com/beneverettgk" title="beneverettgk on Instagram">
+                    <img src="images/Instagram-20x20-rs.png" alt="Instagram" class="contact-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/beneverettgk" title="beneverettgk on LinkedIn">
+                    <img src="images/LinkedIn-20x20-rs.png" alt="LinkedIn" class="contact-icon">
+                </a>
+                <a href="https://www.facebook.com/beneverettgk" title="beneverettgk on Facebook">
+                    <img src="images/Facebook-20x20-rs.png" alt="Facebook" class="contact-icon">
+                </a>
+            </div>
+                <span class="contact-text">@beneverettgk</span>
+            </div>
+        </div>
+        <a href="#top" class="back-to-top">↑ Back to menu</a>
+
+        <h2 id="sec-video">VIDEO</h2>
+
+        <ul class="video-list">
+    <li><strong>Highlight Video</strong></li>
+    <li>
+        <a href="https://highlights.beneverettgk.com" target="_blank" title="Watch Highlight Video" class="thumbnail-link">
+            <img src="images/highlight_video_thumbnail.jpg" alt="Watch Highlight Video" class="video-thumbnail">
+        </a>
+    </li>
+    <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos"><strong>Click Here</strong></a></li>
+    </ul>
+        <a href="#top" class="back-to-top">↑ Back to menu</a>
+
+<h2 id="sec-references">REFERENCES</h2>
+        
+        <div class="reference-block">
+            <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
+            Technical Director, Kickstart Rush FC<br>
+            Head Coach, Kickstart Rush Men's 1st Team<br>
+            <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
+            +1 (246) 825-0607
+        </div>
+
+        <div class="reference-block">
+            <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
+            Head Performance Coach, Become Elite Academy<br>
+            <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
+            +1 (246) 834-0847
+        </div>
+       
+        <div class="reference-block">
+            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
+            Owner and Founder of KeeperStop.com<br>
+            <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
+            +1 (508) 221-6819
+        </div>
+
+        <div class="reference-block">
+            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
+            Assistant Coach, Kickstart Rush Men's 1st Team<br>
+            Physical Trainer, Barbados Men's National Team<br>
+            +1 (246) 844-9644
+        </div>
+        <a href="#top" class="back-to-top">↑ Back to menu</a>
+
+    </div>
+
+</div>      
+</body>
+</html>
