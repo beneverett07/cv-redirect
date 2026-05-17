@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benjamin Everett - Goalkeeper CV</title>
     <link rel="preload" as="image" href="images/ben-u20-action-profile-small-alpha.webp">
+    <script>
+        // Detects if iOS is spoofing a desktop Mac and touch is active
+        if (navigator.userAgent.includes('Macintosh') && 'ontouchend' in document) {
+            // Force the viewport to a desktop scaling baseline
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=1200, initial-scale=0.25');
+            // Add a class to the body so the CSS knows to drop mobile rules
+            document.documentElement.classList.add('forced-desktop');
+        }
+    </script>
 
 <style>
     :root {
@@ -230,6 +239,7 @@
 
     /* --- Mobile Styles --- */
     @media screen and (max-width: 768px) and (pointer: coarse) {
+        html.forced-desktop & { display: none; } /* Ignores mobile rules if desktop is forced */
         body { padding: 10px; }
         
         /* Switches grid completely off to maintain native vertical stacking on touch screens */
