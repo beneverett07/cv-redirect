@@ -27,13 +27,14 @@
         line-height: 1.5;
     }
 
-    /* --- Layout Structure (Desktop First/Fluid Baseline) --- */
+    /* --- Layout Structure --- */
     .cv-container {
         display: grid;
         grid-template-columns: 65% 35%;
         grid-template-rows: auto 1fr;
         max-width: 1200px;
         width: 100%;
+        min-width: 980px; /* Forces browser to render desktop scale when requested */
         box-sizing: border-box;
         margin: 40px auto;
         background-color: #ffffff;
@@ -191,39 +192,8 @@
     .contact-text { color: #ffffff; font-weight: 500; text-decoration: none; transition: color 0.2s; }
     a:hover .contact-text { color: var(--secondary-color); }
 
-    /* --- Hybrid Reference Blocks --- */
-    .reference-block { 
-        margin-bottom: 25px; 
-        font-size: 0.9rem; 
-        border-left: 2px solid var(--secondary-color);
-        padding-left: 15px;
-        line-height: 1.4;
-        color: #ffffff;
-    }
-    .reference-name { 
-        font-weight: bold; 
-        color: #ffffff; 
-        font-size: 1.05rem;
-        display: block;
-        margin-bottom: 2px;
-    }
-    .reference-title {
-        color: var(--secondary-color);
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        display: block;
-        margin-bottom: 4px;
-    }
-    .reference-block a {
-        color: #ffffff;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .reference-block a:hover {
-        color: var(--secondary-color);
-        text-decoration: underline;
-    }
+    .reference-block { margin-bottom: 20px; font-size: 0.9rem; }
+    .reference-name { font-weight: bold; color: var(--secondary-color); }
     
     /* --- Video Section --- */
     .video-thumbnail {
@@ -258,16 +228,17 @@
     .mobile-header, .mobile-nav, .back-to-top { display: none; }
 
     /* --- Mobile Styles --- */
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) and (pointer: coarse) {
         body { padding: 10px; }
         
-        /* FIX: Switches grid completely off to prevent overlapping on standard mobile layout */
+        /* Switches grid completely off to maintain native vertical stacking on touch screens */
         .cv-container { 
             display: flex; 
             flex-direction: column; 
             margin: 5px 10px 20px 10px; 
             border-radius: 16px;
             width: auto;
+            min-width: 0;
         }
         
         /* MAGIC REORDERING: Positions sections safely on mobile without breaking template */
@@ -327,7 +298,7 @@
     @media print {
         @page { margin: 0.5cm; }
         body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
-        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; }
+        .cv-container { display: grid !important; grid-template-columns: 67% 33% !important; box-shadow: none; min-width: 0; }
         .main-content { padding: 15px 25px !important; }
         .sidebar-top, .sidebar-bottom { padding: 15px !important; background: var(--sidebar-bg) !important; color: #fff !important; }
         .career-table td { padding: 3px 0 !important; border-bottom: 1px solid #eee !important; }
@@ -618,33 +589,31 @@
         <h2 id="sec-references">REFERENCES</h2>
         
         <div class="reference-block">
-            <span class="reference-name">Renaldo Gilkes</span>
-            <span class="reference-title">CONCACAF A — Technical Director</span>
-            Kickstart Rush FC / Head Coach, Men's 1st Team<br>
+            <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
+            Technical Director, Kickstart Rush FC<br>
+            Head Coach, Kickstart Rush Men's 1st Team<br>
             <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
             +1 (246) 825-0607
         </div>
 
         <div class="reference-block">
-            <span class="reference-name">Daniel Rowe</span>
-            <span class="reference-title">M.Sc. CSCS — Head Performance Coach</span>
-            Become Elite Academy<br>
+            <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
+            Head Performance Coach, Become Elite Academy<br>
             <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
             +1 (246) 834-0847
         </div>
        
         <div class="reference-block">
-            <span class="reference-name">Christian Benjamin</span>
-            <span class="reference-title">USSF, USC — Owner and Founder</span>
-            KeeperStop.com<br>
+            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
+            Owner and Founder of KeeperStop.com<br>
             <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
             +1 (508) 221-6819
         </div>
 
         <div class="reference-block">
-            <span class="reference-name">Chad Bynoe</span>
-            <span class="reference-title">CONCACAF C — Assistant Coach & Trainer</span>
-            Kickstart Rush Men's 1st Team / Barbados Men's National Team<br>
+            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
+            Assistant Coach, Kickstart Rush Men's 1st Team<br>
+            Physical Trainer, Barbados Men's National Team<br>
             +1 (246) 844-9644
         </div>
         <a href="#top" class="back-to-top">↑ Back to menu</a>
