@@ -23,23 +23,23 @@
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        padding: clamp(10px, 2vw, 20px); /* Fluid padding scaling */
+        padding: clamp(10px, 2vw, 20px);
         line-height: 1.5;
     }
 
-    /* --- Layout Structure --- */
+    /* --- Layout Structure (Desktop First/Fluid Baseline) --- */
     .cv-container {
         display: grid;
         grid-template-columns: 65% 35%;
         grid-template-rows: auto 1fr;
         max-width: 1200px;
-        width: 100%; /* ADD THIS: Forces layout to scale within viewport bounds */
-        box-sizing: border-box; /* ADD THIS: Keeps padding calculation flawless */
+        width: 100%;
+        box-sizing: border-box;
         margin: 40px auto;
         background-color: #ffffff;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         border-radius: 16px;
-        overflow: hidden; /* This stays to clip internal edges cleanly */
+        overflow: hidden;
     }
     .main-content {
         grid-column: 1;
@@ -54,11 +54,11 @@
         padding: 0 30px;
     }
 
-    .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 0; } /* Removed bottom padding */
+    .sidebar-top { grid-row: 1; padding-top: 40px; padding-bottom: 0; }
     .sidebar-bottom { grid-row: 2; padding-bottom: 40px; }
 
-    .sidebar-top p { margin-bottom: 0; } /* Removes extra space above Contact */
-    #sec-profile { margin-top: 0 !important; padding-top: 5px; } /* Pulls the heading tight to the image */
+    .sidebar-top p { margin-bottom: 0; }
+    #sec-profile { margin-top: 0 !important; padding-top: 5px; }
 
     /* Space out the extra section on desktop */
     .extra-section {
@@ -68,7 +68,7 @@
     /* --- Components & Typography --- */
     .profile-img-container {
         text-align: center;
-        margin: -30px -22px -5px -20px; /* Changed bottom margin to -5px */
+        margin: -30px -22px -5px -20px;
     }
 
     .profile-img {
@@ -76,19 +76,19 @@
         height: auto;
         display: block;
         object-fit: contain;
-        aspect-ratio: 360 / 480; /* Explicitly reserves the 3:4 vertical space */
+        aspect-ratio: 360 / 480;
     }
 
-h1, h2, h3 { text-transform: uppercase; }
+    h1, h2, h3 { text-transform: uppercase; }
     
     .top-header-wrapper { 
-        margin-bottom: 15px; /* Reduced to even out the top gap */
+        margin-bottom: 15px;
         text-align: center; 
     }
     .header-titles h1 { 
         color: var(--primary-color); 
         font-size: 2.5rem; 
-        margin: 0 0 8px 0; /* The 8px bottom margin creates the extra space between name and GOALKEEPER */
+        margin: 0 0 8px 0;
         letter-spacing: 2px; 
         line-height: 1.1; 
     }
@@ -105,13 +105,13 @@ h1, h2, h3 { text-transform: uppercase; }
         justify-content: center; 
         gap: 10px 25px; 
         background-color: transparent; 
-        padding: 0; /* Removed bottom padding since background is gone */
-        margin-bottom: 15px; /* Reduced from 35px to match top gap */
+        padding: 0;
+        margin-bottom: 15px;
         font-size: 0.9rem;
     }
     
     .mobile-details-heading { 
-        display: none; /* Hidden on desktop */
+        display: none;
     }
     
     .main-content h2 {
@@ -126,7 +126,7 @@ h1, h2, h3 { text-transform: uppercase; }
         color: var(--secondary-color);
         border-bottom: 2px solid var(--secondary-color);
         padding-bottom: 8px;
-        margin: 15px 0 15px 0; /* Reduced top margin from 30px to 15px */
+        margin: 15px 0 15px 0;
         font-size: 1.2rem;
         letter-spacing: 1px;
     }
@@ -145,16 +145,16 @@ h1, h2, h3 { text-transform: uppercase; }
     .career-date { font-weight: bold; color: var(--primary-color); display: block; font-size: 0.95rem; }
     .team-name { font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 4px; line-height: 1.2;}
     .stats-list { margin: 4px 0 0 0; padding-left: 20px; font-size: 0.95rem; color: #4b5563; }
-	.tm-inline-link {
-	    color: var(--primary-color); /* Navy blue from your root */
-	    font-size: 0.9em;            /* Slightly smaller than parent text */
-	    font-weight: 600;           /* Clean weight for visibility */
-	    margin-left: 5px;           /* Tiny nudge away from the text */
-	}
+    .tm-inline-link {
+        color: var(--primary-color);
+        font-size: 0.9em;
+        font-weight: 600;
+        margin-left: 5px;
+    }
 
-	.tm-inline-link:hover {
-	    text-decoration: underline;
-	}
+    .tm-inline-link:hover {
+        text-decoration: underline;
+    }
 
     /* Tightened Inline Rows for Football Career */
     .inline-row td { padding: 2px 0 !important; }
@@ -166,36 +166,64 @@ h1, h2, h3 { text-transform: uppercase; }
     /* --- Contact & References --- */
     .contact-wrapper { display: flex; flex-direction: column; gap: 1px; font-size: 0.95rem; }
     .contact-row { display: flex; align-items: center; }
-	.contact-icon { 
-	        width: 20px; 
-	        height: 20px; 
-	        margin-right: 10px;
-			margin-left: 1px;
-	        object-fit: contain; 
-	        /* Creates a tiny, soft white/light gray halo */
-	        filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.7));
-	        transition: transform 0.2s ease, filter 0.2s ease;
-	    }
+    .contact-icon { 
+        width: 20px; 
+        height: 20px; 
+        margin-right: 10px;
+        margin-left: 1px;
+        object-fit: contain; 
+        filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.7));
+        transition: transform 0.2s ease, filter 0.2s ease;
+    }
 
-	    .contact-icon:hover {
-	        transform: scale(1.1);
-	        /* Makes the halo slightly brighter and wider on hover */
-	        filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.9));
-	    }
+    .contact-icon:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.9));
+    }
     .emoji-icon { font-size: 20px; width: 24px; margin-right: 12px; text-align: center; display: inline-block; }
-	.social-group { 
-	        display: flex; 
-	        gap: 1px; 
-	        margin-top: 4px;
-			margin-right: 2px;
-			margin-left: 1px;
-	    }
+    .social-group { 
+        display: flex; 
+        gap: 1px; 
+        margin-top: 4px;
+        margin-right: 2px;
+        margin-left: 1px;
+    }
     .contact-text { color: #ffffff; font-weight: 500; text-decoration: none; transition: color 0.2s; }
-	a:hover .contact-text { color: var(--secondary-color); }
+    a:hover .contact-text { color: var(--secondary-color); }
 
-    .reference-block { margin-bottom: 20px; font-size: 0.9rem; }
-    /* --- .reference-name { font-weight: bold; color: var(--secondary-color); } --- */
-    .reference-name { font-weight: bold; color: #ffffff; }
+    /* --- Hybrid Reference Blocks --- */
+    .reference-block { 
+        margin-bottom: 25px; 
+        font-size: 0.9rem; 
+        border-left: 2px solid var(--secondary-color);
+        padding-left: 15px;
+        line-height: 1.4;
+        color: #ffffff;
+    }
+    .reference-name { 
+        font-weight: bold; 
+        color: #ffffff; 
+        font-size: 1.05rem;
+        display: block;
+        margin-bottom: 2px;
+    }
+    .reference-title {
+        color: var(--secondary-color);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+    }
+    .reference-block a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .reference-block a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+    }
     
     /* --- Video Section --- */
     .video-thumbnail {
@@ -205,11 +233,9 @@ h1, h2, h3 { text-transform: uppercase; }
         display: block;
         border-radius: 4px;
         margin-bottom: 8px;
-		margin-left: -4px;
-        /* Thicker 4px border, transparent while not hovered */
+        margin-left: -4px;
         border: 4px solid transparent; 
         transition: border-color 0.2s ease;
-        /* Ensures border doesn't change the image's layout size */
         box-sizing: border-box; 
     }
 
@@ -225,7 +251,6 @@ h1, h2, h3 { text-transform: uppercase; }
     }
 
     .thumbnail-link:hover .video-thumbnail {
-        /* Matches your green secondary color */
         border-color: var(--secondary-color); 
     }
     
@@ -235,33 +260,41 @@ h1, h2, h3 { text-transform: uppercase; }
     /* --- Mobile Styles --- */
     @media screen and (max-width: 768px) {
         body { padding: 10px; }
-        .cv-container { display: flex; flex-direction: column; margin: 5px 10px 20px 10px; border-radius: 16px;}
         
-        /* MAGIC REORDERING: Positions sections safely on mobile without breaking grid */
+        /* FIX: Switches grid completely off to prevent overlapping on standard mobile layout */
+        .cv-container { 
+            display: flex; 
+            flex-direction: column; 
+            margin: 5px 10px 20px 10px; 
+            border-radius: 16px;
+            width: auto;
+        }
+        
+        /* MAGIC REORDERING: Positions sections safely on mobile without breaking template */
         .sidebar-top { padding: 15px 25px; order: 1; }
-        .main-content { display: contents; } /* Unboxes the wrappers so they can be ordered independently */
+        .main-content { display: contents; } 
         .career-section { padding: 20px 25px 20px 25px; order: 2; }
         .sidebar-bottom { padding: 15px 25px; order: 3; }
         .extra-section { padding: 20px 25px 40px 25px; order: 4; }
 
-        .profile-img-container { margin: -15px -15px 0 -15px; } /* Reduced bottom margin to 0 */
+        .profile-img-container { margin: -15px -15px 0 -15px; } 
         
-        .top-header-wrapper { display: none; } /* Hides desktop titles on mobile */
+        .top-header-wrapper { display: none; } 
         
         .header-stat-bar { 
             background-color: transparent; 
-            padding: 0; /* Removes old mobile padding */
-            margin-bottom: 5px; /* Overrides the desktop margin to pull link up */
+            padding: 0; 
+            margin-bottom: 5px; 
             flex-direction: column; 
             gap: 5px;
         }
       
-        .mobile-header { display: block; text-align: center; margin-bottom: 5px; } /* Tighter gap above "Go to..." */
-        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin: 0 0 2px 0; } /* Removes default gaps */
+        .mobile-header { display: block; text-align: center; margin-bottom: 5px; } 
+        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin: 0 0 2px 0; } 
         .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.1; margin: 0; }
 
         .mobile-nav { display: block; text-align: center; margin-bottom: 15px; }
-        .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; } /* Tighter gap above the nav pills */
+        .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; } 
         .nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
         .nav-pills a { background: var(--secondary-color); color: #fff; padding: 5px 10px; border-radius: 12px; font-size: 0.75rem; }
 
@@ -290,7 +323,7 @@ h1, h2, h3 { text-transform: uppercase; }
         }
     }
 
-        /* --- Print Styles --- */
+    /* --- Print Styles --- */
     @media print {
         @page { margin: 0.5cm; }
         body { padding: 0; background: #fff; font-size: 11px !important; line-height: 1.2 !important; }
@@ -381,12 +414,12 @@ h1, h2, h3 { text-transform: uppercase; }
                         <span class="career-date">2026 Feb. 24 - Mar. 4</span>
                         <span class="team-name">Barbados U20 National Team</span>
                         <ul class="stats-list">
-							<li>
-							    Concacaf U20 Qualifiers, Costa Rica, 3 Caps as starting GK
-							    <a href="https://www.transfermarkt.com/benjamin-everett/nationalmannschaft/spieler/1519580" target="_blank" class="tm-inline-link">
-							        → 📊 Transfermarkt
-							    </a>
-							</li>
+                            <li>
+                                Concacaf U20 Qualifiers, Costa Rica, 3 Caps as starting GK
+                                <a href="https://www.transfermarkt.com/benjamin-everett/nationalmannschaft/spieler/1519580" target="_blank" class="tm-inline-link">
+                                    → 📊 Transfermarkt
+                                </a>
+                            </td>
                         </ul>
                     </td>
                 </tr>
@@ -533,22 +566,22 @@ h1, h2, h3 { text-transform: uppercase; }
     <div class="sidebar-bottom">
         <h2 id="sec-contact">CONTACT</h2>
         <div class="contact-wrapper">
-			<div class="contact-row">
+            <div class="contact-row">
                 <a href="https://wa.me/12462547443" title="Message me on WhatsApp">
                     <img src="images/WhatsApp-20x20-rs.png" alt="WhatsApp" class="contact-icon">
                 </a>
-			    <a href="https://wa.me/12462547443">
-			        <span class="contact-text">+1 (246) 254-7443</span>
-			    </a>
-			</div>
+                <a href="https://wa.me/12462547443">
+                    <span class="contact-text">+1 (246) 254-7443</span>
+                </a>
+            </div>
 
-			<div class="contact-row">
-			    <span class="emoji-icon">✉️</span>
-			    <a href="mailto:ben@beneverettgk.com">
-			        <span class="contact-text">ben@beneverettgk.com</span>
-			    </a>
-			</div>
-			
+            <div class="contact-row">
+                <span class="emoji-icon">✉️</span>
+                <a href="mailto:ben@beneverettgk.com">
+                    <span class="contact-text">ben@beneverettgk.com</span>
+                </a>
+            </div>
+            
             <div class="contact-row">
               <div class="social-group">
                 <a href="https://www.youtube.com/@beneverettgk" title="beneverettgk on YouTube">
@@ -572,44 +605,46 @@ h1, h2, h3 { text-transform: uppercase; }
         <h2 id="sec-video">VIDEO</h2>
 
         <ul class="video-list">
-    <li><strong>Highlight Video</strong></li>
-    <li>
-        <a href="https://highlights.beneverettgk.com" target="_blank" title="Watch Highlight Video" class="thumbnail-link">
-            <img src="images/highlight_video_thumbnail.jpg" alt="Watch Highlight Video" class="video-thumbnail">
-        </a>
-    </li>
-    <li><strong>Full Match Videos:</strong>&nbsp; <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos"><strong>Click Here</strong></a></li>
-    </ul>
+        <li><strong>Highlight Video</strong></li>
+        <li>
+            <a href="https://highlights.beneverettgk.com" target="_blank" title="Watch Highlight Video" class="thumbnail-link">
+                <img src="images/highlight_video_thumbnail.jpg" alt="Watch Highlight Video" class="video-thumbnail">
+            </a>
+        </li>
+        <li><strong>Full Match Videos:</strong>  <a href="https://cv.beneverettgk.com/video.html" target="_blank" title="Watch Full Match Videos"><strong>Click Here</strong></a></li>
+        </ul>
         <a href="#top" class="back-to-top">↑ Back to menu</a>
 
-<h2 id="sec-references">REFERENCES</h2>
+        <h2 id="sec-references">REFERENCES</h2>
         
         <div class="reference-block">
-            <span class="reference-name">Renaldo Gilkes, CONCACAF A</span><br>
-            Technical Director, Kickstart Rush FC<br>
-            Head Coach, Kickstart Rush Men's 1st Team<br>
+            <span class="reference-name">Renaldo Gilkes</span>
+            <span class="reference-title">CONCACAF A — Technical Director</span>
+            Kickstart Rush FC / Head Coach, Men's 1st Team<br>
             <a href="mailto:rgilkes@kickstartrush.com">rgilkes@kickstartrush.com</a><br>
             +1 (246) 825-0607
         </div>
 
         <div class="reference-block">
-            <span class="reference-name">Daniel Rowe, M.Sc. CSCS</span><br>
-            Head Performance Coach, Become Elite Academy<br>
+            <span class="reference-name">Daniel Rowe</span>
+            <span class="reference-title">M.Sc. CSCS — Head Performance Coach</span>
+            Become Elite Academy<br>
             <a href="mailto:becomeelite246@gmail.com">becomeelite246@gmail.com</a><br>
             +1 (246) 834-0847
         </div>
        
         <div class="reference-block">
-            <span class="reference-name">Christian Benjamin, USSF, USC</span><br>
-            Owner and Founder of KeeperStop.com<br>
+            <span class="reference-name">Christian Benjamin</span>
+            <span class="reference-title">USSF, USC — Owner and Founder</span>
+            KeeperStop.com<br>
             <a href="mailto:christian@keeperstop.com">christian@keeperstop.com</a><br>
             +1 (508) 221-6819
         </div>
 
         <div class="reference-block">
-            <span class="reference-name">Chad Bynoe, CONCACAF C</span><br>
-            Assistant Coach, Kickstart Rush Men's 1st Team<br>
-            Physical Trainer, Barbados Men's National Team<br>
+            <span class="reference-name">Chad Bynoe</span>
+            <span class="reference-title">CONCACAF C — Assistant Coach & Trainer</span>
+            Kickstart Rush Men's 1st Team / Barbados Men's National Team<br>
             +1 (246) 844-9644
         </div>
         <a href="#top" class="back-to-top">↑ Back to menu</a>
