@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Archive | Benjamin Everett | Goalkeeper</title>
+    <title>Video Library | Benjamin Everett | Goalkeeper</title>
 <style>
     :root {
         --sky-blue: #3b82f6;      
@@ -72,6 +72,14 @@
         letter-spacing: 1px;
     }
 
+    .inline-flag {
+        height: 1.1em; /* Ties the image height directly to the text size */
+        width: auto; /* Keeps the flag proportional */
+        vertical-align: -0.15em; /* Drops the image down slightly so it sits perfectly on the text baseline */
+        margin-left: 4px;
+        margin-right: 2px;
+    }
+   
     /* --- COLLAPSIBLE STYLING --- */
     details {
         margin-bottom: 12px;
@@ -157,6 +165,7 @@
 
     .match-info { flex: 1; }
     .match-name { font-weight: 600; font-size: 1rem; display: block; color: var(--text-dark); }
+    .match-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; display: block; }
     .match-date { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; display: block; }
 
     /* --- BUTTONS --- */
@@ -242,7 +251,7 @@
         <div class="header-overlay">
             <div class="header-text">
                 <h1>Benjamin Everett</h1>
-                <p class="subtitle">Goalkeeper | Match Archive</p>
+                <p class="subtitle">Goalkeeper | Video Library</p>
             </div>
         </div>
     </header>
@@ -263,18 +272,20 @@
     </div>
 
     <details open>
-        <summary>Barbados U20 National Men's Team</summary>
+        <summary>Barbados <img src="images/flag-barbados_1f1e7-1f1e7.png" alt="Barbados Flag" class="inline-flag"> U20 National Men's Team</summary>
         <div class="details-content">
             <div class="match-list">
                 <div class="match-item">
                     <div class="match-info">
                         <span class="match-name">Concacaf U20 Qualifiers Highlights</span>
+                        <span class="match-date">Feb 24 – Mar 4, 2026</span>
                     </div>
                     <a href="https://youtu.be/qu2BKwHQkZA?si=AMMpc8acF_dnZCYW" class="btn btn-action" target="_blank">Watch Highlights</a>
                 </div>
                 <div class="match-item">
                     <div class="match-info">
                         <span class="match-name">Concacaf U20 Qualifiers Match Playlist</span>
+                        <span class="match-note"><i>Videos may be limited due to Concacaf YouTube region restrictions.</i></span>
                         <span class="match-date">Feb 24 – Mar 4, 2026</span>
                     </div>
                     <a href="https://www.youtube.com/playlist?list=PLsSIYE4kSlkuRyeg_l2QWt2uqcmalozrV" class="btn btn-action" target="_blank">View Playlist</a>
