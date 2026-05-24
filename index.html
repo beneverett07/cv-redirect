@@ -226,10 +226,9 @@
         display: block;
         border-radius: 4px;
         margin-bottom: 8px;
-        margin-left: -4px;
-        border: 4px solid transparent; 
-        transition: border-color 0.2s ease;
         box-sizing: border-box; 
+        /* Smoothly animate the shadow when hovering */
+        transition: box-shadow 0.2s ease; 
     }
 
     .video-list {
@@ -247,15 +246,16 @@
         display: block;
         width: 100%;
         box-sizing: border-box;
-        padding: 4px;
         aspect-ratio: 16 / 9; 
-        background-color: rgba(255, 255, 255, 0.05); 
         border-radius: 4px;
         overflow: hidden;
+        margin-top: 6px;    /* ADD THIS: Restores the perfect gap under "Highlight Video" */
+        margin-bottom: 8px; /* Keeps the spacing below the video crisp */
     }
     
+    /* The Pro Move: Use a zero-blur box shadow to simulate a perfect 4px frame on hover */
     .thumbnail-link:hover .video-thumbnail {
-        border-color: var(--secondary-color); 
+        box-shadow: 0 0 0 4px var(--secondary-color); 
     }
 
     .video-separator {
