@@ -132,6 +132,7 @@
         padding-bottom: 5px;
         margin-bottom: 5px;
         letter-spacing: 1px;
+		text-shadow: -1px 1px 1px #cbd5e1;
     }
 
     .sidebar-top h2, .sidebar-bottom h2 {
@@ -141,6 +142,7 @@
         margin: 15px 0 15px 0;
         font-size: 1.2rem;
         letter-spacing: 1px;
+		text-shadow: -1px 1px 1px #27523f;
     }
 
     .inline-flag {
@@ -301,14 +303,58 @@
         }
       
         .mobile-header { display: block; text-align: center; margin-bottom: 5px; } 
-        .mobile-header h1 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin: 0 0 2px 0; } 
-        .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.1; margin: 0; }
+		.mobile-header h1 { 
+		            font-size: clamp(1.3rem, 7vw, 1.7rem); /* Dynamically shrinks from 1.7rem down to 1.3rem on tiny screens */
+		            white-space: nowrap; /* Strictly forbids the text from wrapping to a second line */
+		            color: #fff; 
+					text-shadow: -2px 2px 1px #4a5568; 
+		            line-height: 1.1; 
+		            margin: 0 0 2px 0; 
+		        }
+        .mobile-header h3 { font-size: 1.1rem; color: var(--secondary-color); line-height: 1.1; margin: 0; text-shadow: -1px 1px 1px #27523f;}
 
         .mobile-nav { display: block; text-align: center; margin-bottom: 15px; }
         .nav-label { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; } 
-        .nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
+        /*
+		.nav-pills { display: grid; grid-template-columns: repeat(3, auto); gap: 5px; justify-content: center; }
         .nav-pills a { background: var(--secondary-color); color: #fff; padding: 5px 10px; border-radius: 12px; font-size: 0.75rem; }
+		*/
+		
+		.nav-pills { 
+		            display: flex; 
+		            flex-wrap: wrap; 
+		            gap: 8px; 
+		            justify-content: center; 
+		            max-width: 365px; 
+		            margin: 0 auto;
+		        }
+        
+		/* Secondary "Soft" Buttons - Locked 3-Column Grid */
+        .nav-pills a { 
+            background: rgba(16, 185, 129, 0.15); 
+            color: #ffffff; 
+            border: 1px solid var(--secondary-color);
+            border-radius: 20px; 
+            font-size: 0.8rem; /* Increased to 0.8rem for better readability */
+            text-align: center; 
+            width: calc((100% - 16px) / 3); 
+            padding: 6px 0; 
+            box-sizing: border-box; 
+        }
 
+        /* Primary "Hero" Buttons */
+        .nav-pills a.primary-pill { 
+            background: #08916d; 
+            color: #ffffff; 
+            font-weight: bold; 
+            letter-spacing: normal; /* Removed the 0.5px spacing to save crucial horizontal pixels */
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6); 
+            border: 1px solid #08916d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            width: auto; 
+            padding: 6px 4px; /* Reduced the internal left/right cushion from 10px down to 4px */
+        }
+		
         .mobile-details-heading { 
             display: block; 
             color: var(--primary-color);
@@ -372,17 +418,17 @@
 
         <div class="mobile-nav">
             <span class="nav-label">Go to...</span>
-            <div class="nav-pills">
-                <a href="#sec-profile">Profile</a>
-                <a href="#sec-details">Details</a>
-                <a href="#sec-career">Career</a>
-                <a href="#sec-contact">Contact</a>
-                <a href="#sec-video">Video</a>
-                <a href="#sec-references">References</a>
-                <a href="#sec-coaching">Coaching</a>
-                <a href="#sec-certs">Certs</a>
-                <a href="#sec-education">Education</a>
-            </div>
+			<div class="nav-pills">
+			    <a href="#sec-video" class="primary-pill">▶️ Highlight Video</a>
+			    <a href="#sec-career" class="primary-pill">Career History</a>
+    
+			    <a href="#sec-profile">Profile</a>
+			    <a href="#sec-details">Details</a>
+			    <a href="#sec-contact">Contact</a>
+			    <a href="#sec-references">References</a>
+			    <a href="#sec-coaching">Coaching</a>
+			    <a href="#sec-education">Education</a>
+			</div>
         </div>
 
         <h2 id="sec-profile">PROFILE</h2>
@@ -544,16 +590,17 @@
         </div>
 
         <div class="extra-section">
-            <h2 id="sec-coaching">COACHING CAREER</h2>
-            <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
+			<h2 id="sec-coaching">COACHING & CERTIFICATIONS</h2>
+            
+            <strong style="font-size: 0.95em; color: var(--primary-color);">Coaching Experience</strong>
+            <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
                 <li>U9 Head Coach – Kickstart Rush FC – Sep. 2024 – Dec. 2025</li>
                 <li>Youth GK Coach – Kickstart Rush FC – Jan. 2025 – Dec. 2025</li>
                 <li>U9–U13 GK Coach – Joshua James Goalkeeping School – Sep. 2024 – Dec. 2025</li>
                 <li>U17 Assistant Coach – Kickstart Rush FC – Jan. 2025 – Jul. 2025</li>
             </ul>
-            <a href="#top" class="back-to-top">↑ Back to menu</a>
 
-            <h2 id="sec-certs">COACHING CERTIFICATIONS</h2>
+            <strong style="font-size: 0.95em; color: var(--primary-color);">Licenses & Certifications</strong>
             <ul class="stats-list" style="padding-left: 0; list-style-type: disc; padding-left: 20px;">
                 <li><a href="https://learning.ussoccer.com/directory?ussfId=1000000002341846">U.S. Soccer Federation - USSF-ID: 1000-0000-0234-1846</a>
                     <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
