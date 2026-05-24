@@ -227,8 +227,8 @@
         border-radius: 4px;
         margin-bottom: 8px;
         box-sizing: border-box; 
-        /* Smoothly animate the shadow when hovering */
-        transition: box-shadow 0.2s ease; 
+        /* Smoothly transitions the image filter when hovered */
+        transition: filter 0.2s ease, transform 0.2s ease; 
     }
 
     .video-list {
@@ -248,14 +248,21 @@
         box-sizing: border-box;
         aspect-ratio: 16 / 9; 
         border-radius: 4px;
-        overflow: hidden;
-        margin-top: 6px;    /* ADD THIS: Restores the perfect gap under "Highlight Video" */
-        margin-bottom: 8px; /* Keeps the spacing below the video crisp */
+        margin-top: 6px;    
+        margin-bottom: 8px;
+        /* Smoothly transitions the green outer glow */
+        transition: box-shadow 0.2s ease; 
     }
     
-    /* The Pro Move: Use a zero-blur box shadow to simulate a perfect 4px frame on hover */
-    .thumbnail-link:hover .video-thumbnail {
+    /* ACTIONS ON HOVER: */
+    .thumbnail-link:hover {
+        /* Pushes the 4px green frame OUTWARD so it is fully visible */
         box-shadow: 0 0 0 4px var(--secondary-color); 
+    }
+
+    .thumbnail-link:hover .video-thumbnail {
+        filter: brightness(1.1); /* Makes the thumbnail slightly vivid/bright on hover */
+        transform: scale(1.01); /* Gives it a microscopic physical "pop" forward */
     }
 
     .video-separator {
